@@ -6,12 +6,11 @@ header {
     width: 100%;
     height: 3em;
     background-color: $hdr-c-bg-c;
-    box-shadow: $main-shadow;
     position: fixed;
 
     //Header Container
     .header-container {
-        width: 80%;
+        width: 90%;
         height: 100%;
         margin: 0 auto;
         @include flex;
@@ -28,11 +27,12 @@ header {
         //Search Container
         .search {
             height: 100%;
-            width: 30em;
+            width: 40em;
             @include flex;
-
+            position: relative;
+            
             //Search Box
-            #search-box {
+            #search_box {
                 width: 100%;
                 height: 2em;
                 padding: 0.2em 0.5em;
@@ -48,8 +48,100 @@ header {
                     font-size: 0.8em;
                 }
 
-                &:focus, &:hover {
-                    box-shadow: 0 2px 10px #ccc;
+                &:focus {
+                    //box-shadow: 0 2px 10px #ccc;
+                    box-shadow: $main-shadow
+                }
+            }
+
+            .search-lens {
+                width: 1.2em;
+                height: 2em;
+                position: absolute;
+                right: 1em;
+                cursor: pointer;
+
+                .lens {
+                    position: relative;
+                    top: 0.3em;
+                    z-index: 1;
+                }
+
+                .hand-lens {
+                    transform: rotateZ(90deg) translate(-0.4em, -0.7em);
+                }
+
+                svg, path {
+                    color: #fff;
+                    fill: #fff;
+                }
+
+                &:hover {
+                    .lens {
+                        top: 0.4em;
+                        transform: scale(1.1);
+                    }
+                    .hand-lens {
+                        transform: rotateZ(45deg) translate(-0.5em, -1em);
+                        opacity: 0;
+                    }
+                }
+                &:active {
+                    .lens {
+                        transition: 200ms;
+                        opacity: 0.7;
+                    }
+                }
+            }
+
+            #search_result_container {
+                width: 100%;
+                height: 0;
+                position: absolute;
+                top: 2.5em;
+                background-color: #fff;
+                box-shadow: $main-shadow;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                border-bottom-left-radius: 1em;
+                border-bottom-right-radius: 1em;
+                z-index: 1;
+                overflow: hidden;
+
+                .result-container {
+                    display: none;
+                    opacity: 0;
+                    width: 100%;
+                    height: 100%;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    position: absolute;
+                    top: -2em;
+                }
+
+                .result-history {
+                    width: 48%;
+                    height: 70%;
+                    border-radius: 0.3em;
+                    padding: 1em;
+                    display: none;
+
+                    .placeholder {
+                        color: #bbb;
+                    }
+                }
+
+                .empty-result {
+                    @include flex;
+                }
+
+                #search-result {
+                    border-right: 2px solid #eee;
+                }
+
+                #search-history {
+                    border-left: 2px solid #eee;
                 }
             }
         }
@@ -79,10 +171,13 @@ header {
         //Log
         .greeting {
             height: 100%;
-            width: 15em;
             @include flex;
             position: relative;
             overflow: hidden;
+
+            .container {
+                width: 100%;
+            }
 
             .check-account {
                 background-image: $main-grdt-bg-c;
@@ -90,8 +185,6 @@ header {
                 -webkit-text-fill-color: transparent;
                 cursor: pointer;
                 font-size: 1.1em;
-
-
             }
 
             .in-up-box {
@@ -101,6 +194,7 @@ header {
                 position: absolute;
                 top: 3em;
                 overflow: hidden;
+                display: none;
             }
             
             .in-up {
@@ -110,7 +204,7 @@ header {
                 flex-direction: column;
                 background-color: #fff;
                 position: absolute;
-                top: 1em;
+                top: 1.2em;
                 border-radius: 1em;
                 animation-fill-mode: forwards;
                 animation-duration: 500ms;
@@ -118,36 +212,92 @@ header {
 
                 .arrow {
                     position: absolute;
-                    top: -1em;
-                    right: 2em;
+                    top: -0.8em;
+                    right: 1em;
                     border-top: none;
-                    border-left: 20px solid transparent;
-                    border-right: 20px solid transparent;
-                    border-bottom: 20px solid #fff;
+                    border-left: 15px solid transparent;
+                    border-right: 15px solid transparent;
+                    border-bottom: 15px solid #fff;
                 }
+
+                #greeting-login {
+                    :first-child {
+                        color: $main-first-color;
+                    }
+                }
+
+                #greeting-signup {
+                    :first-child {
+                        color: $main-second-color;
+                    }
+                }
+
+                #greeting-login, #greeting-signup {
+                    margin: 0.2em 0;
+                    cursor: pointer;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+
             }
 
             &:hover {
                 overflow: visible;
-                .in-up {
-                    animation-name: show-hide;
+                .in-up-box {
+                    @include flex;
+                    overflow: visible;
                 }
             }
         }
-    }
-}
 
-@keyframes show-hide {
-    0% {
-        top: 2em;
-        opacity: 0;
-    }
-    50% {
-        opacity: 0;
-    }
-    100% {
-        top: 1em;
-        opacity: 1;
+        //Language
+        .lang {
+            width: 5em;
+            height: 100%;
+            @include flex;
+            flex-direction: column;
+
+            #arabic, #english {
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                cursor: pointer;
+
+                .language-flag {
+                    width: 1.5em;
+                    height: 100%;
+
+                    svg {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 1em;
+                    }
+                }
+
+                span {
+                    margin-left: 0.5em;
+                    font-size: 0.75em;
+                }
+
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            .selected-language {
+                cursor: not-allowed !important;
+                user-select: none !important;
+                text-decoration: none !important;                
+
+                span {
+                    color: #bbb !important;
+                }
+            }
+        }
     }
 }
 
