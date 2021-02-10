@@ -40,6 +40,7 @@ header {
                 font-size: 1em;
                 background: $main-grdt-bg-c;
                 color: #fff;
+                z-index: 1;
 
                 &::placeholder {
                     color:  #eee;
@@ -60,6 +61,7 @@ header {
                 position: absolute;
                 right: 1em;
                 cursor: pointer;
+                z-index: 2;
 
                 .lens {
                     position: relative;
@@ -106,7 +108,7 @@ header {
                 justify-content: center;
                 border-bottom-left-radius: 1em;
                 border-bottom-right-radius: 1em;
-                z-index: 1;
+                z-index: 0;
                 overflow: hidden;
 
                 .result-container {
@@ -261,6 +263,7 @@ header {
 
             #arabic, #english {
                 width: 100%;
+                height: 45%;
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
@@ -269,12 +272,21 @@ header {
                 .language-flag {
                     width: 1.5em;
                     height: 100%;
+                    @include flex;
 
-                    svg {
+                    #egypt_flag_icon, #english_flag_icon {
                         width: 100%;
-                        height: 100%;
                         border-radius: 1em;
                     }
+
+                    #egypt_flag_icon {
+                        height: 100%;
+                    }
+
+                    #english_flag_icon {
+                        height: 70%;
+                    }
+
                 }
 
                 span {
