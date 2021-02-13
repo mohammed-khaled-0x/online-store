@@ -152,6 +152,7 @@ header {
         .cart {
             height: 100%;
             width: 2em;
+            position: relative;
             @include flex;
 
             //Cart Svg 
@@ -160,8 +161,22 @@ header {
                 height: 2em;
             }
 
+            #number_of_purchases {
+                border: 1px solid;
+                width: auto;
+                height: 1em;
+                @include flex;
+                position: absolute;
+                top: 0.2em;
+                left: 1em;
+                background-image: linear-gradient(45deg, #a8e6ce, #ffd3b5);
+                color: #fff;
+                border-radius: 1em;
+                padding: 0.2em;
+            }
+
             &:hover {
-                svg {
+                #number_of_purchases {
                     transform: scale(1.2);
                     transition: 700ms cubic-bezier(0, 0, 0, 1);
                     cursor: pointer;
@@ -182,9 +197,8 @@ header {
             }
 
             .check-account {
+                @include gradientText;
                 background-image: $main-grdt-bg-c;
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
                 cursor: pointer;
                 font-size: 1.1em;
             }
@@ -252,6 +266,55 @@ header {
                     overflow: visible;
                 }
             }
+
+            .form {
+                .background {
+                    width: 100%;
+                    height: 100vh;
+                    background: #000;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    z-index: 2;
+                    opacity: 0.1;
+                }
+
+                #login {
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 35em;
+                    height: 25em;
+                    background-color: #fff;
+                    z-index: 3;
+                    border-radius: 1em;
+                    box-shadow: $main-shadow;
+                }
+
+                .mutual {
+                    @include flex;
+                    .close-button {
+                        position: absolute;
+                        top: 1em;
+                        right: 1em;
+                        width: 1em;
+                        height: 1em;
+                        color: #f00;
+                        @include flex;
+                        border-radius: 50%;
+                        cursor: pointer;
+                        transform: rotate(45deg);
+                        font-size: 1.2em;
+                        font-weight: bold;
+                        user-select: none;
+
+                        &:hover {
+                            box-shadow: rgba(255,0,0, 0.4) 0px 0px 10px;
+                        }
+                    }
+                }
+            }
         }
 
         //Language
@@ -305,6 +368,10 @@ header {
                 user-select: none !important;
                 text-decoration: none !important;                
 
+                img {
+                    opacity: 0.2;
+                }
+
                 span {
                     color: #bbb !important;
                 }
@@ -319,4 +386,9 @@ header {
     direction: ltr;
 }
 
+//Right To Left
+.rtl-header {
+    z-index: 3;
+    direction: rtl;
+}
 
