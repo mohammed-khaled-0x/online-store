@@ -1,0 +1,8 @@
+@keyframes close-button-spin {
+    from {
+        transform: rotate(45deg);
+    }
+    to {
+        transform: rotate(1000deg);
+    }
+}

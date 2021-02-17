@@ -8,3 +8,4 @@ import './js/image-src';
 import './js/serach-box-drop-list';
 import './js/language';
 import './js/loginAndSignup';
+import './js/form-inputs';
