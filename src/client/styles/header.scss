@@ -288,7 +288,7 @@ header {
 
                     .form-logo {
                         width: 100%;
-                        height: 25%;
+                        height: 8em;
                         @include flex;
                     }
 
@@ -296,7 +296,7 @@ header {
                         overflow: hidden;
                         scroll-behavior: smooth;
                         width: 100%;
-                        height: 75%;
+                        height: 17em;
                         display: flex;
                         justify-content: flex-start;
                         align-items: center;
@@ -325,24 +325,22 @@ header {
                             }
                         }
 
-                        #login, #signup {
+                        #login {
                             width: 100%;
                             height: 100%;
                             flex: none;
-                            border: 1px solid;
+                            position: relative;
     
                             h3 {
-                                font-size: 2em;
-                                position: relative;
-                                top: 1em;
-                                left: 1em;
                                 color: $main-first-color;
                             }
 
                             .inputs {
                                 width: 100%;
-                                height: 85%;
-                                @include flex;
+                                height: 100%;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
                                 flex-direction: column;
 
                                 .input {
@@ -354,23 +352,10 @@ header {
                                     position: relative;
                                     margin: 1em 0;
 
-                                    label {
-                                        font-size: 1.2em;
-                                        position: absolute;
-                                        top: 0.5em;
-                                        font-weight: bold;
-                                        @include gradientText;
-                                        background-image: $main-grdt-bg-c;
+                                    .input-box {
+                                        border-bottom-color: $main-first-color;
                                     }
 
-                                    .input-box {
-                                        width: 100%;
-                                        border-bottom: 2px solid $main-first-color;
-                                        font-size: 1em;
-                                        padding: 0.5em;
-                                        text-overflow: ellipsis;
-                                        overflow: hidden;
-                                    }
                                 }
 
                                 .submit {
@@ -380,19 +365,10 @@ header {
                                     align-items: center;
 
                                     input[type=button] {
-                                        padding: .8em 3em;
-                                        font-size: 0.8em;
-                                        font-weight: bold;
                                         color: $main-first-color;
-                                        background-color: #fff;
-                                        cursor: pointer;
-                                        box-shadow: 0 0 50px #fff;
-                                        border-radius: 5px;
-
+                                        
                                         &:hover {
-                                            color: #fff;
                                             background-color: $main-first-color;
-                                            box-shadow: 0 0 10px #ccc;
                                         }
                                     }
 
@@ -407,6 +383,68 @@ header {
                                         }
                                     }
                                 }
+                            }
+                        }
+
+                        #signup  {
+                            width: 100%;
+                            height: 100%;
+                            flex: none;
+                            border: 1px solid;
+                            position: relative;
+
+                            h3 {
+                                color: $main-second-color;
+                            }
+
+                            .inputs {
+                                width: 100%;
+                                height: 100%;
+                                @include flex;
+                                flex-direction: column;
+
+                                .input-box {
+                                    border-bottom-color: $main-second-color;
+                                }
+                            }
+                        }
+
+                        h3 {
+                            font-size: 2em;
+                            position: absolute;
+                            left: 1em;
+                        }
+
+                        label {
+                            font-size: 1.2em;
+                            position: absolute;
+                            top: 0.5em;
+                            font-weight: bold;
+                            @include gradientText;
+                            background-image: $main-grdt-bg-c;
+                        }
+
+                        .input-box {
+                            width: 100%;
+                            border-bottom: 2px solid;
+                            font-size: 1em;
+                            padding: 0.5em;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                        }
+
+                        input[type=button] {
+                            padding: 0.8em 3em;
+                            font-size: 0.8em;
+                            font-weight: bold;
+                            background-color: #fff;
+                            cursor: pointer;
+                            box-shadow: 0 0 50px #fff;
+                            border-radius: 5px;
+
+                            &:hover {
+                                color: #fff !important;    
+                                box-shadow: 0 0 10px #ccc;
                             }
                         }
                     }

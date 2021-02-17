@@ -2,12 +2,14 @@ const loginGreetingButton = document.getElementById('greeting-login');
 const signupGreetingButton = document.getElementById('greeting-signup');
 const logForm = document.getElementById('log_form');
 const logFormContainer = document.getElementsByClassName('form-container')[0];
+const logContainer = document.getElementsByClassName('log-container')[0];
 
 loginGreetingButton.onclick = () => {
     location.href='#login';
     logForm.style.display = 'flex';
     logFormContainer.style.width = '35em';
     logFormContainer.style.height = '25em';
+    logContainer.style.height = '17em';
     setTimeout(() => {
         logForm.style.opacity = 1;
     }, 350);
@@ -18,6 +20,7 @@ signupGreetingButton.onclick = () => {
     logForm.style.display = 'flex';
     logFormContainer.style.width = '45em';
     logFormContainer.style.height = '35em';
+    logContainer.style.height = '27em';
     setTimeout(() => {
         logForm.style.opacity = 1;
     }, 350);
@@ -90,11 +93,12 @@ logForm.onmouseenter = () => {
 
 const signupHref = document.getElementById('signup_href');
 const loginHref = document.getElementById('login_href');
-const logContainer = document.getElementsByClassName('log-container')[0];
+
 
 signupHref.onclick = () => {
     logFormContainer.style.width = '45em';
     logFormContainer.style.height = '35em';
+    logContainer.style.height = '27em';
     setTimeout(() => {
         logContainer.scrollTo(5000, 0);
     }, 1000)
@@ -102,6 +106,7 @@ signupHref.onclick = () => {
 loginHref.onclick = () => {
     logFormContainer.style.width = '35em';
     logFormContainer.style.height = '25em';
+    logContainer.style.height = '17em';
     setTimeout(() => {
         logContainer.scrollTo(-1000, 0);
     }, 500)
