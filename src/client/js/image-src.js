@@ -13,7 +13,9 @@ const englishFlagIconEl = document.getElementById('english_flag_icon');
 englishFlagIconEl.src = englishFlagIcon;
 
 //Logo
-let logoTest = document.getElementsByClassName('logo-test')[0];
+const logoTest = document.getElementsByClassName('logo-test')[0];
 logoTest.src = logo;
-let loadingLogo = document.getElementsByClassName('loading-logo')[0];
+const loadingLogo = document.getElementsByClassName('loading-logo')[0];
 loadingLogo.src = logo;
+const formLogo = document.getElementsByClassName('login-signup-form-logo')[0];
+formLogo.src = logo;

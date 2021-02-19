@@ -380,9 +380,7 @@ header {
                             .inputs {
                                 width: 100%;
                                 height: 100%;
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
+                                @include flex;
                                 flex-direction: column;
 
                                 .input {
@@ -401,10 +399,6 @@ header {
                                 }
 
                                 .submit {
-                                    width: 18em;
-                                    display: flex;
-                                    justify-content: space-around;
-                                    align-items: center;
 
                                     input[type=button] {
                                         color: $main-first-color;
@@ -432,7 +426,6 @@ header {
                             width: 100%;
                             height: 100%;
                             flex: none;
-                            border: 1px solid;
                             position: relative;
 
                             h3 {
@@ -444,9 +437,52 @@ header {
                                 height: 100%;
                                 @include flex;
                                 flex-direction: column;
+                                
+                                .signup-form-bar {
+                                    @include flex;
+                                    width: 100%;    
+                                }
 
-                                .input-box {
-                                    border-bottom-color: $main-second-color;
+                                .bar {
+                                    width: 100% !important;
+                                    margin: 1em 0 !important;
+                                    padding: 0 3.5em;
+                                }
+
+                                .input {
+                                    width: 18em;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: flex-start;
+                                    flex-direction: column;
+                                    position: relative;
+                                    margin: 1em;
+
+                                    .input-box {
+                                        border-bottom-color: $main-second-color;
+                                    }
+                                }
+
+                                .submit {
+
+                                    input[type=button] {
+                                        color: $main-second-color;
+                                        
+                                        &:hover {
+                                            background-color: $main-second-color;
+                                        }
+                                    }
+
+                                    #login_href {
+                                        padding: .8em 3em;
+                                        color: $main-first-color;
+                                        text-decoration: none;
+
+                                        &:hover {
+                                            text-decoration: underline;
+                                            text-shadow: 0 0 2px #ccc;
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -473,6 +509,13 @@ header {
                             padding: 0.5em;
                             text-overflow: ellipsis;
                             overflow: hidden;
+                        }
+
+                        .submit {
+                            width: 18em;
+                            display: flex;
+                            justify-content: space-around;
+                            align-items: center;
                         }
 
                         input[type=button] {

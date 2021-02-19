@@ -107,24 +107,12 @@
                             </div>
                         </div>
                     </div>
-                    <!--div class="form">
-                        <div id="login" class="mutual">
-                            <div class="close-button">+</div>
-                            <div class="inputs">
-                                <label for="login_email">E-mail</label>
-                                <input type="email" id="login_email">
-                                <label for="login_password">Password</label>
-                                <input type="password" id="login_password">
-                            </div>
-                        </div>
-                        <div id="signup" class="mutual">
-                            <div class="close-button">+</div>
-                        </div>
-                        <div class="background"></div>
-                    </div-->
+                    <!--Login and signup form-->
                     <div id="log_form">
                         <div class="form-container">
-                            <div class="form-logo"><span>logo</span></div>
+                            <div class="form-logo">
+                                <img class="login-signup-form-logo" src="" >
+                            </div>
                             <div class="log-container">
                                 <div class="close-button">+</div>
                                 <div id="login" class="mutual">
@@ -147,33 +135,39 @@
                                 <div id="signup" class="mutual">
                                     <h3>Signup</h3>
                                     <div class="inputs">
-                                        <div class="input">
-                                            <label for="signup_firstname">First Name</label>
-                                            <input type="text" id="signup_firstname" class="input-box">
+                                        <div class="signup-form-bar">
+                                            <div class="input">
+                                                <label for="signup_firstname">First Name</label>
+                                                <input type="text" id="signup_firstname" class="input-box">
+                                            </div>
+                                            <div class="input">
+                                                <label for="signup_lastname">Last Name</label>
+                                                <input type="text" id="signup_lastname" class="input-box">
+                                            </div>
                                         </div>
-                                        <div class="input">
-                                            <label for="signup_lastname">Last Name</label>
-                                            <input type="text" id="signup_lastname" class="input-box">
+                                        <div class="signup-form-bar">
+                                            <div class="input">
+                                                <label for="signup_username">Username</label>
+                                                <input type="text" id="signup_username" class="input-box">
+                                            </div>
+                                            <div class="input">
+                                                <label for="signup_phone">Phone</label>
+                                                <input type="tel" id="signup_phone" class="input-box">
+                                            </div>
                                         </div>
-                                        <div class="input">
-                                            <label for="signup_username">Username</label>
-                                            <input type="text" id="signup_username" class="input-box">
-                                        </div>
-                                        <div class="input">
-                                            <label for="signup_phone">Phone</label>
-                                            <input type="tel" id="signup_phone" class="input-box">
-                                        </div>
-                                        <div class="input">
+                                        <div class="input bar">
                                             <label for="signup_email">E-mail</label>
                                             <input type="email" id="signup_email" class="input-box">
                                         </div>
-                                        <div class="input">
-                                            <label for="login_password">Password</label>
-                                            <input type="password" id="login_password" class="input-box">
-                                        </div>
-                                        <div class="input">
-                                            <label for="login_repassword">re-Password</label>
-                                            <input type="password" id="login_repassword" class="input-box">
+                                        <div class="signup-form-bar">
+                                            <div class="input">
+                                                <label for="login_password">Password</label>
+                                                <input type="password" id="login_password" class="input-box">
+                                            </div>
+                                            <div class="input">
+                                                <label for="login_repassword">re-Password</label>
+                                                <input type="password" id="login_repassword" class="input-box">
+                                            </div>
                                         </div>
                                         <div class="submit">
                                             <input type="button" value="login" id="login_button">
