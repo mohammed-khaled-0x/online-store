@@ -1,4 +1,5 @@
 //import styles
+import './styles/loading.scss';
 import './styles/main.scss';
 import './styles/header.scss';
 
@@ -9,3 +10,4 @@ import './js/serach-box-drop-list';
 import './js/language';
 import './js/loginAndSignup';
 import './js/form-inputs';
+import './js/loading';

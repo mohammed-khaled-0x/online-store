@@ -6,3 +6,9 @@
         transform: rotate(1000deg);
     }
 }
+
+@keyframes pulse {
+    50% {
+        transform: scale(1.2);
+    }
+}

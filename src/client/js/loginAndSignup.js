@@ -59,17 +59,6 @@ greeting.onclick = () => {
         }, 2)
     }
 }
-greeting.onmouseenter = () => {
-    if(logForm.style.display !== 'flex') {
-        inupBox.style.display = 'flex';
-        inupBox.style.opacity = 1;
-        inup.style.display = 'flex';
-        setTimeout(() => {
-            inup.style.opacity = 1;
-            inup.style.top = '1.2em';
-        }, 2)
-    }
-}
 
 greeting.onmouseleave = () => {
     inupBox.style.opacity = 0;
@@ -80,16 +69,6 @@ greeting.onmouseleave = () => {
         inup.style.display = 'none';
     }, 700)
 }
-
-logForm.onmouseenter = () => {
-    inupBox.style.opacity = 0;
-    inup.style.opacity = 0;
-    inup.style.top = '2.2em';
-    setTimeout(() => {
-        inupBox.style.display = 'none';
-        inup.style.display = 'none';
-    }, 700);
-};
 
 const signupHref = document.getElementById('signup_href');
 const loginHref = document.getElementById('login_href');
