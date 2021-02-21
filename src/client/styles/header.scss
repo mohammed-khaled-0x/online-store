@@ -5,14 +5,82 @@
 //Main Header
 header {
     width: 100%;
-    height: 3em;
+    height: 4em;
     background-color: $hdr-c-bg-c;
     position: fixed;
 
+    //Sup-bar
+    .sup-bar {
+        width: 100%;
+        height: 1em;
+        background-color: #eee;
+
+        //Language
+        .lang {
+            width: 10em;
+            height: 100%;
+            @include flex;
+            flex-direction: row;
+        
+            #arabic, #english {
+                width: 100%;
+                height: 80%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                cursor: pointer;
+        
+                .language-flag {
+                    width: 1.5em;
+                    height: 100%;
+                    @include flex;
+        
+                    #egypt_flag_icon, #english_flag_icon {
+                        width: 100%;
+                        border-radius: 1em;
+                    }
+        
+                    #egypt_flag_icon {
+                        height: 100%;
+                    }
+        
+                    #english_flag_icon {
+                        height: 100%;
+                    }
+        
+                }
+        
+                span {
+                    margin-left: 0.5em;
+                    font-size: 0.75em;
+                }
+        
+        
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        
+            .selected-language {
+                cursor: not-allowed !important;
+                user-select: none !important;
+                text-decoration: none !important;                
+        
+                img {
+                    opacity: 0.2;
+                }
+        
+                span {
+                    color: #bbb !important;
+                }
+            }
+        }
+    }
+    
     //Header Container
     .header-container {
         width: 90%;
-        height: 100%;
+        height: 3em;
         margin: 0 auto;
         @include flex;
         justify-content: space-between;
@@ -21,7 +89,7 @@ header {
         .logo {
             border: 1px solid;
             height: 100%;
-            width: 10em;
+            width: 15em;
             @include flex;
 
             a {
@@ -168,7 +236,7 @@ header {
         //Cart
         .cart {
             height: 100%;
-            width: 2em;
+            width: 3em;
             position: relative;
             @include flex;
 
@@ -185,7 +253,7 @@ header {
                 @include flex;
                 position: absolute;
                 top: 0.2em;
-                left: 1em;
+                left: 1.5em;
                 background-image: linear-gradient(45deg, #a8e6ce, #ffd3b5);
                 color: #fff;
                 border-radius: 1em;
@@ -225,6 +293,7 @@ header {
 
             .check-account {
                 @include gradientText;
+                @include flex;
                 background-image: $main-grdt-bg-c;
                 cursor: pointer;
                 font-size: 1.1em;
@@ -544,67 +613,6 @@ header {
                     left: 0;
                     z-index: 2;
                     opacity: 0.1;
-                }
-            }
-        }
-
-        //Language
-        .lang {
-            width: 5em;
-            height: 100%;
-            @include flex;
-            flex-direction: column;
-
-            #arabic, #english {
-                width: 100%;
-                height: 45%;
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
-                cursor: pointer;
-
-                .language-flag {
-                    width: 1.5em;
-                    height: 100%;
-                    @include flex;
-
-                    #egypt_flag_icon, #english_flag_icon {
-                        width: 100%;
-                        border-radius: 1em;
-                    }
-
-                    #egypt_flag_icon {
-                        height: 100%;
-                    }
-
-                    #english_flag_icon {
-                        height: 70%;
-                    }
-
-                }
-
-                span {
-                    margin-left: 0.5em;
-                    font-size: 0.75em;
-                }
-
-
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
-
-            .selected-language {
-                cursor: not-allowed !important;
-                user-select: none !important;
-                text-decoration: none !important;                
-
-                img {
-                    opacity: 0.2;
-                }
-
-                span {
-                    color: #bbb !important;
                 }
             }
         }
