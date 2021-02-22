@@ -26,9 +26,13 @@ window.onclick = (e) => {
         searchResultContainer.style.display = 'flex';
 
         setTimeout( () => {
-            searchResultContainer.style.height = '10em';
+            searchResultContainer.style.minHeight = '10em';
             resultContainer.style.display = 'flex';
         }, 500 );
+
+        setTimeout( () => {
+            searchResultContainer.style.height = 'auto';
+        }, 1500)
 
         setTimeout( () => {
             resultContainer.style.opacity = 1;
@@ -37,7 +41,8 @@ window.onclick = (e) => {
     } else {
         resultContainer.style.opacity = 0;
         resultContainer.style.top = '-2em';
-        var hideDropList = setTimeout( () => {
+        setTimeout( () => {
+            searchResultContainer.style.minHeight = 0;
             searchResultContainer.style.height = 0;
         }, 500)
 
