@@ -184,7 +184,8 @@ header {
 
             #search_result_container {
                 width: 100%;
-                min-height: 0;
+                //min-height: 0;
+                max-height: 85vh;
                 height: 0;
                 position: absolute;
                 top: 2.5em;
@@ -211,8 +212,9 @@ header {
                 }
 
                 .result-history {
-                    width: 48%;
-                    height: 100%;
+                    //width: 48%;
+                    width: 100%;
+                    height: auto;
                     border-radius: 0.3em;
                     padding: 1em;
                     display: none;

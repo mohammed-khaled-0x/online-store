@@ -1,3 +1,5 @@
+import pixelsToEm from './assistants functions/unit conversion/pixels-to-em';
+
 const searchBox = document.getElementById('search_box');
 const searchResultContainer = document.getElementById('search_result_container');
 const resultContainer = document.getElementsByClassName('result-container')[0];
@@ -26,24 +28,30 @@ window.onclick = (e) => {
         searchResultContainer.style.display = 'flex';
 
         setTimeout( () => {
-            searchResultContainer.style.minHeight = '10em';
+            searchResultContainer.style.height = '10em';
             resultContainer.style.display = 'flex';
+            const resultOfSearch = document.getElementById('result_of_search');
+            if(resultOfSearch.offsetHeight > searchResultContainer.offsetHeight) {
+                searchResultContainer.style.height = `${pixelsToEm(resultOfSearch.offsetHeight)}em`;
+            }
         }, 500 );
 
         setTimeout( () => {
-            searchResultContainer.style.height = 'auto';
+            //searchResultContainer.style.height = 'auto';
         }, 1500)
 
         setTimeout( () => {
             resultContainer.style.opacity = 1;
             resultContainer.style.top = 0;
         }, 1250)
+
+
     } else {
         resultContainer.style.opacity = 0;
         resultContainer.style.top = '-2em';
         setTimeout( () => {
-            searchResultContainer.style.minHeight = 0;
             searchResultContainer.style.height = 0;
+            //searchResultContainer.style.height = 0;
         }, 500)
 
         setTimeout( () => {
@@ -57,3 +65,17 @@ window.onclick = (e) => {
         }, 1500 );
     }
 };
+
+const mainSearchContainer = document.getElementsByClassName('search')[0];
+mainSearchContainer.onmouseenter = () => {
+    const resultOfSearch = document.getElementById('result_of_search');
+    if(resultOfSearch.offsetHeight > searchResultContainer.offsetHeight) {
+        searchResultContainer.style.height = `${pixelsToEm(resultOfSearch.offsetHeight)}em`;
+    }
+}
+mainSearchContainer.onmouseover = () => {
+    const resultOfSearch = document.getElementById('result_of_search');
+    if(resultOfSearch.offsetHeight > searchResultContainer.offsetHeight) {
+        searchResultContainer.style.height = `${pixelsToEm(resultOfSearch.offsetHeight)}em`;
+    }
+}

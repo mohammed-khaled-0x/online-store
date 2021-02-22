@@ -1,11 +1,14 @@
+import pixelsToEm from '../assistants functions/unit conversion/pixels-to-em';
+import viewportToPixels from '../assistants functions/unit conversion/vw-or-vh-to-pixels';
+
+let searchHistory = []
+
 const searchBox = document.getElementById('search_box');
 
 searchBox.onkeyup = async () => {
     const searchBoxValue = document.getElementById('search_box').value;
     const searchResultPlaceholder = document.getElementById('search_result_placeholder');
     searchResultPlaceholder.innerText = 'please wait...';
-
-    
 
     if(searchBoxValue.length > 3) {
 
@@ -17,12 +20,17 @@ searchBox.onkeyup = async () => {
         searchResultContainer.style.display = 'flex';
 
         setTimeout( () => {
-            searchResultContainer.style.minHeight = '10em';
+            //searchResultContainer.style.height = '10em';
             resultContainer.style.display = 'flex';
+            const resultOfSearch = document.getElementById('result_of_search');
+            if(resultOfSearch.offsetHeight > searchResultContainer.offsetHeight) {
+                searchResultContainer.style.height = `${pixelsToEm(resultOfSearch.offsetHeight)}em`;
+            }
+            
         }, 500 );
 
         setTimeout( () => {
-            searchResultContainer.style.height = 'auto';
+            //searchResultContainer.style.height = 'auto';
         }, 1500)
 
         setTimeout( () => {
@@ -44,14 +52,15 @@ searchBox.onkeyup = async () => {
             }
         })
         .then(response => {
+            
             if(response.message) {
                 console.log(response.message)
                 searchResultPlaceholder.innerText = response.message;
-                return false;
-            } else {                
+                return 'error in search';
+            } else {           
+                const resultOfSearch = document.getElementById('result_of_search');
                 console.log(response)
                 //check if there any result
-                const resultOfSearch = document.getElementById('result_of_search');
     
                 if(resultOfSearch.hasChildNodes()) {
                     //searchResult.removeChild(document.querySelector('#result_of_search'))
@@ -82,9 +91,59 @@ searchBox.onkeyup = async () => {
                     searchResultPlaceholder.style.display = 'none';
                     resultOfSearch.style.opacity = 1;
                 }, 1100)
+
+                /*setTimeout( () => {
+                    if(searchHistory.length === 0) {
+                        searchHistory.push(searchBoxValue);
+                        localStorage['search-history'] = JSON.stringify(searchHistory);
+                        console.log('new to add')
+                        return 'new to add';
+                    } else {
+                        let newSearch = false;
+                        for(let i of searchHistory) {
+                            if( i === searchBoxValue) {
+                                const index = searchHistory.indexOf(i);
+                                if(index > -1) {
+                                    searchHistory.splice(index, 1);
+                                }
+                                searchHistory.push(i)
+                                localStorage['search-history'] = JSON.stringify(searchHistory);
+                                console.log('old');
+                                newSearch = false;
+                                break;
+                            } else {
+                                newSearch = true;
+                            }
+                        }
+                        /*for(let i of searchHistory) {
+                            for(let j of searchHistory) {
+                                if(i.includes(j)) {
+                                    const index = searchHistory.indexOf(i);
+                                    if(index > -1) {
+                                        searchHistory.splice(index, 1);
+                                    }
+                                }
+                            }
+                            localStorage['search-history'] = JSON.stringify(searchResult);
+                        }*/
+                        /*if(newSearch) {
+                            searchHistory.push(searchBoxValue);
+                            localStorage['search-history'] = JSON.stringify(searchHistory);
+                            console.log('this is new of list')
+                            return 'this is new of list';
+                        }
+                    }
+                }, 2000)*/
             }
 
+            const resultOfSearch = document.getElementById('result_of_search');
+            if(resultOfSearch.offsetHeight > searchResultContainer.offsetHeight) {
+                searchResultContainer.style.height = `${pixelsToEm(resultOfSearch.offsetHeight)}em`;
+            }
+
+
         });
+
     } else if(searchBoxValue.length === 0) {
         const resultOfSearch = document.getElementById('result_of_search');
         resultOfSearch.style.opacity = 0;
