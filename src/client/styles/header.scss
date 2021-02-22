@@ -21,7 +21,8 @@ header {
             height: 100%;
             @include flex;
             flex-direction: row;
-        
+            margin-left: 1em;
+
             #arabic, #english {
                 width: 100%;
                 height: 80%;
@@ -128,7 +129,7 @@ header {
                 z-index: 1;
 
                 &::placeholder {
-                    color:  #eee;
+                    color:  #fff;
                     font-weight: 100;
                     font-style: italic;
                     font-size: 0.8em;
@@ -210,7 +211,7 @@ header {
 
                 .result-history {
                     width: 48%;
-                    height: 70%;
+                    height: 100%;
                     border-radius: 0.3em;
                     padding: 1em;
                     display: none;
@@ -230,6 +231,44 @@ header {
                     border-left: 1px solid #ccc;
                     border-right: 1px solid #ccc;
                 }
+
+                #search_result {
+                    #result_of_search {
+                        display: none;
+                        opacity: 0;
+                        list-style: circle;
+                        cursor: pointer;
+                        width: 100%;
+                        height: 100%;
+                        justify-content: flex-start;
+                        align-items: center;
+                        flex-direction: column;
+
+                        li {
+                            width: 100%;
+                            border-top: 1px solid #ccc;
+                            border-bottom: 1px solid #ccc;
+
+                            &:first-child {
+                                border-top: none;
+                            }
+
+                            &:last-child {
+                                border-bottom: none;
+                            }
+
+                            &:hover {
+                                text-decoration: underline;
+                            }
+
+                            b {
+                                font-weight: bold;
+                                color: #0f0;
+                            }
+
+                        }
+                    }
+                }
             }
         }
 
@@ -239,6 +278,7 @@ header {
             width: 3em;
             position: relative;
             @include flex;
+            cursor: pointer;
 
             //Cart Svg 
             svg {
@@ -247,16 +287,17 @@ header {
             }
 
             #number_of_purchases {
-                border: 1px solid;
+                border: 0.1em solid;
                 width: auto;
-                height: 1em;
+                min-width: 1em;
+                height: 1.2em;
                 @include flex;
                 position: absolute;
                 top: 0.2em;
                 left: 1.5em;
-                background-image: linear-gradient(45deg, #a8e6ce, #ffd3b5);
+                background-image: $main-grdt-bg-c;
                 color: #fff;
-                border-radius: 1em;
+                border-radius: 50%;
                 padding: 0.2em;
             }
 
@@ -264,7 +305,6 @@ header {
                 #number_of_purchases {
                     transform: scale(1.2);
                     transition: 700ms cubic-bezier(0, 0, 0, 1);
-                    cursor: pointer;
                 }                
             }
 

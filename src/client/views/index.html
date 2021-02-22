@@ -82,14 +82,15 @@
                     </div>
                     <div id="search_result_container">
                         <div class="result-container">
-                            <div id="search-result" class="result-history empty-result">
-                                <span class="placeholder">
+                            <div id="search_result" class="result-history empty-result">
+                                <span id="search_result_placeholder" class="placeholder">
                                     If you want to search for anything, look here, everything you want is waiting for you now, then what are you waiting for?
                                 </span>
+                                <ul id="result_of_search"></ul>
                             </div>
                             <div class="separate-lines"></div>
-                            <div id="search-history" class="result-history empty-result">
-                                <span class="placeholder">
+                            <div id="search_history" class="result-history empty-result">
+                                <span id="history_result_placeholder" class="placeholder">
                                     There is no search history.
                                 </span>
                             </div>
@@ -105,7 +106,7 @@
                             <!--First Gradient Color-->
                             <stop offset="0" stop-color="#ffd3b5"/>
                             <!--Second Gradient Color-->
-                            <stop offset="1" stop-color="#a8e6ce"/>
+                            <stop offset="1" stop-color="#fbc8c8"/>
                         </linearGradient>
                         <linearGradient id="b" x1="372.786" x2="372.786" xlink:href="#a" y1="30" y2="438.078"/>
                         <linearGradient id="c" x1="256" x2="256" xlink:href="#a" y1="30" y2="438.078"/>
