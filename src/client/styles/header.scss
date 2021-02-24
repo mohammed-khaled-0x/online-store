@@ -557,7 +557,25 @@ header {
 
                                 }
 
+                                .remember-login-container {
+                                    justify-content: flex-start;
+                                    align-items: center;
+                                    flex-direction: row;
+                                    margin: 0 1em;
+
+                                    span {
+                                        @include gradientText;
+                                        background-image: $main-grdt-bg-c;
+                                    }
+
+                                    input, span {
+                                        margin: 0 0.2em;
+                                    }
+
+                                } 
+
                                 .submit {
+                                    margin-top: 1em; 
 
                                     input[type=button] {
                                         color: $main-first-color;
@@ -609,7 +627,7 @@ header {
                                     margin: 1em 0 !important;
                                     padding: 0 3.5em;
                                     
-                                    span{
+                                    .dot-error {
                                         right: 0.86em !important;
                                     }
                                 }
@@ -622,16 +640,6 @@ header {
                                     flex-direction: column;
                                     position: relative;
                                     margin: 1em;
-
-                                    .dot-error {
-                                        position: absolute;
-                                        top: -0.5em;
-                                        right: 0;
-                                        font-size: 4em;
-                                        color: red;
-                                        display: none;
-                                        opacity: 0;
-                                    }
 
                                     .input-box {
                                         border-bottom-color: $main-second-color;
@@ -724,6 +732,26 @@ header {
                                 box-shadow: 0 0 10px #ccc;
                             }
                         }
+
+                        .dot-error {
+                            position: absolute;
+                            top: -0.5em;
+                            right: 0;
+                            font-size: 4em;
+                            color: red;
+                            display: none;
+                            opacity: 0;
+                        }
+
+                        .error-message {
+                            position: absolute;
+                            top: 2.5em;
+                            font-size: 0.9em;
+                            color: red;
+                            display: none;
+                            opacity: 0;
+                        }
+
                     }
                 }
 

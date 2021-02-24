@@ -170,10 +170,18 @@
                                         <div class="input">
                                             <label for="login_email">E-mail</label>
                                             <input type="email" id="login_email" class="input-box">
+                                            <span class="dot-error" data-input='login_email'>.</span>
+                                            <span class="error-message" data-input='login_email-error-message'></span>
                                         </div>
                                         <div class="input">
                                             <label for="login_password">Password</label>
                                             <input type="password" id="login_password" class="input-box">
+                                            <span class="dot-error" data-input='login_password'>.</span>
+                                            <span class="error-message" data-input='login_password-error-message'></span>
+                                        </div>
+                                        <div class="input remember-login-container">
+                                            <input type="checkbox" id="remember_login">
+                                            <span>Remember me again</span>
                                         </div>
                                         <div class="submit">
                                             <input type="button" value="login" id="login_button">
@@ -192,11 +200,13 @@
                                                 <label for="signup_firstname">First Name</label>
                                                 <input type="text" id="signup_firstname" class="input-box" autocomplete="disabled">
                                                 <span class="dot-error" data-input='signup_firstname'>.</span>
+                                                <span class="error-message" data-input='signup_firstname-error-message'></span>
                                             </div>
                                             <div class="input">
                                                 <label for="signup_lastname">Last Name</label>
                                                 <input type="text" id="signup_lastname" class="input-box" autocomplete="disabled">
                                                 <span class="dot-error" data-input='signup_lastname'>.</span>
+                                                <span class="error-message" data-input='signup_lastname-error-message'></span>
                                             </div>
                                         </div>
                                         <div class="signup-form-bar">
@@ -204,35 +214,41 @@
                                                 <label for="signup_username">Username</label>
                                                 <input type="text" id="signup_username" class="input-box" autocomplete="disabled">
                                                 <span class="dot-error" data-input='signup_username'>.</span>
+                                                <span class="error-message" data-input='signup_username-error-message'></span>
                                             </div>
                                             <div class="input">
                                                 <label for="signup_phone">Phone</label>
                                                 <input type="tel" id="signup_phone" class="input-box" autocomplete="disabled">
                                                 <span class="dot-error" data-input='signup_phone'>.</span>
+                                                <span class="error-message" data-input='signup_phone-error-message'></span>
                                             </div>
                                         </div>
                                         <div class="input bar">
                                             <label for="signup_email">E-mail</label>
                                             <input type="email" id="signup_email" class="input-box" autocomplete="disabled">
                                             <span class="dot-error" data-input='signup_email'>.</span>
+                                            <span class="error-message" data-input='signup_email-error-message'></span>
                                         </div>
                                         <div class="signup-form-bar">
                                             <div class="input">
                                                 <label for="signup_password">Password</label>
                                                 <input type="password" id="signup_password" class="input-box" autocomplete="disabled">
                                                 <span class="dot-error" data-input='signup_password'>.</span>
+                                                <span class="error-message" data-input='signup_password-error-message'></span>
                                             </div>
                                             <div class="input">
                                                 <label for="signup_repassword">re-Password</label>
                                                 <input type="password" id="signup_repassword" class="input-box" autocomplete="disabled">
                                                 <span class="dot-error" data-input='signup_repassword'>.</span>
+                                                <span class="error-message" data-input='signup_repassword-error-message'></span>
                                             </div>
                                         </div>
                                         <ul class="password-hint">
-                                            <li>Password must not be less than 8 characters</li>
-                                            <li>Password must consist of letters and numbers</li>
+                                            <li>Password must be more than 8 characters long.</li>
+                                            <li>Password must consist of letters and numbers.</li>
                                         </ul>
                                         <div class="submit">
+                                            <!--Signup button-->
                                             <input type="button" value="sign up" id="signup_button">
                                             <!--a link button to go to login container-->
                                             <a id="login_href" href="#login">login?</a>
