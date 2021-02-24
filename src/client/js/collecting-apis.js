@@ -1,1 +1,4 @@
-import './apis/search-box-api';
+// Collect all apis
+import './apis/search-box';
+import './apis/signup';
+import './apis/login';

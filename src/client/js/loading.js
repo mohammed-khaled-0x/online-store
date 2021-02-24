@@ -1,6 +1,9 @@
+// Main body container
 const bodyContainer = document.getElementById('body');
+// Loading
 const loading = document.getElementById('loading');
 
+// Loading will be shown until the page has completed loading
 window.onload = () => {
     setTimeout( () => {
         bodyContainer.style.display = 'block';

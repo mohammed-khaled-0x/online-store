@@ -11,10 +11,12 @@
 
 body {background-color: #fff;}
 
+// Every main container shadow
 .container-shadow {
     box-shadow: $main-shadow;
 }
 
+// Main body container
 #body {
     //opacity: 0;
     //display: none;

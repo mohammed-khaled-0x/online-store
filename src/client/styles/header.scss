@@ -2,7 +2,7 @@
 @import "./import/variable";
 @import "./import/animation";
 
-//Main Header
+//Header
 header {
     width: 100%;
     height: 4em;
@@ -15,7 +15,7 @@ header {
         height: 1em;
         background-image: $main-grdt-bg-c;
 
-        //Language
+        //View Language
         .lang {
             width: 10em;
             height: 100%;
@@ -23,6 +23,7 @@ header {
             flex-direction: row;
             margin-left: 1em;
 
+            //Arabic and english languages conatiner
             #arabic, #english {
                 width: 100%;
                 height: 80%;
@@ -31,32 +32,27 @@ header {
                 align-items: center;
                 cursor: pointer;
         
+                //Arabic and english icons containers
                 .language-flag {
                     width: 1.5em;
                     height: 100%;
                     @include flex;
         
-                    #egypt_flag_icon, #english_flag_icon {
+                    //Arabic and english icons
+                    #arabic_flag_icon, #english_flag_icon {
                         width: 100%;
+                        height: 100%;
                         border-radius: 1em;
-                    }
-        
-                    #egypt_flag_icon {
-                        height: 100%;
-                    }
-        
-                    #english_flag_icon {
-                        height: 100%;
-                    }
-        
+                    }        
                 }
-        
+                
+                //Arabic and english titles
                 span {
                     margin-left: 0.5em;
                     font-size: 0.75em;
                 }
         
-        
+                //Arabic and english languages conatiner on hover
                 &:hover {
                     text-decoration: underline;
                 }
@@ -121,7 +117,7 @@ header {
             #search_box {
                 width: 100%;
                 height: 2em;
-                padding: 0.2em 0.5em;
+                padding: 0.2em 1em;
                 border-radius: 1em;
                 font-size: 1em;
                 background-image: $main-grdt-bg-c;
@@ -162,16 +158,22 @@ header {
                 svg, path {
                     color: #fff;
                     fill: #fff;
+                    animation-fill-mode: forwards;
+                    animation-duration: 1s;
                 }
 
                 &:hover {
                     .lens {
                         top: 0.4em;
                         transform: scale(1.1);
+                        
                     }
                     .hand-lens {
                         transform: rotateZ(45deg) translate(-0.5em, -1em);
                         opacity: 0;
+                    }
+                    svg {
+                        animation-name: blur-lens;
                     }
                 }
                 &:active {
@@ -182,11 +184,12 @@ header {
                 }
             }
 
+            // Search result container
             #search_result_container {
                 width: 100%;
-                //min-height: 0;
-                max-height: 85vh;
-                height: 0;
+                min-height: 0;
+                //max-height: 85vh;
+                height: auto;
                 position: absolute;
                 top: 2.5em;
                 background-color: #fff;
@@ -199,11 +202,12 @@ header {
                 z-index: 0;
                 overflow: hidden;
 
+                // Result Container
                 .result-container {
                     display: none;
                     opacity: 0;
                     width: 100%;
-                    height: 100%;
+                    height: 0;
                     //justify-content: space-evenly;
                     justify-content: center;
                     align-items: center;
@@ -211,6 +215,7 @@ header {
                     top: -2em;
                 }
 
+                // Search result
                 .result-history {
                     //width: 48%;
                     width: 100%;
@@ -219,8 +224,10 @@ header {
                     padding: 1em;
                     display: none;
 
+                    // Placeholder of search result container
                     .placeholder {
                         color: #bbb;
+                        text-align: justify;
                     }
                 }
 
@@ -235,6 +242,7 @@ header {
                     border-right: 1px solid #ccc;
                 }
 
+                // Search result
                 #search_result {
                     #result_of_search {
                         display: none;
@@ -248,7 +256,7 @@ header {
 
                         li {
                             width: 100%;
-                            height: 1.5em;
+                            height: 2em;
                             border-top: 0.5px solid #eee;
                             border-bottom: 0.5px solid #eee;
                             position: relative;
@@ -302,8 +310,9 @@ header {
 
                                 b {
                                     font-weight: bold;
-                                    color: #0f0;
                                     transition: 400ms;
+                                    @include gradientText;
+                                    background-image: $main-grdt-bg-c;
                                 }
                             }
 
@@ -395,9 +404,9 @@ header {
                 }
             }
 
-            .in-up-box {
+            .login-signup-box {
                 width: 100%;
-                height: 5em;
+                height: 10em;
                 flex-direction: column;
                 position: absolute;
                 top: 3em;
@@ -407,7 +416,7 @@ header {
                 align-items: center;
             }
             
-            .in-up {
+            .login-signup {
                 width: 100%;
                 height: 4em;
                 display: none;
@@ -587,6 +596,8 @@ header {
                                 height: 100%;
                                 @include flex;
                                 flex-direction: column;
+                                position: relative;
+                                top: 1em;
                                 
                                 .signup-form-bar {
                                     @include flex;
@@ -597,6 +608,10 @@ header {
                                     width: 100% !important;
                                     margin: 1em 0 !important;
                                     padding: 0 3.5em;
+                                    
+                                    span{
+                                        right: 0.86em !important;
+                                    }
                                 }
 
                                 .input {
@@ -607,6 +622,16 @@ header {
                                     flex-direction: column;
                                     position: relative;
                                     margin: 1em;
+
+                                    .dot-error {
+                                        position: absolute;
+                                        top: -0.5em;
+                                        right: 0;
+                                        font-size: 4em;
+                                        color: red;
+                                        display: none;
+                                        opacity: 0;
+                                    }
 
                                     .input-box {
                                         border-bottom-color: $main-second-color;
@@ -634,6 +659,21 @@ header {
                                         }
                                     }
                                 }
+
+                                .password-hint {
+                                    width: 100%;
+                                    height: 3em;
+                                    @include flex;
+                                    flex-direction: column;
+                                    padding: 0 5em;
+                                    color: $main-second-color;
+                                    margin-bottom: 0.5em;
+                                    
+                                    li {
+                                        width: 100%;
+                                        font-size: 0.9em;
+                                    }
+                                }
                             }
                         }
 
@@ -650,6 +690,7 @@ header {
                             font-weight: bold;
                             @include gradientText;
                             background-image: $main-grdt-bg-c;
+                            cursor: pointer;
                         }
 
                         .input-box {

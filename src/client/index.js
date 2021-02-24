@@ -8,10 +8,10 @@ import './js/animation';
 import './js/image-src';
 import './js/serach-box-drop-list';
 import './js/language';
-import './js/loginAndSignup';
+import './js/login-and-signup';
 import './js/form-inputs';
 //import './js/loading';
 import './js/localstorage';
 
 //import apis
-import './js/collecting';
+import './js/collecting-apis';

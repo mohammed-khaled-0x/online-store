@@ -1,7 +1,8 @@
+//Main variables
 $main-shadow:  rgba(0, 0, 0, 0.1) 0px 1px 20px;
 $hdr-c-bg-c: #fff;
-//$main-grdt-bg-c: linear-gradient(45deg, #a8e6ce, #ffd3b5);
-$main-grdt-bg-c: linear-gradient(45deg, #ffd3b5, #fbc8c8, #f3e1ff);
 $main-first-color: #ffd3b5;
 $main-second-color: #fbc8c8;
 $main-third-color: #f3e1ff;
+//$main-grdt-bg-c: linear-gradient(45deg, #a8e6ce, #ffd3b5);
+$main-grdt-bg-c: linear-gradient(45deg, $main-first-color, $main-second-color, $main-third-color);

@@ -14,23 +14,32 @@
             <!--img class="loading-logo" src="" -->
         <!--/div-->
     <!--/div-->
-    <!--Header-->
+    <!--Main body container-->
     <main id="body">
+        <!--Header-->
         <header id="header" class="container-shadow ltr-header">
             <!--Sup-bar-->
             <div class="sup-bar">
                 <!--View Language-->
                 <div class="lang">
+                    <!--Arabic language conatiner-->
                     <div id="arabic">
+                        <!--Arabic icon container-->
                         <div class="language-flag">
-                            <img id="egypt_flag_icon" class="flag-icon" src="" />
+                            <!--Arabic icon-->
+                            <img id="arabic_flag_icon" class="flag-icon" src="" />
                         </div>
+                        <!--Arabic title-->
                         <span>Arabic</span>
                     </div>
+                    <!--English language conatiner-->
                     <div id="english" class="selected-language">
+                        <!--Arabic icon container-->
                         <div class="language-flag">
+                            <!--Arabic icon-->
                             <img id="english_flag_icon" class="flag-icon" src="" />
                         </div>
+                        <!--English title-->
                         <span>English</span>
                     </div>
                 </div>
@@ -54,7 +63,9 @@
                 <div class="search">
                     <!--Search Box-->
                     <input type="text" id="search_box" title="All you need is here, just search" placeholder="What are you waiting for? Search now ..." accesskey="s">
+                    <!--Lens button container-->
                     <div class="search-lens">
+                        <!--Lens-->
                         <div class="lens">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 464 464" xml:space="preserve">
                                 <circle style="fill:#464655;" cx="232" cy="232" r="197"/>
@@ -73,6 +84,7 @@
                                 <circle style="fill:#D7DEED;" cx="184" cy="280" r="16"/>
                             </svg>
                         </div>
+                        <!--Lens hand-->
                         <div class="hand-lens">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
                                 <polyline xmlns="http://www.w3.org/2000/svg" style="fill:#88888F;" points="242.931,325.073 56.1,511.902 0.051,455.854 186.881,269.025 "/>
@@ -80,12 +92,17 @@
                             </svg>
                         </div>
                     </div>
+                    <!--Search result container-->
                     <div id="search_result_container">
+                        <!--Result Container-->
                         <div class="result-container">
+                            <!--Search result-->
                             <div id="search_result" class="result-history empty-result">
+                                <!--Placeholder of search result container-->
                                 <span id="search_result_placeholder" class="placeholder">
                                     If you want to search for anything, look here, everything you want is waiting for you now, then what are you waiting for?
                                 </span>
+                                <!--Result of search-->
                                 <ul id="result_of_search"></ul>
                             </div>
                             <!--div class="separate-lines"></div>
@@ -123,8 +140,10 @@
                     <div class="container">
                         <span class="hello">Hello</span>
                         <div id="log_name" class="check-account">Do you have an account?</div>
-                        <div class="in-up-box">
-                            <div class="in-up">
+                        <!--Login and signup buttons box-->
+                        <div class="login-signup-box">
+                            <!--Login and signup buttons-->
+                            <div class="login-signup">
                                 <div class="arrow"></div>
                                 <span id="greeting-login">Yes, <span>Log in</span></span>
                                 <span id="greeting-signup">No, <span>Sign Up!!</span></span>
@@ -133,14 +152,20 @@
                     </div>
                     <!--Login and signup form-->
                     <form id="log_form">
+                        <!--Form container-->
                         <div class="form-container">
+                            <!--Website logo in form-->
                             <div class="form-logo">
                                 <img class="login-signup-form-logo" src="" >
                             </div>
+                            <!--Login and signup inputs container-->
                             <div class="log-container">
+                                <!--Close button-->
                                 <div class="close-button">+</div>
+                                <!--Login container-->
                                 <div id="login" class="mutual">
                                     <h3>Login</h3>
+                                    <!--Login inputs-->
                                     <div class="inputs">
                                         <div class="input">
                                             <label for="login_email">E-mail</label>
@@ -152,55 +177,71 @@
                                         </div>
                                         <div class="submit">
                                             <input type="button" value="login" id="login_button">
+                                            <!--a link button to go to signup container-->
                                             <a id="signup_href" href="#signup">signup?</a>
                                         </div>
                                     </div>
                                 </div>
+                                <!--Signup container-->
                                 <div id="signup" class="mutual">
                                     <h3>Signup</h3>
+                                    <!--Signup inputs-->
                                     <div class="inputs">
                                         <div class="signup-form-bar">
                                             <div class="input">
                                                 <label for="signup_firstname">First Name</label>
-                                                <input type="text" id="signup_firstname" class="input-box">
+                                                <input type="text" id="signup_firstname" class="input-box" autocomplete="disabled">
+                                                <span class="dot-error" data-input='signup_firstname'>.</span>
                                             </div>
                                             <div class="input">
                                                 <label for="signup_lastname">Last Name</label>
-                                                <input type="text" id="signup_lastname" class="input-box">
+                                                <input type="text" id="signup_lastname" class="input-box" autocomplete="disabled">
+                                                <span class="dot-error" data-input='signup_lastname'>.</span>
                                             </div>
                                         </div>
                                         <div class="signup-form-bar">
                                             <div class="input">
                                                 <label for="signup_username">Username</label>
-                                                <input type="text" id="signup_username" class="input-box">
+                                                <input type="text" id="signup_username" class="input-box" autocomplete="disabled">
+                                                <span class="dot-error" data-input='signup_username'>.</span>
                                             </div>
                                             <div class="input">
                                                 <label for="signup_phone">Phone</label>
-                                                <input type="tel" id="signup_phone" class="input-box">
+                                                <input type="tel" id="signup_phone" class="input-box" autocomplete="disabled">
+                                                <span class="dot-error" data-input='signup_phone'>.</span>
                                             </div>
                                         </div>
                                         <div class="input bar">
                                             <label for="signup_email">E-mail</label>
-                                            <input type="email" id="signup_email" class="input-box">
+                                            <input type="email" id="signup_email" class="input-box" autocomplete="disabled">
+                                            <span class="dot-error" data-input='signup_email'>.</span>
                                         </div>
                                         <div class="signup-form-bar">
                                             <div class="input">
-                                                <label for="login_password">Password</label>
-                                                <input type="password" id="login_password" class="input-box">
+                                                <label for="signup_password">Password</label>
+                                                <input type="password" id="signup_password" class="input-box" autocomplete="disabled">
+                                                <span class="dot-error" data-input='signup_password'>.</span>
                                             </div>
                                             <div class="input">
-                                                <label for="login_repassword">re-Password</label>
-                                                <input type="password" id="login_repassword" class="input-box">
+                                                <label for="signup_repassword">re-Password</label>
+                                                <input type="password" id="signup_repassword" class="input-box" autocomplete="disabled">
+                                                <span class="dot-error" data-input='signup_repassword'>.</span>
                                             </div>
                                         </div>
+                                        <ul class="password-hint">
+                                            <li>Password must not be less than 8 characters</li>
+                                            <li>Password must consist of letters and numbers</li>
+                                        </ul>
                                         <div class="submit">
-                                            <input type="button" value="login" id="login_button">
+                                            <input type="button" value="sign up" id="signup_button">
+                                            <!--a link button to go to login container-->
                                             <a id="login_href" href="#login">login?</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <!--Gray background for making focus on form-->
                         <div class="log-background"></div>
                     </form>
                 </div>
