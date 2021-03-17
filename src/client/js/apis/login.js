@@ -110,5 +110,3 @@ loginButton.onclick = async () => {
 
    
 }
-
-

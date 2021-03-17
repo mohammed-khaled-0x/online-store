@@ -12,6 +12,7 @@ import './js/login-and-signup';
 import './js/form-inputs';
 //import './js/loading';
 import './js/localstorage';
+import './js/show-hide-password';
 
 //import apis
 import './js/collecting-apis';

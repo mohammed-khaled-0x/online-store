@@ -369,7 +369,8 @@ header {
 
             &:hover {
                 #log_name::after {
-                    transform: scale(1);
+                    width: 100%;
+                    left: calc( (100% - 100%) / 2 );
                 }
             }
 
@@ -392,14 +393,13 @@ header {
 
                 &::after {
                     content: '';
-                    width: 100%;
+                    width: 0;
                     height: 0.2em;
                     background-image: $main-grdt-bg-c;
                     position: absolute;
-                    left: 0;
+                    left: 50%;
                     bottom: -0.25em;
                     border-radius: 0.2em 0.2em 0 0;
-                    transform: scale(0);
                     transition: 700ms;
                 }
             }
@@ -470,6 +470,18 @@ header {
                 opacity: 0;
                 display: none;
                 z-index: 2;
+
+                #submit-loading {
+                    width: 100vw;
+                    height: 100vh;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    background: transparent;
+                    z-index: 5;
+                    display: none;
+                    cursor: not-allowed;
+                }
 
                 .form-container {
                     position: fixed;
@@ -750,6 +762,20 @@ header {
                             color: red;
                             display: none;
                             opacity: 0;
+                        }
+
+                        .show-hide-password {
+                            width: 3em;
+                            height: 1.2em;
+                            background: rgb(251, 200, 200);
+                            position: absolute;
+                            top: 0.5em;
+                            right: 0;
+                            color: #fff;
+                            text-align: center;
+                            border-radius: 1em;
+                            user-select: none;
+                            cursor: pointer;
                         }
 
                     }
