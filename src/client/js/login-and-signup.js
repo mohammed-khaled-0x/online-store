@@ -78,8 +78,19 @@ const loginSignupBox = document.getElementsByClassName('login-signup-box')[0];
 // Login and signup buttons
 const loginSignup = document.getElementsByClassName('login-signup')[0];
 
-// When click on greeting container Login and signup buttons box show
 greeting.onclick = () => {
+    location.href='#login';
+    logForm.style.display = 'flex';
+    logFormContainer.style.width = '35em';
+    logFormContainer.style.height = '25em';
+    logContainer.style.height = '17em';
+    setTimeout(() => {
+        logForm.style.opacity = 1;
+    }, 350);
+}
+
+// When click on greeting container Login and signup buttons box show
+greeting.onmouseenter = () => {
     loginSignupBox.style.display = 'flex';
     loginSignupBox.style.opacity = 1;
     loginSignup.style.display = 'flex';
@@ -91,19 +102,17 @@ greeting.onclick = () => {
 
 // When leave the Login and signup buttons box it will hide
 greeting.onmouseleave = () => {
-    const x = setTimeout( () => {
+    const wait = setTimeout( () => {
         loginSignupBox.style.opacity = 0;
         loginSignup.style.opacity = 0;
         loginSignup.style.top = '2.2em';
-        setTimeout(() => {
-            loginSignupBox.style.display = 'none';
-            loginSignup.style.display = 'none';
-        }, 700)
+        loginSignupBox.style.display = 'none';
+        loginSignup.style.display = 'none';
     }, 1000)
 
     // When the mouse is return to login and signup buttons box
     loginSignupBox.onmouseenter = () => {
-        clearTimeout(x)
+        clearTimeout(wait)
         console.log('test')
     }
 }

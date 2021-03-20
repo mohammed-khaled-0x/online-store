@@ -1,3 +1,4 @@
+// Show and hide password
 const showHidePassowrd = document.getElementsByClassName('show-hide-password');
 
 for(let i of showHidePassowrd) {

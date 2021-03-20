@@ -6,9 +6,12 @@
 header {
     width: 100%;
     height: 4em;
-    background-color: $hdr-c-bg-c;
+    background-color: $main-bg-color;
     position: fixed;
-
+    top: 0;
+    left: 0;
+    z-index: 2;
+    
     //Sup-bar
     .sup-bar {
         width: 100%;
@@ -272,7 +275,6 @@ header {
                             }
 
                             &:hover {
-                                border: 1px solid #fff;
                                 transition: 0s;
                                 .result-item-background {
                                     opacity: 1;
@@ -795,16 +797,3 @@ header {
         }
     }
 }
-
-//Left To Right
-.ltr-header {
-    z-index: 3;
-    direction: ltr;
-}
-
-//Right To Left
-.rtl-header {
-    z-index: 3;
-    direction: rtl;
-}
-
