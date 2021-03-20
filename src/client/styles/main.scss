@@ -1,3 +1,4 @@
+@import "./import/mixin";
 @import "./import/variable";
 
 * {
@@ -9,7 +10,7 @@
     transition: 1s;
 }
 
-body {background-color: #fff;}
+body {background-color: #fff; overflow-x: hidden;}
 
 // Every main container shadow
 .container-shadow {
@@ -25,4 +26,20 @@ body {background-color: #fff;}
     min-height: 100vh;
     height: auto;
     width: 100vw;
+    padding-top: 6em;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+//Left To Right
+.ltr-header {
+    direction: ltr;
+}
+
+//Right To Left
+.rtl-header {
+    direction: rtl;
 }

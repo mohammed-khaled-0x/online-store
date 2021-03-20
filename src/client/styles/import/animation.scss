@@ -24,3 +24,19 @@
         filter: blur(0.4px);
     }
 }
+
+@keyframes subcategory-container {
+    0%{
+        display: none;
+        opacity: 0;
+    }
+    1%{
+        display: block;
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        display: block;
+        background-color: red;
+    }
+}

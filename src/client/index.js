@@ -2,6 +2,7 @@
 //import './styles/loading.scss';
 import './styles/main.scss';
 import './styles/header.scss';
+import './styles/top-section.scss';
 
 //import javascript
 import './js/animation';

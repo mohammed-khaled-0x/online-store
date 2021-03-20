@@ -1,0 +1,195 @@
+@import "./import/mixin";
+@import "./import/variable";
+@import "./import/animation";
+
+#top_section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    background: transparent;
+    height: 30em;
+
+    #categories {
+        width: 15em;
+        min-height: 15em;
+        height: 100%;
+        border-radius: 5px;
+        background-color: $main-bg-color;
+        //overflow: hidden;
+
+        #home {
+            @include flex;
+            height: 2em;
+            width: 100%;
+            position: relative;
+            background-image: $main-grdt-bg-c;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+            svg {
+                height: 100%;
+                width: 2em;
+                position: absolute;
+                cursor: pointer;
+                user-select: none;
+            }
+
+            #home_svg_current {
+                opacity: 1;
+                visibility: visible;
+                z-index: 0;
+            }
+
+            #home_svg {
+                opacity: 1;
+                visibility: visible;
+                z-index: 1;
+                color: #fff;
+                fill: #fff;
+
+                &:hover {
+                    opacity: 0;
+                    visibility: hidden;
+                }
+            }
+        }
+
+        #category_container {
+            list-style: none;
+            width: 100%;
+
+            .category-item {
+                width: 100%;
+                height: 1.6em;
+                user-select: none;
+                cursor: pointer;
+                border-bottom: 1px solid rgba(0,0,0,.1);
+                position: relative;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+
+                &:hover {
+                    .category-item-background {
+                        opacity: 1;
+                    }
+                    .category-item-name {
+                        color: #fff;
+                    }
+                }
+
+                &:last-of-type {
+                    border-bottom: none;
+                    .category-item-background {
+                        border-bottom-left-radius: 5px;
+                        border-bottom-right-radius: 5px;
+                    }
+                }
+
+                .subcategory-container {
+                    display: none;
+                    opacity: 0;
+                    border-radius: 5px;
+                    position: absolute;
+                    top: -1em;
+                    left: 10em;
+                    list-style: none;
+                    width: 15em;
+                    height: auto;
+                    background-color: $main-bg-color;
+                    z-index: 1;
+                    box-shadow: $main-shadow;
+                    overflow: hidden;
+
+                    .subcategory-item {
+                        width: 100%;
+                        height: 1.6em;
+                        user-select: none;
+                        cursor: pointer;
+                        border-bottom: 1px solid rgba(0,0,0,.1);
+                        position: relative;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+
+                        &:hover {
+                            .subcategory-item-background {
+                                opacity: 1;
+                            }
+                            .subcategory-item-name {
+                                color: #fff;
+                            }
+                        }
+
+                        &:last-of-type {
+                            border-bottom: none;
+                            margin-bottom: 0.4em;
+                        }
+                    }
+
+                    .sub-category-title {
+                        font-size: 1.6em;
+                        margin: 0.4em 1em;
+                    }
+                }
+
+                .category-item-background, .subcategory-item-background {
+                    background-image: $main-grdt-bg-c;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    opacity: 0;
+                    z-index: 0;
+                }
+            }
+
+            /*.other-items {
+                .subcategory-container {
+                    overflow: visible;
+                }
+                .other-subcategory-container {
+                    display: none;
+                    opacity: 0;
+                    border-radius: 5px;
+                    position: absolute;
+                    top: -1em;
+                    left: 10em;
+                    list-style: none;
+                    width: 15em;
+                    height: auto;
+                    background-color: $main-bg-color;
+                    z-index: 1;
+                    overflow: visible;
+                    box-shadow: $main-shadow;
+                }
+                
+            }*/
+
+            span {
+                z-index: 1;
+                position: relative;
+                @include flex;
+                margin-left: 2em;
+                transition: 500ms;
+            }
+        }
+    }
+
+    #main_slider {
+        width: 50em;
+        min-height: 15em;
+        height: 100%;
+        border-radius: 5px;
+        background-color: $main-bg-color;
+    }
+
+}
+
+.main-width {
+    width: 80%;
+    min-width: 66em;
+}
