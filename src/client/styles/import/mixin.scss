@@ -1,0 +1,11 @@
+@mixin flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin gradientText {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}

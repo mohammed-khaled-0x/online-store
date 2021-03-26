@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Store</title>
+</head>
+<body>
+    <!--Loading-->
+    <!--div id="loading"-->
+        <!--Logo in Loading-->
+        <!--div class="logo-container"-->
+            <!--span>Logo</span-->
+            <!--img class="loading-logo" src="" -->
+        <!--/div-->
+    <!--/div-->
+    <!--Main body container-->
+    <main id="body">
+        <!--Header-->
+        <header id="header" class="container-shadow ltr-header">
+            <!--Sup-bar-->
+            <div class="sup-bar">
+                <!--View Language-->
+                <div class="lang">
+                    <!--Arabic language conatiner-->
+                    <div id="arabic">
+                        <!--Arabic icon container-->
+                        <div class="language-flag">
+                            <!--Arabic icon-->
+                            <img id="arabic_flag_icon" class="flag-icon" src="" />
+                        </div>
+                        <!--Arabic title-->
+                        <span>Arabic</span>
+                    </div>
+                    <!--English language conatiner-->
+                    <div id="english" class="selected-language">
+                        <!--Arabic icon container-->
+                        <div class="language-flag">
+                            <!--Arabic icon-->
+                            <img id="english_flag_icon" class="flag-icon" src="" />
+                        </div>
+                        <!--English title-->
+                        <span>English</span>
+                    </div>
+                </div>
+                <!--Currencies-->
+                <div id="currencies">
+                </div>
+            </div>
+            <!--Header Container-->
+            <div class="header-container">
+                <!--Logo Container-->
+                <div class="logo">
+                    <a href="/">
+                        <div id="logo">
+                            <!--span class='go'>Go<span class="good">&#128077;</span>d<span class="deal">&#129309;</span>De<span class="good">&#128076;</span>l</span-->
+                            <!--span>Online Store</span-->
+                            <img class="logo-test" src="" >
+                        </div>
+                    </a>
+                </div>
+                <!--Search Container-->
+                <div class="search">
+                    <!--Search Box-->
+                    <input type="text" id="search_box" title="All you need is here, just search" placeholder="What are you waiting for? Search now ..." accesskey="s">
+                    <!--Lens button container-->
+                    <div class="search-lens">
+                        <!--Lens-->
+                        <div class="lens">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 464 464" xml:space="preserve">
+                                <circle style="fill:#464655;" cx="232" cy="232" r="197"/>
+                                <path style="fill:#707487;" d="M232,0C103.87,0,0,103.87,0,232s103.87,232,232,232s232-103.87,232-232S360.13,0,232,0z M232,424  c-106.039,0-192-85.962-192-192c0-106.039,85.961-192,192-192s192,85.961,192,192C424,338.038,338.039,424,232,424z"/>
+                                <circle style="fill:#5B5D6E;" cx="232" cy="232" r="144"/>
+                                <path style="fill:#464655;" d="M232,352c-66.172,0-120-53.828-120-120s53.828-120,120-120s120,53.828,120,120S298.172,352,232,352z   M232,128c-57.344,0-104,46.656-104,104s46.656,104,104,104s104-46.656,104-104S289.344,128,232,128z"/>
+                                <circle class="lens-circle" style="fill:#D7DEED;" cx="232" cy="232" r="104"/>
+                                <circle class="lens-circle" style="fill:#e2c7e2;" cx="232" cy="232" r="88"/>
+                                <circle class="lens-circle" style="fill:#b395a4;" cx="232" cy="232" r="72"/>
+                                <circle class="lens-circle" style="fill:#d2afc6;" cx="232" cy="232" r="56"/>
+                                <circle class="lens-circle" style="fill:#9d8282;" cx="232" cy="232" r="40"/>
+                                <g>
+                                    <circle style="fill:#FFFFFF;" cx="244" cy="220" r="12"/>
+                                    <circle style="fill:#FFFFFF;" cx="280" cy="184" r="20"/>
+                                </g>
+                                <circle style="fill:#D7DEED;" cx="184" cy="280" r="16"/>
+                            </svg>
+                        </div>
+                        <!--Lens hand-->
+                        <div class="hand-lens">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
+                                <polyline xmlns="http://www.w3.org/2000/svg" style="fill:#88888F;" points="242.931,325.073 56.1,511.902 0.051,455.854 186.881,269.025 "/>
+                                <polyline xmlns="http://www.w3.org/2000/svg" style="fill:#797781;" points="242.834,325.17 56.004,512 27.979,483.976 214.809,297.146 "/>
+                            </svg>
+                        </div>
+                    </div>
+                    <!--Search result container-->
+                    <div id="search_result_container">
+                        <!--Result Container-->
+                        <div class="result-container">
+                            <!--Search result-->
+                            <div id="search_result" class="result-history empty-result">
+                                <!--Placeholder of search result container-->
+                                <span id="search_result_placeholder" class="placeholder">
+                                    If you want to search for anything, look here, everything you want is waiting for you now, then what are you waiting for?
+                                </span>
+                                <!--Result of search-->
+                                <ul id="result_of_search"></ul>
+                            </div>
+                            <!--div class="separate-lines"></div>
+                            <div id="search_history" class="result-history empty-result">
+                                <span id="history_result_placeholder" class="placeholder">
+                                    There is no search history.
+                                </span>
+                                <ul id="result_of_history"></ul>
+                            </div-->
+                        </div>
+                    </div>
+                </div>
+                <!--Cart Container-->
+                <div class='cart' title="Your cart is empty now">
+                    <!--Cart Icon-->
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" width="512" height="512">
+                        <!--Gradient Colors-->
+                        <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="174.667" x2="174.667" y1="30" y2="438.078">
+                            <!--First Gradient Color-->
+                            <stop offset="0" stop-color="#ffd3b5"/>
+                            <!--Second Gradient Color-->
+                            <stop offset="1" stop-color="#fbc8c8"/>
+                        </linearGradient>
+                        <linearGradient id="b" x1="372.786" x2="372.786" xlink:href="#a" y1="30" y2="438.078"/>
+                        <linearGradient id="c" x1="256" x2="256" xlink:href="#a" y1="30" y2="438.078"/>
+                        <path d="m174.667 380.772a46.5 46.5 0 1 0 46.5 46.5 46.549 46.549 0 0 0 -46.5-46.5zm0 72.992a26.5 26.5 0 1 1 26.5-26.5 26.526 26.526 0 0 1 -26.5 26.5z" fill="url(#a)"/>
+                        <path d="m372.786 380.772a46.5 46.5 0 1 0 46.5 46.5 46.549 46.549 0 0 0 -46.5-46.5zm0 72.992a26.5 26.5 0 1 1 26.5-26.5 26.526 26.526 0 0 1 -26.5 26.5z" fill="url(#b)"/>
+                        <path d="m470.433 103.407-340.081-5.136-9.329-28.271a46.542 46.542 0 0 0 -44.164-32h-35.14a10 10 0 1 0 0 20h35.14a26.578 26.578 0 0 1 25.179 18.289l11.781 35.611 54.359 164.28-4.9 11.865a46.293 46.293 0 0 0 42.984 63.955h203.019a10 10 0 0 0 0-20h-203.019a26.312 26.312 0 0 1 -24.49-36.384l3.844-9.272 219.733-22.5a57 57 0 0 0 49.58-43.376l25.078-104.738a10 10 0 0 0 -9.574-12.323zm-34.955 112.415a36.988 36.988 0 0 1 -32.169 28.144l-217.365 22.274-48.936-147.866 320.641 4.843z" fill="url(#c)"/>
+                    </svg>
+                    <div id="number_of_purchases"><span>0</span></div>
+                </div>
+                <!--Greeting Container-->
+                <div class="greeting">
+                    <!--Greeting-->
+                    <div class="container">
+                        <span class="hello">Hello</span>
+                        <div id="log_name" class="check-account">Do you have an account?</div>
+                        <!--Login and signup buttons box-->
+                        <div class="login-signup-box">
+                            <!--Login and signup buttons-->
+                            <div class="login-signup">
+                                <div class="arrow"></div>
+                                <span id="greeting-login">Yes, <span>Log in</span></span>
+                                <span id="greeting-signup">No, <span>Sign Up!!</span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Login and signup form-->
+                    <form id="log_form">
+                        <!--Loading While submite-->
+                        <div id="submit-loading"></div>
+                        <!--Form container-->
+                        <div class="form-container">
+                            <!--Website logo in form-->
+                            <div class="form-logo">
+                                <img class="login-signup-form-logo" src="" >
+                            </div>
+                            <!--Login and signup inputs container-->
+                            <div class="log-container">
+                                <!--Close button-->
+                                <div class="close-button">+</div>
+                                <!--Login container-->
+                                <div id="login" class="mutual">
+                                    <h3>Login</h3>
+                                    <!--Login inputs-->
+                                    <div class="inputs">
+                                        <div class="input">
+                                            <label for="login_email">E-mail</label>
+                                            <input type="email" id="login_email" class="input-box" autocomplete="email">
+                                            <span class="dot-error" data-input='login_email'>.</span>
+                                            <span class="error-message" data-input='login_email-error-message'></span>
+                                        </div>
+                                        <div class="input">
+                                            <label for="login_password">Password</label>
+                                            <input type="password" id="login_password" class="input-box" autocomplete="current-password">
+                                            <span class="dot-error" data-input='login_password'>.</span>
+                                            <span class="error-message" data-input='login_password-error-message'></span>
+                                            <span class="show-hide-password" data-show-hide-login-password="show">show</span>
+                                        </div>
+                                        <div class="input remember-login-container">
+                                            <input type="checkbox" id="remember_login">
+                                            <span>Remember me again</span>
+                                        </div>
+                                        <div class="submit">
+                                            <input type="button" value="login" id="login_button">
+                                            <!--a link button to go to signup container-->
+                                            <a id="signup_href" href="#signup">signup?</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Signup container-->
+                                <div id="signup" class="mutual">
+                                    <h3>Signup</h3>
+                                    <!--Signup inputs-->
+                                    <div class="inputs">
+                                        <div class="signup-form-bar">
+                                            <div class="input">
+                                                <label for="signup_firstname">First Name</label>
+                                                <input type="text" id="signup_firstname" class="input-box" autocomplete="disabled">
+                                                <span class="dot-error" data-input='signup_firstname'>.</span>
+                                                <span class="error-message" data-input='signup_firstname-error-message'></span>
+                                            </div>
+                                            <div class="input">
+                                                <label for="signup_lastname">Last Name</label>
+                                                <input type="text" id="signup_lastname" class="input-box" autocomplete="disabled">
+                                                <span class="dot-error" data-input='signup_lastname'>.</span>
+                                                <span class="error-message" data-input='signup_lastname-error-message'></span>
+                                            </div>
+                                        </div>
+                                        <div class="signup-form-bar">
+                                            <div class="input">
+                                                <label for="signup_username">Username</label>
+                                                <input type="text" id="signup_username" class="input-box" autocomplete="disabled">
+                                                <span class="dot-error" data-input='signup_username'>.</span>
+                                                <span class="error-message" data-input='signup_username-error-message'></span>
+                                            </div>
+                                            <div class="input">
+                                                <label for="signup_phone">Phone</label>
+                                                <input type="tel" id="signup_phone" class="input-box" autocomplete="disabled">
+                                                <span class="dot-error" data-input='signup_phone'>.</span>
+                                                <span class="error-message" data-input='signup_phone-error-message'></span>
+                                            </div>
+                                        </div>
+                                        <div class="input bar">
+                                            <label for="signup_email">E-mail</label>
+                                            <input type="email" id="signup_email" class="input-box" autocomplete="disabled">
+                                            <span class="dot-error" data-input='signup_email'>.</span>
+                                            <span class="error-message" data-input='signup_email-error-message'></span>
+                                        </div>
+                                        <div class="signup-form-bar">
+                                            <div class="input">
+                                                <label for="signup_password">Password</label>
+                                                <input type="password" id="signup_password" class="input-box" autocomplete="disabled">
+                                                <span class="dot-error" data-input='signup_password'>.</span>
+                                                <span class="error-message" data-input='signup_password-error-message'></span>
+                                                <span class="show-hide-password" data-show-hide-signup-password="show">show</span>
+                                            </div>
+                                            <div class="input">
+                                                <label for="signup_repassword">re-Password</label>
+                                                <input type="password" id="signup_repassword" class="input-box" autocomplete="disabled">
+                                                <span class="dot-error" data-input='signup_repassword'>.</span>
+                                                <span class="error-message" data-input='signup_repassword-error-message'></span>
+                                                <span class="show-hide-password" data-show-hide-signup-repassword="show">show</span>
+                                            </div>
+                                        </div>
+                                        <ul class="password-hint">
+                                            <li>Password must be more than 8 characters long.</li>
+                                            <li>Password must consist of letters and numbers.</li>
+                                        </ul>
+                                        <div class="submit">
+                                            <!--Signup button-->
+                                            <input type="button" value="sign up" id="signup_button">
+                                            <!--a link button to go to login container-->
+                                            <a id="login_href" href="#login">login?</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Gray background for making focus on form-->
+                        <div class="log-background"></div>
+                    </form>
+                </div>
+            </div>
+        </header>
+
+        <!--Top-section-->
+        <section id="top_section" class="ltr-header main-width">
+            <!--Categories and subCategories-->
+            <div id="categories" class="container-shadow">
+                <div id="home" title="You are already on the home page!">
+                    <svg id="home_svg_current" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+                        <defs>
+                            <linearGradient id="Gradient1">
+                                <stop class="stop1" offset="0%"></stop>
+                                <stop class="stop2" offset="50%"></stop>
+                                <stop class="stop3" offset="100%"></stop>
+                            </linearGradient>
+                            <linearGradient id="Gradient2" x1="0" x2="0" y1="0" y2="1" gradientTransform="rotate(-90)">
+                                <stop offset="0%" stop-color="rgb(255 211 181)"></stop>
+                                <stop offset="50%" stop-color="rgb(251 200 200)"></stop>
+                                <stop offset="100%" stop-color="rgb(243 225 255)"></stop>
+                            </linearGradient>
+                        </defs>
+                        <g fill="url(#Gradient2)">
+                            <path d="M502.625,287.959L256,41.334L9.375,287.959c-12.5,12.5-12.5,32.75,0,45.25s32.75,12.5,45.25,0L64,323.834v114.75V471h32   h320h32v-32.416v-114.75l9.375,9.375c6.25,6.25,14.438,9.375,22.625,9.375s16.375-3.125,22.625-9.375   C515.125,320.709,515.125,300.459,502.625,287.959z M416,439H224V311h-64v128H96V291.834l160-160l160,160V439z"></path>
+                            <rect x="288" y="311" width="64" height="64"></rect>
+                        </g>
+                        <rect x="288" y="311" width="64" height="64" fill="url(#Gradient2)"></rect>
+                        <polygon points="160,92.084 160,55 96,55 96,156.084 " fill="url(#Gradient2)"></polygon>
+                    </svg>
+                    <svg id="home_svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+                        <g>
+                            <path d="M502.625,287.959L256,41.334L9.375,287.959c-12.5,12.5-12.5,32.75,0,45.25s32.75,12.5,45.25,0L64,323.834v114.75V471h32   h320h32v-32.416v-114.75l9.375,9.375c6.25,6.25,14.438,9.375,22.625,9.375s16.375-3.125,22.625-9.375   C515.125,320.709,515.125,300.459,502.625,287.959z M416,439H224V311h-64v128H96V291.834l160-160l160,160V439z"></path>
+                            <rect x="288" y="311" width="64" height="64"></rect>
+                        </g>
+                        <rect x="288" y="311" width="64" height="64"></rect>
+                        <polygon points="160,92.084 160,55 96,55 96,156.084 "></polygon>
+                    </svg>
+                </div>
+            </div>
+            <!--Main slider-->
+            <div id="main_sliders" class="container-shadow">
+                <div class="arrows">
+                    <div id="left_slide_click" class="arrow">
+                        <div class="arrow-background"></div>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="transform: rotate(180deg);">
+                            <path d="M0 0h24v24H0V0z" fill="none"/>
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
+                        </svg>
+                    </div>
+                    <div id="right_slide_click" class="arrow">
+                        <div class="arrow-background"></div>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M0 0h24v24H0V0z" fill="none"/>
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+</body>
+</html>
