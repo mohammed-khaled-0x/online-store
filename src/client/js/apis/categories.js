@@ -40,9 +40,6 @@ const getCategories = async () => {
         return subCategoriesItems = response;
     });
 
-    console.log(mainCategoriesItems)
-    console.log(subCategoriesItems)
-
     // Categories container
     const categoriesList = document.createElement('ul');
     categoriesList.id = "category_container";
@@ -110,7 +107,6 @@ const getCategories = async () => {
                     const newCategoryItem = document.getElementById('category_container')
                     othersCategoriesItems.unshift(categoriesContainer.lastElementChild)
                     newCategoryItem.lastElementChild.remove()
-                    console.log(othersCategoriesItems)
 
                     const categoryItem = document.createElement('li');
                     const categoryItemName = document.createElement('span');
@@ -137,7 +133,6 @@ const getCategories = async () => {
                         /*if(othersCategoryItem.children[2]) {
                             othersCategoryItem.children[2].className = 'other-subcategory-container';
                         }*/
-                        console.log(othersCategoryItem);
                         subCategoriesList.append(othersCategoryItem);
                     }
                     categoryItem.append(subCategoriesList);
@@ -149,6 +144,16 @@ const getCategories = async () => {
         
     }
     others();
+
+    const styleNewCategories = () => {
+        const categories = document.getElementById('category_container');
+        categories.style.height = 'calc(100% - 2em)';
+        categories.style.display = 'flex';
+        categories.style.justifyContent = 'center';
+        categories.style.alignItems = 'center';
+        categories.style.flexDirection = 'column';
+    }
+    styleNewCategories();
 
     const categoryItems = document.getElementsByClassName('category-item');
     for(let categoryItem of categoryItems) {
