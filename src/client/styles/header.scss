@@ -364,7 +364,8 @@ header {
 
         //Log
         .greeting {
-            width: 12em;
+            //width: 12em;
+            width: auto;
             height: 100%;
             @include flex;
             position: relative;
@@ -547,7 +548,7 @@ header {
                             position: relative;
     
                             h3 {
-                                color: $main-first-color;
+                                //color: $main-first-color;
                             }
 
                             .inputs {
@@ -566,7 +567,7 @@ header {
                                     margin: 1em 0;
 
                                     .input-box {
-                                        border-bottom-color: $main-first-color;
+                                        //border-bottom-color: $main-first-color;
                                     }
 
                                 }
@@ -620,7 +621,7 @@ header {
                             position: relative;
 
                             h3 {
-                                color: $main-second-color;
+                                //color: $main-second-color;
                             }
 
                             .inputs {
@@ -656,7 +657,7 @@ header {
                                     margin: 1em;
 
                                     .input-box {
-                                        border-bottom-color: $main-second-color;
+                                        //border-bottom-color: $main-second-color;
                                     }
                                 }
 
@@ -703,6 +704,8 @@ header {
                             font-size: 2em;
                             position: absolute;
                             left: 1em;
+                            @include gradientText;
+                            background-image: $main-grdt-bg-c;
                         }
 
                         label {
@@ -717,7 +720,7 @@ header {
 
                         .input-box {
                             width: 100%;
-                            border-bottom: 2px solid;
+                            //border-bottom: 2px solid;
                             font-size: 1em;
                             padding: 0.5em;
                             text-overflow: ellipsis;
@@ -731,9 +734,17 @@ header {
                             align-items: center;
                         }
 
+                        .input::after {
+                            content: '';
+                            width: 100%;
+                            height: 0.2em;
+                            background-image: $main-grdt-bg-c
+                        }
+
                         input[type=button] {
                             padding: 0.8em 3em;
-                            font-size: 0.8em;
+                            //font-size: 0.8em;
+                            font-size: 1em;
                             font-weight: bold;
                             background-color: #fff;
                             cursor: pointer;
@@ -767,17 +778,27 @@ header {
                         }
 
                         .show-hide-password {
-                            width: 3em;
+                            width: 2.5em;
                             height: 1.2em;
-                            background: rgb(251, 200, 200);
+                            background: $main-grdt-bg-c;
                             position: absolute;
                             top: 0.5em;
-                            right: 0;
+                            right: 0.5em;
                             color: #fff;
                             text-align: center;
                             border-radius: 1em;
                             user-select: none;
                             cursor: pointer;
+                            @include flex;
+
+                            &:hover {
+                                box-shadow: 0 0 5px #333;
+                            }
+
+                            svg {
+                                color: #fff;
+                                fill: #fff;
+                            }
                         }
 
                     }

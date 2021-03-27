@@ -86,7 +86,7 @@
                         </div>
                         <!--Lens hand-->
                         <div class="hand-lens">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_2" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
                                 <polyline xmlns="http://www.w3.org/2000/svg" style="fill:#88888F;" points="242.931,325.073 56.1,511.902 0.051,455.854 186.881,269.025 "/>
                                 <polyline xmlns="http://www.w3.org/2000/svg" style="fill:#797781;" points="242.834,325.17 56.004,512 27.979,483.976 214.809,297.146 "/>
                             </svg>
@@ -180,7 +180,9 @@
                                             <input type="password" id="login_password" class="input-box" autocomplete="current-password">
                                             <span class="dot-error" data-input='login_password'>.</span>
                                             <span class="error-message" data-input='login_password-error-message'></span>
-                                            <span class="show-hide-password" data-show-hide-login-password="show">show</span>
+                                            <span class="show-hide-password" data-show-hide-login-password="show">
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 6c3.79 0 7.17 2.13 8.82 5.5C19.17 14.87 15.79 17 12 17s-7.17-2.13-8.82-5.5C4.83 8.13 8.21 6 12 6m0-2C7 4 2.73 7.11 1 11.5 2.73 15.89 7 19 12 19s9.27-3.11 11-7.5C21.27 7.11 17 4 12 4zm0 5c1.38 0 2.5 1.12 2.5 2.5S13.38 14 12 14s-2.5-1.12-2.5-2.5S10.62 9 12 9m0-2c-2.48 0-4.5 2.02-4.5 4.5S9.52 16 12 16s4.5-2.02 4.5-4.5S14.48 7 12 7z"/></svg>
+                                            </span>
                                         </div>
                                         <div class="input remember-login-container">
                                             <input type="checkbox" id="remember_login">
@@ -238,14 +240,18 @@
                                                 <input type="password" id="signup_password" class="input-box" autocomplete="disabled">
                                                 <span class="dot-error" data-input='signup_password'>.</span>
                                                 <span class="error-message" data-input='signup_password-error-message'></span>
-                                                <span class="show-hide-password" data-show-hide-signup-password="show">show</span>
+                                                <span class="show-hide-password" data-show-hide-signup-password="show">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 6c3.79 0 7.17 2.13 8.82 5.5C19.17 14.87 15.79 17 12 17s-7.17-2.13-8.82-5.5C4.83 8.13 8.21 6 12 6m0-2C7 4 2.73 7.11 1 11.5 2.73 15.89 7 19 12 19s9.27-3.11 11-7.5C21.27 7.11 17 4 12 4zm0 5c1.38 0 2.5 1.12 2.5 2.5S13.38 14 12 14s-2.5-1.12-2.5-2.5S10.62 9 12 9m0-2c-2.48 0-4.5 2.02-4.5 4.5S9.52 16 12 16s4.5-2.02 4.5-4.5S14.48 7 12 7z"/></svg>
+                                                </span>
                                             </div>
                                             <div class="input">
                                                 <label for="signup_repassword">re-Password</label>
                                                 <input type="password" id="signup_repassword" class="input-box" autocomplete="disabled">
                                                 <span class="dot-error" data-input='signup_repassword'>.</span>
                                                 <span class="error-message" data-input='signup_repassword-error-message'></span>
-                                                <span class="show-hide-password" data-show-hide-signup-repassword="show">show</span>
+                                                <span class="show-hide-password" data-show-hide-signup-repassword="show">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 6c3.79 0 7.17 2.13 8.82 5.5C19.17 14.87 15.79 17 12 17s-7.17-2.13-8.82-5.5C4.83 8.13 8.21 6 12 6m0-2C7 4 2.73 7.11 1 11.5 2.73 15.89 7 19 12 19s9.27-3.11 11-7.5C21.27 7.11 17 4 12 4zm0 5c1.38 0 2.5 1.12 2.5 2.5S13.38 14 12 14s-2.5-1.12-2.5-2.5S10.62 9 12 9m0-2c-2.48 0-4.5 2.02-4.5 4.5S9.52 16 12 16s4.5-2.02 4.5-4.5S14.48 7 12 7z"/></svg>
+                                                </span>
                                             </div>
                                         </div>
                                         <ul class="password-hint">
@@ -274,7 +280,7 @@
             <!--Categories and subCategories-->
             <div id="categories" class="container-shadow">
                 <div id="home" title="You are already on the home page!">
-                    <svg id="home_svg_current" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+                    <svg id="home_svg_current" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
                         <defs>
                             <linearGradient id="Gradient1">
                                 <stop class="stop1" offset="0%"></stop>
@@ -294,7 +300,7 @@
                         <rect x="288" y="311" width="64" height="64" fill="url(#Gradient2)"></rect>
                         <polygon points="160,92.084 160,55 96,55 96,156.084 " fill="url(#Gradient2)"></polygon>
                     </svg>
-                    <svg id="home_svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+                    <svg id="home_svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
                         <g>
                             <path d="M502.625,287.959L256,41.334L9.375,287.959c-12.5,12.5-12.5,32.75,0,45.25s32.75,12.5,45.25,0L64,323.834v114.75V471h32   h320h32v-32.416v-114.75l9.375,9.375c6.25,6.25,14.438,9.375,22.625,9.375s16.375-3.125,22.625-9.375   C515.125,320.709,515.125,300.459,502.625,287.959z M416,439H224V311h-64v128H96V291.834l160-160l160,160V439z"></path>
                             <rect x="288" y="311" width="64" height="64"></rect>

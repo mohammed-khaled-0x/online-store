@@ -79,25 +79,32 @@ const loginSignupBox = document.getElementsByClassName('login-signup-box')[0];
 const loginSignup = document.getElementsByClassName('login-signup')[0];
 
 greeting.onclick = () => {
-    location.href='#login';
-    logForm.style.display = 'flex';
-    logFormContainer.style.width = '35em';
-    logFormContainer.style.height = '25em';
-    logContainer.style.height = '17em';
-    setTimeout(() => {
-        logForm.style.opacity = 1;
-    }, 350);
+    const logForm = document.getElementById('log_form');
+    if(logForm.style.display === "" || logForm.style.display === "none") {
+        location.href='#login';
+        logForm.style.display = 'flex';
+        logFormContainer.style.width = '35em';
+        logFormContainer.style.height = '25em';
+        logContainer.style.height = '17em';
+        setTimeout(() => {
+            logForm.style.opacity = 1;
+        }, 350);
+    } else {
+    }
 }
 
 // When click on greeting container Login and signup buttons box show
 greeting.onmouseenter = () => {
-    loginSignupBox.style.display = 'flex';
-    loginSignupBox.style.opacity = 1;
-    loginSignup.style.display = 'flex';
-    setTimeout(() => {
-        loginSignup.style.opacity = 1;
-        loginSignup.style.top = '1.2em';
-    }, 2)
+    const logForm = document.getElementById('log_form');
+    if(logForm.style.display === "" || logForm.style.display === "none") {
+        loginSignupBox.style.display = 'flex';
+        loginSignupBox.style.opacity = 1;
+        loginSignup.style.display = 'flex';
+        setTimeout(() => {
+            loginSignup.style.opacity = 1;
+            loginSignup.style.top = '1.2em';
+        }, 2)
+    } 
 }
 
 // When leave the Login and signup buttons box it will hide
