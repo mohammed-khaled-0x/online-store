@@ -5,3 +5,4 @@ import './apis/login';
 import './apis/submit';
 import './apis/categories';
 import './apis/sliders';
+import './apis/labels-products';

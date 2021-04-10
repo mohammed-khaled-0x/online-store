@@ -3,6 +3,7 @@
 import './styles/main.scss';
 import './styles/header.scss';
 import './styles/top-section.scss';
+import './styles/products-section.scss';
 
 //import javascript
 import './js/animation';

@@ -1,6 +1,6 @@
 @import "./import/mixin";
 @import "./import/variable";
-@import "./import/fonts";
+//@import "./import/fonts";
 
 * {
     margin: 0;
@@ -10,6 +10,7 @@
     border: none;
     transition: 1s;
     font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
 }
 
 body {background-color: #fff; overflow-x: hidden;}
@@ -28,7 +29,7 @@ body {background-color: #fff; overflow-x: hidden;}
     min-height: 100vh;
     height: auto;
     width: 100vw;
-    padding-top: 6em;
+    padding-top: 5em;
     display: flex;
     justify-content: flex-start;
     align-items: center;
