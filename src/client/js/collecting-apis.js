@@ -6,3 +6,5 @@ import './apis/submit';
 import './apis/categories';
 import './apis/sliders';
 import './apis/labels-products';
+import './apis/currencies';
+import './apis/view-product';

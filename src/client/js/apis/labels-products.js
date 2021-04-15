@@ -1,3 +1,4 @@
+import viewProduct from './view-product';
 const labels = ['trending', 'best-selling', 'new-arrival'];
 
 const labelsProducts = async () => {
@@ -14,7 +15,6 @@ const labelsProducts = async () => {
             }
         })
         .then(response => {
-            console.log(response);
             const mainBody = document.getElementById('body');
             const productsSection = document.createElement('section');
             productsSection.classList.add('products-section', 'ltr-header', 'main-width');
@@ -91,26 +91,39 @@ const labelsProducts = async () => {
                 const productPrice = document.createElement('div');
                 productPrice.className = 'product-price';
 
-                const productPriceOne = document.createElement('span');
-                productPriceOne.classList.add('price', 'product-price-one');
-                productPriceOne.innerHTML = product.price1;
-                const productPriceTwo = document.createElement('span');
-                productPriceTwo.classList.add('price', 'product-price-two');
+                const productCurrentPrice = document.createElement('span');
+                productCurrentPrice.classList.add('price', 'product-current-price');
+                productCurrentPrice.innerHTML = product.price1;
+
+                const productNewPrice = document.createElement('span');
+                productNewPrice.classList.add('price', 'product-new-price');
+
+                const discount = document.createElement('span');
+                discount.classList.add('price', 'discount');
                 
                 if(product.price2) {
-                    productPriceTwo.innerHTML = (((100 / 100) - (product.price2 / product.price1)) * 100).toFixed() + '%';
-                    productPriceOne.innerHTML = product.price2;
+                    discount.innerHTML = (((100 / 100) - (product.price2 / product.price1)) * 100).toFixed() + '%';
+                    productCurrentPrice.innerHTML = product.price1;
+                    productCurrentPrice.classList.add('product-old-price')
+                    productNewPrice.innerHTML = product.price2;
                 } else {
-                    productPriceTwo.innerHTML = '';
-                    productPriceTwo.innerHTML = product.price2;
-                    productPriceTwo.style.display = 'none';
+                    productCurrentPrice.innerHTML = product.price1;
+                    productNewPrice.innerHTML = '';
+                    productNewPrice.style.display = 'none';
+                    discount.innerHTML = '';
+                    discount.style.display = 'none';
                 }
 
-                productPrice.append(productPriceOne);
-                productPrice.append(productPriceTwo);
+                productPrice.append(productCurrentPrice);
+                productPrice.append(productNewPrice);
+                productPrice.append(discount);
 
                 const productNameShadow = document.createElement('div');
                 productNameShadow.className = 'product-name-shadow';
+
+                productContainer.onclick = () => {
+                    viewProduct(product.id);
+                }
 
                 productContainer.append(productImage);
                 productContainer.append(productNameShadow);

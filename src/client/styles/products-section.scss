@@ -1,9 +1,83 @@
 @import "./import/mixin";
 @import "./import/variable";
+@import "./import/animation";
+
+#view_product_container {
+    display: none;
+    opacity: 0;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 3;
+
+    #view_product_content {
+        position: fixed;
+        top: calc( (100vh - 40em) / 2 );
+        left: calc( (100vw - 60em) / 2 );
+        width: 60em;
+        height: 40em;
+        border-radius: 1em;
+        background-color: $main-bg-color;
+        z-index: 3;
+        box-shadow: $main-shadow;
+
+        .close-view-product {
+            position: absolute;
+            top: 0.6em;
+            right: 0.6em;
+            width: 1em;
+            height: 1em;
+            color: #f00;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            cursor: pointer;
+            transform: rotate(45deg);
+            font-size: 1.5em;
+            font-weight: bold;
+            user-select: none;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease-out;
+            z-index: 3;
+        }
+
+        .product-title {
+            display: flex;
+            justify-content: flex-start;
+            align-items: baseline;
+
+            .product-Name {
+                @include gradientText;
+                background-image: $main-grdt-bg-c;
+                display: inline-block;
+                font-size: 2.5em;
+                padding: 0.5em;
+            }
+
+            .product-stock {
+                font-weight: bold;
+                font-size: 0.8em;
+            }
+        }
+    }
+
+    #view_product_background {
+        width: 100%;
+        height: 100vh;
+        background: #000;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        opacity: 0.1;
+    }
+}
 
 .products-section {
     .products-container {
-        background: #fff;
+        background: $main-bg-color;
         width: 100%;
         height: 22em;
         border-radius: 5px;
@@ -109,18 +183,31 @@
                     width: 100%;
                     height: 100%;
 
-                    .product-price-one {
+                    .product-current-price {
                         left: 0;
                         border-top-right-radius: 10px;
                         border-bottom-right-radius: 10px;
                         top: 10em;
                     }
 
-                    .product-price-two {
+                    .product-old-price {
+                        text-decoration: line-through;
+                        filter: grayscale(1);
+                    }
+
+                    .product-new-price {
                         right: 0;
                         border-top-left-radius: 10px;
                         border-bottom-left-radius: 10px;
+                        top: 10em;
+                        display: none;
+                    }
+
+                    .discount {
+                        right: 0;
                         top: 2em;
+                        border-top-left-radius: 10px;
+                        border-bottom-left-radius: 10px;
                         display: none;
                     }
                     
@@ -141,7 +228,6 @@
                 .product-name {
                     color: #fff;
                     position: relative;
-                    z-index:3;
                     text-align: center;
                     font-size: 1em;
                     text-overflow: ellipsis;

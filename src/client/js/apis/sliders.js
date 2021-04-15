@@ -16,7 +16,6 @@ const getSliders = async () => {
         }
     })
     .then(response => {
-        console.log(response);
         const slides = document.createElement('div');
         slides.id = 'slides';
         slides.style.width = `calc(${sliderContainer.offsetWidth}px * ${response.length})`;
