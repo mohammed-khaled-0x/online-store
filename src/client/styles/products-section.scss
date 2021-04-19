@@ -20,6 +20,7 @@
         background-color: $main-bg-color;
         z-index: 3;
         box-shadow: $main-shadow;
+        padding: 0.5em;
 
         .close-view-product {
             position: absolute;
@@ -47,18 +48,190 @@
             display: flex;
             justify-content: flex-start;
             align-items: baseline;
+            height: 3.5em;
+            width: 100%;
+            margin-bottom: 0.5em;
 
             .product-Name {
                 @include gradientText;
                 background-image: $main-grdt-bg-c;
                 display: inline-block;
                 font-size: 2.5em;
-                padding: 0.5em;
+                margin-right: 0.5em;
             }
 
             .product-stock {
                 font-weight: bold;
                 font-size: 0.8em;
+            }
+        }
+
+        .product-main-image {
+            width: 25em;
+            height: calc(100% - 4em);
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            scroll-snap-type: x mandatory;
+            overflow: hidden;
+            margin-left: 1em;
+            position: relative;
+            scroll-behavior: smooth;
+            float: left;
+            
+            .product-image {
+                width: 100%;
+                height: auto;
+                flex: none;
+                scroll-snap-align: start;
+                padding-bottom: 0.5em;
+            }
+
+            .product-album {
+                position: fixed;
+                width: 25em;
+                height: 3em;
+                display: flex;
+                justify-content: flex-start;
+                bottom: 1.5em;
+                border-radius: 10px;
+                box-shadow: $main-shadow;
+                background-color: $main-bg-color;
+                overflow: hidden;
+                padding: 0.2em;
+                scroll-behavior: smooth;
+
+                .product-album-image {
+                    height: 100%;
+                    width: auto;
+                    opacity: 0.2;
+                    cursor: pointer;
+                }
+
+                .active {
+                    opacity: 1;
+                }
+            }
+        }
+
+        #full_product_content {
+            width: 33em;
+            padding: 0 1em;
+            height: calc(40em - 3.5em - 1.5em);
+            overflow: hidden scroll;
+
+            .product-quantity-container {
+                width: 100%;
+                height: auto;
+                display: flex;
+                align-items: center;
+
+                .product-quantity-inputs {
+                    @include flex;
+                    margin: auto;
+
+                    .product-quantity-btn {
+                        width: 2em;
+                        height: 2em;
+                        border-radius: 50%;
+                        font-size: 1.2em;
+                        @include flex;
+                        background-color: transparent;
+                        z-index: 1;
+                        cursor: pointer;
+
+                        &:active {
+                            transform: scale(0.95);
+                        }
+
+                        &:hover {
+                            transition: 100ms;
+                        }
+                    }
+
+                    .product-quantity-add-btn {
+                        box-shadow: 0 0 0 2px rgb(0, 204, 0);
+                        color: rgb(0, 204, 0);
+
+                        &:active {
+                            box-shadow: 0 0 0 2px rgb(0, 104, 0) !important;
+                        }
+
+                        &:hover {
+                            box-shadow: 0 0 5px 0 rgb(0, 104, 0);
+                            color: rgb(0, 104, 0);
+                        }
+                    }
+
+                    .product-quantity-sub-btn {
+                        box-shadow: 0 0 0 2px rgb(204, 0, 0);
+                        color: rgb(204, 0, 0);
+                        
+                        &:active {
+                            box-shadow: 0 0 0 2px rgb(104, 0, 0) !important;
+                        }
+
+                        &:hover {
+                            box-shadow: 0 0 5px 0 rgb(104, 0, 0);
+                            color: rgb(104, 0, 0);
+                        }
+                    }
+
+                    .disable {
+                        filter: grayscale(1);
+                        transform: scale(0.8);
+                    }
+
+                    #product_quantity_input {
+                        border-radius: 10px;
+                        height: 2em;
+                        width: 6em;
+                        margin: 0 1em;
+                        background-image: $main-grdt-bg-c;
+                        color: #fff;
+                        font-weight: bold;
+                        text-align: center;
+                        cursor: pointer;
+                    }
+
+                    #product_quantity_input::-webkit-outer-spin-button,
+                    #product_quantity_input::-webkit-inner-spin-button {
+                        -webkit-appearance: none;
+                        -moz-appearance: textfield;
+                    }
+                }
+            }
+
+            .product-total-price-container {
+                width: 100%;
+                height: auto;
+                display: flex;
+                align-items: center;
+
+                .product-total-price {
+                    @include flex;
+                    width: 100%;
+                    font-weight: bold;
+                    font-size: 1.2em;
+                }
+            }
+
+            .content-containers {
+                width: 100%;
+                height: auto;
+                margin: 1em 0;
+
+                &:first-of-type {
+                    margin: 0;
+                }
+            }
+
+            .product-description-title, .product-quantity-title, .product-total-price-title {
+                @include gradientText;
+                background-image: $main-grdt-bg-c;
+                display: inline-block;
+                width: 6em;
+                flex: none;
             }
         }
     }

@@ -32,10 +32,6 @@ const labelsProducts = async () => {
             const rightArrowBackground = document.createElement('div');
             rightArrowBackground.className = 'arrow-background';
 
-
-
-
-
             const leftArrowContainer = document.createElement('div');
             leftArrowContainer.classList.add('arrow', 'left-product-click');
             leftArrowContainer.innerHTML = `
@@ -123,6 +119,11 @@ const labelsProducts = async () => {
 
                 productContainer.onclick = () => {
                     viewProduct(product.id);
+                    const viewProductContainer = document.getElementById('view_product_container');
+                    viewProductContainer.style.display = 'flex';
+                    setTimeout( () => {
+                        viewProductContainer.style.opacity = '1';
+                    }, 5)
                 }
 
                 productContainer.append(productImage);
