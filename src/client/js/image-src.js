@@ -6,6 +6,10 @@ import arabicFlagIcon from '../assets/icons/arabic-flag.svg';
 import englishFlagIcon from '../assets/icons/english-flag.svg';
 // Logo
 import logo from '../assets/Logo.png';
+// Add favorite
+import addFavoriteIcon from '../assets/icons/add-to-favorite.svg'
+// Added favorite
+import addedFavoriteIcon from '../assets/icons/added-to-favorite.svg'
 
 // Main body container
 const bodyContainer = document.getElementById('body');
@@ -26,3 +30,10 @@ logoTest.src = logo;
 loadingLogo.src = logo;*/
 const formLogo = document.getElementsByClassName('login-signup-form-logo')[0];
 formLogo.src = logo;
+
+setTimeout(() => {
+    const addToFavoriteIcon = document.getElementById('add_to_favorite_icon');
+    addToFavoriteIcon.src = addFavoriteIcon;
+    const addedToFavoriteIcon = document.getElementById('added_to_favorite_icon');
+    addedToFavoriteIcon.src = addedFavoriteIcon;
+}, 5000)
