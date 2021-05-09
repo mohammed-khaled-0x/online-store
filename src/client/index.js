@@ -4,6 +4,7 @@ import './styles/main.scss';
 import './styles/header.scss';
 import './styles/top-section.scss';
 import './styles/products-section.scss';
+import './styles/notifications.scss';
 
 //import javascript
 import './js/animation';
@@ -15,6 +16,7 @@ import './js/form-inputs';
 //import './js/loading';
 import './js/localstorage';
 import './js/show-hide-password';
+import './js/window-events';
 
 //import apis
 import './js/collecting-apis';

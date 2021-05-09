@@ -1,3 +1,5 @@
+import notifications from '../assistants functions/notifications';
+
 // Login button
 const loginButton = document.getElementById('login_button')
 
@@ -94,13 +96,90 @@ loginButton.onclick = async () => {
 
             if(checkErrorInputs) {
                 const rememberLogin = document.getElementById('remember_login');
+                localStorage.setItem('token', response['auth_token']);
                 if(rememberLogin.checked) {
-                    localStorage.setItem('token', response['auth_token']);
                     localStorage.setItem('remember_login', 'yes');
                 } else {
                     localStorage.setItem('remember_login', 'no');
-                    //sessionStorage.setItem('token', response['auth_token'])
                 }
+
+                const getUserData = async () => {
+                    await fetch("https://mystore9.herokuapp.com/auth/users/me/", {
+                        method: "GET",
+                        credentials: "same-origin",
+                        mode: 'cors',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            "Authorization": `Token ${response['auth_token']}`
+                        }
+                    })
+                    .then(response => {
+                        if(response.statusText !== 'ok' || response.status !== 404) {
+                            const convertResponse = response.json();
+                            console.log(convertResponse)
+                            return convertResponse;
+                        } else {
+                            console.log('there is an error while fetching');
+                            const convertResponse = response.json();
+                            console.log(convertResponse)
+                            return convertResponse;
+                        }
+                    })
+                    .then(response => {
+                        console.log(response);
+
+                        if(response.username) {
+                            const logForm = document.getElementById('log_form');
+                            logForm.style.opacity = 0;
+                            setTimeout(() => {
+                                logForm.style.display = 'none';
+                            }, 1000);
+
+                            const logName = document.getElementById('log_name');
+                            logName.innerText = `${response['first_name']} ${response['last_name']}`;
+
+                            const greetingLogin = document.getElementById('greeting_login');
+                            const greetingSignup = document.getElementById('greeting_signup');
+                            const greetingLogout = document.getElementById('greeting_logout');
+
+                            greetingLogin.style.display = 'none';
+                            greetingSignup.style.display = 'none';
+                            greetingLogout.style.display = 'block';
+
+                            notifications('You have signed in successfully', 'ok')
+
+                            greetingLogout.onclick = async () => {
+                                await  fetch("https://mystore9.herokuapp.com/auth/token/logout", {
+                                    method: 'POST',
+                                    credentials: 'omit',
+                                    mode: 'cors',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                        "Authorization": `Token ${localStorage.token}`
+                                    }
+                                })
+                                .then(response => {
+
+                                    localStorage.token = '';
+                                    localStorage['remember_login'] = 'no';
+
+                                    greetingLogin.style.display = 'block';
+                                    greetingSignup.style.display = 'block';
+                                    greetingLogout.style.display = 'none';
+
+                                    logName.innerText = 'Do you have an account?';
+
+                                    notifications('You have log out successfully', 'ok')
+                                })
+                            }
+                        }
+
+                        
+
+                    })
+                }
+                getUserData();
+
             } else {
             }
         })

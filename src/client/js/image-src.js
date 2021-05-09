@@ -31,9 +31,9 @@ loadingLogo.src = logo;*/
 const formLogo = document.getElementsByClassName('login-signup-form-logo')[0];
 formLogo.src = logo;
 
-setTimeout(() => {
+/*setTimeout(() => {
     const addToFavoriteIcon = document.getElementById('add_to_favorite_icon');
     addToFavoriteIcon.src = addFavoriteIcon;
     const addedToFavoriteIcon = document.getElementById('added_to_favorite_icon');
     addedToFavoriteIcon.src = addedFavoriteIcon;
-}, 5000)
+}, 5000)*/

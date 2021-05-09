@@ -59,6 +59,7 @@ const labelsProducts = async () => {
             return response;
         })
         .then(response => {
+            console.log(response)
             const labelContainer = document.getElementById(`${label.split('-').join('_')}`);
 
             const productsContainer = document.createElement('div');

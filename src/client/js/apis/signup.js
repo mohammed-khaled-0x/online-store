@@ -1,3 +1,5 @@
+import notifications from './../assistants functions/notifications';
+
 // Signup button
 const signupButton = document.getElementById('signup_button')
 
@@ -70,6 +72,19 @@ signupButton.onclick = async () => {
             })
         })
         .then(response => {
+            console.log(status)
+            if(response.status === 500) {
+                notifications('You have Sign up successfully', 'ok');
+                setTimeout( () => {
+                    notifications('You must activate your account', 'warn');
+                }, 2000 );
+
+                const logForm = document.getElementById('log_form');
+                logForm.style.opacity = 0;
+                setTimeout(() => {
+                    logForm.style.display = 'none';
+                }, 1000);
+            }
             if(response.statusText !== 'ok' || response.status !== 404) {
                 const convertResponse = response.json();
                 console.log(convertResponse)
@@ -81,6 +96,35 @@ signupButton.onclick = async () => {
                 return convertResponse;
             }
         })
+        .then(response => {
+            if(response.email) {
+                notifications(response.email, 'error');
+            } else if(response.password) {
+                notifications(response.password, 'error');
+            } else if(response.phone) {
+                notifications(response.phone, 'error');
+            } else if(response.username) {
+                notifications(response.username, 'error');
+            } else if(response['re_password']) {
+                notifications(response['re_password'], 'error');
+            } else if(response['first_name']) {
+                notifications(response['first_name'], 'error');
+            } else if(response['last_name']) {
+                notifications(response['last_name'], 'error');
+            } else {
+                notifications('You have Sign up successfully', 'ok');
+                setTimeout( () => {
+                    notifications('You must activate your account', 'warn');
+                }, 2000 );
+
+                const logForm = document.getElementById('log_form');
+                logForm.style.opacity = 0;
+                setTimeout(() => {
+                    logForm.style.display = 'none';
+                }, 1000);
+            }
+        })
+        
     } else {
 
     }

@@ -1,7 +1,7 @@
 // Login Button
-const loginGreetingButton = document.getElementById('greeting-login');
+const loginGreetingButton = document.getElementById('greeting_login');
 // Signup button
-const signupGreetingButton = document.getElementById('greeting-signup');
+const signupGreetingButton = document.getElementById('greeting_signup');
 // Login and signup form
 const logForm = document.getElementById('log_form');
 // Form container
@@ -73,12 +73,13 @@ logBackground.onclick = () => {
 
 // Greeting Container
 const greeting = document.getElementsByClassName('greeting')[0];
+const logName = document.getElementById('log_name');
 // Login and signup buttons box
 const loginSignupBox = document.getElementsByClassName('login-signup-box')[0];
 // Login and signup buttons
 const loginSignup = document.getElementsByClassName('login-signup')[0];
 
-greeting.onclick = () => {
+/*greeting.onclick = () => {
     const logForm = document.getElementById('log_form');
     if(logForm.style.display === "" || logForm.style.display === "none") {
         location.href='#login';
@@ -90,6 +91,23 @@ greeting.onclick = () => {
             logForm.style.opacity = 1;
         }, 350);
     } else {
+    }
+}*/
+
+logName.onclick = () => {
+    if(localStorage.token === '') {
+        const logForm = document.getElementById('log_form');
+        if(logForm.style.display === "" || logForm.style.display === "none") {
+            location.href='#login';
+            logForm.style.display = 'flex';
+            logFormContainer.style.width = '35em';
+            logFormContainer.style.height = '25em';
+            logContainer.style.height = '17em';
+            setTimeout(() => {
+                logForm.style.opacity = 1;
+            }, 350);
+        } else {
+        }
     }
 }
 

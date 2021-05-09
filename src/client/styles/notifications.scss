@@ -1,0 +1,35 @@
+@import "./import/mixin";
+@import "./import/variable";
+@import "./import/animation";
+
+#notifications {
+    position: fixed;
+    width: 18em;
+    height: auto;
+    max-height: calc(100vh - 15em);
+    bottom: 2em;
+    right: 0;
+    z-index: 9999;
+    background: transparent;
+    display: none;
+    @include flex;
+    flex-direction: column;
+
+    .notifications {
+        width: 100%;
+        min-height: 5em;
+        height: auto;
+        @include flex;
+        flex-direction: column;
+        background: $main-bg-color;
+        border-radius: 1em;
+        padding: 1em;
+        box-shadow: $main-shadow;
+        margin: 0.5em 0;
+
+        svg {
+            height: 2em;
+            width: 2em;
+        }
+    }
+}

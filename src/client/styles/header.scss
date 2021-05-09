@@ -504,19 +504,25 @@ header {
                     border-bottom: 15px solid #fff;
                 }
 
-                #greeting-login {
+                #greeting_login {
                     :first-child {
                         color: $main-first-color;
                     }
                 }
 
-                #greeting-signup {
+                #greeting_signup {
                     :first-child {
                         color: $main-second-color;
                     }
                 }
 
-                #greeting-login, #greeting-signup {
+                #greeting_logout {
+                    color: red;
+                    font-weight: bold;
+                    display: none;
+                }
+
+                #greeting_login, #greeting_signup, #greeting_logout {
                     margin: 0.2em 0;
                     cursor: pointer;
 

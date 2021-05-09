@@ -14,6 +14,7 @@ const viewProduct = async (productId) => {
             console.log(response);
             const viewProductContainer = document.getElementById('view_product_container');
             const viewProductContent = document.getElementById('view_product_content');
+            viewProductContent.dataset.productId = productId;
 
             const productName = document.getElementById('product_name');
             productName.innerHTML = `${response['brand_name']} ${response['product_name']}`
@@ -189,21 +190,22 @@ const viewProduct = async (productId) => {
                     })
                     .then(response => {
                         console.log(response);
-                        const commentsContainer = documen.getElementsByClassName('product-comments-container');
+                        const commentsContainer = document.getElementsByClassName('product-comments-container')[0];
+                        console.log(commentsContainer);
                         const comments = document.createElement('div');
                         comments.className = 'product-comments';
+                        comments.id = 'product_comments';
 
                         for(let comment of response.results) {
+                            const commentContainer = document.createElement('div');
+                            commentContainer.className = 'comment';
+
                             const commentTitle = document.createElement('div');
                             commentTitle.className = 'commentTitle';
 
                             const commentName = document.createElement('span');
                             commentName.className = 'comment-name';
-                            commentName.innerText = `${comment['created_by']['first_name']} ${comment['created_by']['last_name']}`;
-
-                            const commentUsername = document.createElement('span');
-                            commentUsername.className = 'comment-username';
-                            commentUsername.innerText = `(${comment['created_by'].username})`;
+                            commentName.innerText = `${comment['created_by']['first_name']} ${comment['created_by']['last_name']}:`;
 
                             const commentStarsContainer = document.createElement('div');
                             commentStarsContainer.className = 'comment-stars-container';
@@ -211,10 +213,35 @@ const viewProduct = async (productId) => {
                             const commentRating = comment.rating;
 
                             for(let stars = 0; stars < commentRating; stars++) {
-                                star.style.fill = '#ffcc00';
+                                commentStarsContainer.innerHTML += `
+                                <svg class="total-rating-stars" id="product_user_rating_average_star1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+                                    <polygon stroke-width="37.6152" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="  259.216,29.942 330.27,173.919 489.16,197.007 374.185,309.08 401.33,467.31 259.216,392.612 117.104,467.31 144.25,309.08   29.274,197.007 188.165,173.919 "/>
+                                </svg>
+                                `
                             }
 
+                            const commentCreatedAt = document.createElement('span');
+                            commentCreatedAt.className = 'comment-created-at';
+                            commentCreatedAt.innerText = `(${comment['created_at']})`;
+
+                            const commentDataContainer = document.createElement('div');
+                            commentDataContainer.className = 'comment-data-container';
+                            
+                            const commentData = document.createElement('p');
+                            commentData.className = 'comment-data';
+                            commentData.innerText = comment.comment;
+
+                            commentDataContainer.append(commentData);
+                            
+                            commentTitle.append(commentName, commentStarsContainer, commentCreatedAt);
+                            commentContainer.append(commentTitle);
+                            commentContainer.append(commentDataContainer);
+                            comments.append(commentContainer);
                         }
+
+                        commentsContainer.append(comments);
+
+                        console.log(comments);
                     })
                 
             }
@@ -287,7 +314,10 @@ const viewProduct = async (productId) => {
                 album.style.justifyContent = 'flex-start';
             }
 
-
+            const productCommentsInputs = document.getElementsByClassName('product-comments-inputs')[0]
+            productCommentsInputs.addEventListener('sticky-change', () => {
+                productCommentsInputs.style.boxShadow = '0 5px 15px #eee';
+            })
         })
 }
 
