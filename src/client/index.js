@@ -17,6 +17,8 @@ import './js/form-inputs';
 import './js/localstorage';
 import './js/show-hide-password';
 import './js/window-events';
+import './js/cart';
+import './js/apis/delete-comment';
 
 //import apis
 import './js/collecting-apis';

@@ -46,3 +46,9 @@ body {background-color: #fff; overflow-x: hidden;}
 .rtl-header {
     direction: rtl;
 }
+
+.main-width {
+    width: 80%;
+    min-width: 66em;
+    max-width: 70%;
+}

@@ -1,5 +1,6 @@
+import notifications from './assistants functions/notifications';
+
 window.onload = () => {
-    console.log('load');
     if(localStorage['remember_login'] === 'yes') {
         if(localStorage.token) {
             fetch("https://mystore9.herokuapp.com/auth/users/me/", {
@@ -37,6 +38,8 @@ window.onload = () => {
                     greetingSignup.style.display = 'none';
                     greetingLogout.style.display = 'block';
 
+                    localStorage.username = response.username;
+
                     greetingLogout.onclick = async () => {
                         await  fetch("https://mystore9.herokuapp.com/auth/token/logout", {
                             method: 'POST',
@@ -49,7 +52,8 @@ window.onload = () => {
                         })
                         .then(response => {
 
-                            localStorage.token = '';
+                            localStorage.removeItem('token');
+                            localStorage.removeItem('username');
                             localStorage['remember_login'] = 'no';
 
                             greetingLogin.style.display = 'block';
@@ -71,5 +75,6 @@ window.onload = () => {
 window.onbeforeunload = () => {
     if(localStorage['remember_login'] === 'no') {
         localStorage.removeItem('token');
+        localStorage.removeItem('username');
     }
 }

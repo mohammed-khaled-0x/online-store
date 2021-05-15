@@ -60,9 +60,9 @@
                 <!--Search Container-->
                 <div class="search">
                     <!--Search Box-->
-                    <input type="text" id="search_box" title="All you need is here, just search" placeholder="What are you waiting for? Search now ..." accesskey="s">
+                    <input type="text" id="search_box" autocomplete="off" title="All you need is here, just search" placeholder="What are you waiting for? Search now ..." accesskey="s">
                     <!--Lens button container-->
-                    <div class="search-lens">
+                    <div id="search_lens">
                         <!--Lens-->
                         <div class="lens">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 464 464" xml:space="preserve">
@@ -131,6 +131,39 @@
                         <path d="m470.433 103.407-340.081-5.136-9.329-28.271a46.542 46.542 0 0 0 -44.164-32h-35.14a10 10 0 1 0 0 20h35.14a26.578 26.578 0 0 1 25.179 18.289l11.781 35.611 54.359 164.28-4.9 11.865a46.293 46.293 0 0 0 42.984 63.955h203.019a10 10 0 0 0 0-20h-203.019a26.312 26.312 0 0 1 -24.49-36.384l3.844-9.272 219.733-22.5a57 57 0 0 0 49.58-43.376l25.078-104.738a10 10 0 0 0 -9.574-12.323zm-34.955 112.415a36.988 36.988 0 0 1 -32.169 28.144l-217.365 22.274-48.936-147.866 320.641 4.843z" fill="url(#c)"/>
                     </svg>
                     <div id="number_of_purchases"><span>0</span></div>
+                    <div id="user_cart_container">
+                        <div id="user_cart">
+                            <div class="arrow"></div>
+                            <div id="cart_content_conteiner">
+                                <div class="cart-data-column">
+                                    <span class="cart-data-header">Product Name</span>
+                                    <div class="cart-product-container">
+                                        <span class="cart-product-image"></span>
+                                        <span class="cart-product-name">New Product</span>
+                                    </div>
+                                    <div class="cart-product-container">
+                                        <span class="cart-product-image"></span>
+                                        <span class="cart-product-name">New Product</span>
+                                    </div>
+                                </div>
+                                <div class="cart-data-column">
+                                    <span class="cart-data-quantity">Quantity</span>
+                                    <span class="cart-data-quantity-value">2</span>
+                                    <span class="cart-data-quantity-value">3</span>
+                                </div>
+                                <div class="cart-data-column">
+                                    <span class="cart-data-final-price">Final price</span>
+                                    <span class="cart-data-final-price-value">12</span>
+                                    <span class="cart-data-final-price-value">4</span>
+                                </div>
+                                <div class="cart-data-column">
+                                    <span class="cart-data-total">Total</span>
+                                    <span class="cart-data-total-value">24</span>
+                                    <span class="cart-data-total-value">12</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!--Greeting Container-->
                 <div class="greeting">
@@ -346,14 +379,6 @@
                         <h3 id="product_description_title" class="product-content-title">Description</h3>
                         <p id="product_description_content"></p>
                     </div>
-                    <div class="product-quantity-container content-containers">
-                        <h3 id="product_quantity_title" class="product-content-title">Quantitiy</h3>
-                        <div class="product-quantity-inputs">
-                            <input type="button" id="product_quantity_add" class="product-quantity-add-btn product-quantity-btn" value="+">
-                            <input type="number" id="product_quantity_input" min="1" value="1">
-                            <input type="button" id="product_quantity_sub" class="product-quantity-sub-btn product-quantity-btn" value="-">
-                        </div>
-                    </div>
                     <div class="product-price-details-container content-containers">
                         <h3 id="product_original_price_title" class="product-price-details">Original Price</h3>
                         <span id="product_original_price" class="product-price-details"></span>
@@ -361,6 +386,14 @@
                         <span id="product_discount" class="product-price-details"></span>
                         <h3 id="product_after_discount_title" class="product-price-details">After Discount</h3>
                         <span id="product_after_discount" class="product-price-details"></span>
+                    </div>
+                    <div class="product-quantity-container content-containers">
+                        <h3 id="product_quantity_title" class="product-content-title">Quantitiy</h3>
+                        <div class="product-quantity-inputs">
+                            <input type="button" id="product_quantity_add" class="product-quantity-add-btn product-quantity-btn" value="+">
+                            <input type="number" id="product_quantity_input" min="1" value="1">
+                            <input type="button" id="product_quantity_sub" class="product-quantity-sub-btn product-quantity-btn" value="-">
+                        </div>
                     </div>
                     <div class="product-total-price-container content-containers">
                         <h3 id="product_total_price_title" class="product-content-title">Total Price</h3>
@@ -371,27 +404,29 @@
                     </div>
                     <div class="product-user-rating-container content-containers">
                         <h3 id="product_user_rating_title" class="product-content-title">User Rating</h3>
-                        <div class="product-user-rating-average-stars">
-                            <svg class="total-rating-stars" id="product_user_rating_average_star1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
-                                <polygon stroke-width="37.6152" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="  259.216,29.942 330.27,173.919 489.16,197.007 374.185,309.08 401.33,467.31 259.216,392.612 117.104,467.31 144.25,309.08   29.274,197.007 188.165,173.919 "/>
-                            </svg>
-                            <svg class="total-rating-stars" id="product_user_rating_average_star2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
-                                <polygon stroke-width="37.6152" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="  259.216,29.942 330.27,173.919 489.16,197.007 374.185,309.08 401.33,467.31 259.216,392.612 117.104,467.31 144.25,309.08   29.274,197.007 188.165,173.919 "/>
-                            </svg>
-                            <svg class="total-rating-stars" id="product_user_rating_average_star3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
-                                <polygon stroke-width="37.6152" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="  259.216,29.942 330.27,173.919 489.16,197.007 374.185,309.08 401.33,467.31 259.216,392.612 117.104,467.31 144.25,309.08   29.274,197.007 188.165,173.919 "/>
-                            </svg>
-                            <svg class="total-rating-stars" id="product_user_rating_average_star4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
-                                <polygon stroke-width="37.6152" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="  259.216,29.942 330.27,173.919 489.16,197.007 374.185,309.08 401.33,467.31 259.216,392.612 117.104,467.31 144.25,309.08   29.274,197.007 188.165,173.919 "/>
-                            </svg>
-                            <svg class="total-rating-stars" id="product_user_rating_average_star5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
-                                <polygon stroke-width="37.6152" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="  259.216,29.942 330.27,173.919 489.16,197.007 374.185,309.08 401.33,467.31 259.216,392.612 117.104,467.31 144.25,309.08   29.274,197.007 188.165,173.919 "/>
-                            </svg>
+                        <div class="product-user-rating-average-container">
+                            <div class="product-user-rating-average-stars">
+                                <svg class="total-rating-stars" id="product_user_rating_average_star1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+                                    <polygon stroke-width="37.6152" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="  259.216,29.942 330.27,173.919 489.16,197.007 374.185,309.08 401.33,467.31 259.216,392.612 117.104,467.31 144.25,309.08   29.274,197.007 188.165,173.919 "/>
+                                </svg>
+                                <svg class="total-rating-stars" id="product_user_rating_average_star2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+                                    <polygon stroke-width="37.6152" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="  259.216,29.942 330.27,173.919 489.16,197.007 374.185,309.08 401.33,467.31 259.216,392.612 117.104,467.31 144.25,309.08   29.274,197.007 188.165,173.919 "/>
+                                </svg>
+                                <svg class="total-rating-stars" id="product_user_rating_average_star3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+                                    <polygon stroke-width="37.6152" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="  259.216,29.942 330.27,173.919 489.16,197.007 374.185,309.08 401.33,467.31 259.216,392.612 117.104,467.31 144.25,309.08   29.274,197.007 188.165,173.919 "/>
+                                </svg>
+                                <svg class="total-rating-stars" id="product_user_rating_average_star4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+                                    <polygon stroke-width="37.6152" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="  259.216,29.942 330.27,173.919 489.16,197.007 374.185,309.08 401.33,467.31 259.216,392.612 117.104,467.31 144.25,309.08   29.274,197.007 188.165,173.919 "/>
+                                </svg>
+                                <svg class="total-rating-stars" id="product_user_rating_average_star5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+                                    <polygon stroke-width="37.6152" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="  259.216,29.942 330.27,173.919 489.16,197.007 374.185,309.08 401.33,467.31 259.216,392.612 117.104,467.31 144.25,309.08   29.274,197.007 188.165,173.919 "/>
+                                </svg>
+                            </div>
+                            <div class="product-user-rating-average-data">
+                                <span id="rating_average_data">0 </span> average based on <span id="rating_average_votes"> 0 </span> reviews.
+                            </div>
                         </div>
-                        <div class="product-user-rating-average-data">
-                            <span id="rating_average_data">0 </span> average based on <span id="rating_average_votes"> 0 </span> reviews.
-                        </div>
-                        <div class="product-user-rating-average-table">
+                        <!--div class="product-user-rating-average-table">
                             <div class="rating-average-bar">
                                <div class="rating-average-bar-stars">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
@@ -413,7 +448,7 @@
                                <div class="rating-average-bar-status">
                                    <div id="rating_average_bar_status_star5" class="rating-average-bar-status-value"></div>
                                </div>
-                               <span class="rating-average-bar-votes">22</span>
+                               <span id="5_star" class="rating-average-bar-votes">( 0 )</span>
                             </div>
                             <div class="rating-average-bar">
                                 <div class="rating-average-bar-stars">
@@ -433,7 +468,7 @@
                                 <div class="rating-average-bar-status">
                                     <div id="rating_average_bar_status_star4" class="rating-average-bar-status-value"></div>
                                 </div>
-                                <span class="rating-average-bar-votes">22</span>
+                                <span id="4_star" class="rating-average-bar-votes">( 0 )</span>
                              </div>
                              <div class="rating-average-bar">
                                 <div class="rating-average-bar-stars">
@@ -450,7 +485,7 @@
                                 <div class="rating-average-bar-status">
                                     <div id="rating_average_bar_status_star3" class="rating-average-bar-status-value"></div>
                                 </div>
-                                <span class="rating-average-bar-votes">22</span>
+                                <span id="3_star" class="rating-average-bar-votes">( 0 )</span>
                              </div>
                              <div class="rating-average-bar">
                                 <div class="rating-average-bar-stars">
@@ -464,7 +499,7 @@
                                 <div class="rating-average-bar-status">
                                     <div id="rating_average_bar_status_star2" class="rating-average-bar-status-value"></div>
                                 </div>
-                                <span class="rating-average-bar-votes">22</span>
+                                <span id="2_star" class="rating-average-bar-votes">( 0 )</span>
                              </div>
                              <div class="rating-average-bar">
                                 <div class="rating-average-bar-stars">
@@ -475,9 +510,9 @@
                                 <div class="rating-average-bar-status">
                                     <div id="rating_average_bar_status_star1" class="rating-average-bar-status-value"></div>
                                 </div>
-                                <span class="rating-average-bar-votes">22</span>
+                                <span id="1_star" class="rating-average-bar-votes">( 0 )</span>
                              </div>
-                        </div>
+                        </div-->
                         <!--div class="product-user-rating">
                             <div class="stars-user-rating-container">
                                 <div class="stars-user-rating five-stars">
@@ -516,6 +551,16 @@
                             </svg>
                         </div>
                     </div>
+                    <div class="product-main-buttons content-containers">
+                        <button class="product-buttons" id="add_to_cart">
+                            Add to Cart
+                        </button>
+                        <button class="product-buttons" id="add_to_favorite">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 612 792" enable-background="new 0 0 612 792" xml:space="preserve">
+                                <path stroke-miterlimit="10" d="M307.5,518.4c-0.5-0.4-0.9-0.7-1.2-1c-13.1-14.2-27.9-26.6-43.2-38.3  c-14.8-11.3-29.8-22.4-44.6-33.6c-12.9-9.8-25-20.5-35.8-32.6c-8.8-9.8-16-20.5-20.6-33c-4.6-12.6-6.4-25.6-4.9-38.9  c2.3-20.1,10.9-37.1,26.9-49.9c9-7.2,19.3-11.5,30.4-14.1c17.7-4.1,34.8-2.2,51.3,5.1c14.1,6.3,24.6,16.7,32.6,29.8  c2.5,4.2,4.6,8.6,6.9,12.9c0.3,0.5,0.5,1,1,1.7c0.5-1,0.9-1.9,1.3-2.7c6.3-14,15.3-25.8,27.9-34.8c10.3-7.4,21.7-11.7,34.3-13.3  c9.7-1.2,19.4-1.1,28.9,1.2c23.5,5.6,49,21.8,55.9,55.2c2,9.7,2.4,19.5,1.2,29.4c-0.7,6-2.8,11.8-4.9,17.5  c-6.1,16.2-15.8,29.9-27.7,42.2c-9.3,9.5-19.5,17.8-30,25.8c-14.8,11.4-29.7,22.5-44.4,34c-12.8,10-25.2,20.5-36.4,32.3  C310.7,514.8,309.2,516.6,307.5,518.4z" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
             <div id="view_product_background"></div>
@@ -523,6 +568,11 @@
 
         <!--Notifications-->
         <div id="notifications"></div>
+
+        <!--Footer-->
+        <footer id="footer">
+
+        </footer>
     </main>
 </body>
 </html>

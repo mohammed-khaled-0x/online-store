@@ -101,6 +101,7 @@ loginButton.onclick = async () => {
                     localStorage.setItem('remember_login', 'yes');
                 } else {
                     localStorage.setItem('remember_login', 'no');
+                    notifications('You did not ask the application to remember your login, you will have to log in again if the page is reloaded', 'warn', '60s')
                 }
 
                 const getUserData = async () => {
@@ -146,6 +147,8 @@ loginButton.onclick = async () => {
                             greetingSignup.style.display = 'none';
                             greetingLogout.style.display = 'block';
 
+                            localStorage.setItem('username', response.username);
+
                             notifications('You have signed in successfully', 'ok')
 
                             greetingLogout.onclick = async () => {
@@ -160,7 +163,8 @@ loginButton.onclick = async () => {
                                 })
                                 .then(response => {
 
-                                    localStorage.token = '';
+                                    localStorage.removeItem('token');
+                                    localStorage.removeItem('username');
                                     localStorage['remember_login'] = 'no';
 
                                     greetingLogin.style.display = 'block';

@@ -9,3 +9,4 @@ import './apis/labels-products';
 import './apis/currencies';
 import './apis/view-product';
 import './apis/create-comment';
+import './apis/search-result';

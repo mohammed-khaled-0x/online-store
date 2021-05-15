@@ -95,7 +95,7 @@ const loginSignup = document.getElementsByClassName('login-signup')[0];
 }*/
 
 logName.onclick = () => {
-    if(localStorage.token === '') {
+    if(localStorage.token === '' || localStorage.token === undefined || localStorage.token === null) {
         const logForm = document.getElementById('log_form');
         if(logForm.style.display === "" || logForm.style.display === "none") {
             location.href='#login';

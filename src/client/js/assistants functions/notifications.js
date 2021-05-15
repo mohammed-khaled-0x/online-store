@@ -1,4 +1,4 @@
-const notifications = (value, status) => {
+const notifications = (value, status, time=false) => {
     const notificationsContainer = document.getElementById('notifications');
     notificationsContainer.style.display = 'flex'
     const notifications = document.createElement('div');
@@ -64,7 +64,19 @@ const notifications = (value, status) => {
         </svg>
         `
     }
-    notifications.style.transition = '10s';
+
+    let late = '10s';
+
+    if(time) {
+        late = time;
+    }
+
+    var numberPattern = /\d+/g;
+
+    const timeLate = late.match( numberPattern )
+    console.log(timeLate[0])
+
+    notifications.style.transition = late;
     setTimeout( () => {
         setTimeout( () => {
             notifications.style.opacity = 0;
@@ -74,7 +86,7 @@ const notifications = (value, status) => {
             notifications.style.display = 'none';
             //notificationsContainer.style.display = 'none';
             notificationsContainer.firstElementChild.remove();
-        }, 8000)
+        }, timeLate[0] * 1000 )
     }, 1000 )
     notifications.append(notificationsData);
     notifications.append(notificationsIcon);
