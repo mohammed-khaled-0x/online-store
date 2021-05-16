@@ -1,3 +1,5 @@
+import getCategory from './get-category';
+
 // Categories List
 const categoriesContainer = document.getElementById('categories');
 
@@ -43,14 +45,20 @@ const getCategories = async () => {
     // Categories container
     const categoriesList = document.createElement('ul');
     categoriesList.id = "category_container";
-
+    console.log(mainCategoriesItems);
     for(let category of mainCategoriesItems) {
         // Category item
         const categoryItem = document.createElement('li');
         const categoryItemName = document.createElement('span');
         categoryItemName.innerText = category.name;
-        categoryItem.className = "category-item";
         categoryItemName.className = "category-item-name";
+        categoryItemName.dataset.categoryId = category.id;
+
+        categoryItemName.onclick = () => {
+            getCategory(category.id);
+        }
+
+        categoryItem.className = "category-item";
         categoryItem.dataset.categoryName = category.name;
         const categoryItemBackground = document.createElement('div');
         categoryItemBackground.className = 'category-item-background';

@@ -1,8 +1,8 @@
 import createComment from './create-comment';
 import deleteComment from './delete-comment';
 
-const viewProduct = async (productId) => {
-    await fetch(`https://mystore9.herokuapp.com/products/${productId}/1/en/`)
+const viewProduct = async (productId, currencyId=1, currency="USD") => {
+    await fetch(`https://mystore9.herokuapp.com/products/${productId}/${currencyId}/en/`)
         .then(response => {
             if (response.statusText !== 'ok' || response.status !== 404) {
                 const convertResponse = response.json();
@@ -80,7 +80,7 @@ const viewProduct = async (productId) => {
             const productQuantitySub = document.getElementById('product_quantity_sub');
 
             const productOriginalPrice = document.getElementById('product_original_price');
-            productOriginalPrice.innerText = response['price1'];
+            productOriginalPrice.innerText = `${response['price1']} ${currency}`;
 
             const productDiscount = document.getElementById('product_discount');
             const productAfterDiscount = document.getElementById('product_after_discount');
@@ -88,31 +88,31 @@ const viewProduct = async (productId) => {
 
             if (response.price2) {
                 productDiscount.innerText = (((100 / 100) - (response.price2 / response.price1)) * 100).toFixed() + '%';
-                productAfterDiscount.innerText = response['price2'];
-                productTotalPrice.innerText = response['price2'];
+                productAfterDiscount.innerText = `${response['price2']} ${currency}`;
+                productTotalPrice.innerText = `${response['price2']} ${currency}`;
             } else {
                 productDiscount.innerText = '-'
                 productAfterDiscount.innerText = '-';
-                productTotalPrice.innerText = response['price1'];
+                productTotalPrice.innerText = `${response['price1']} ${currency}`;
             }
 
             productQuantityInput.onkeydown = () => {
                 if (productQuantityInput.value > response.balance) {
                     productQuantityInput.value = response.balance;
                 }
-                productTotalPrice.innerText = productQuantityInput.value * response['price1'];
+                productTotalPrice.innerText = productQuantityInput.value * response['price1'] + ' ' + currency;
             }
             productQuantityInput.onkeypress = () => {
                 if (productQuantityInput.value > response.balance) {
                     productQuantityInput.value = response.balance;
                 }
-                productTotalPrice.innerText = productQuantityInput.value * response['price1'];
+                productTotalPrice.innerText = productQuantityInput.value * response['price1'] + ' ' + currency;
             }
             productQuantityInput.onkeyup = () => {
                 if (productQuantityInput.value > response.balance) {
                     productQuantityInput.value = response.balance;
                 }
-                productTotalPrice.innerText = productQuantityInput.value * response['price1'];
+                productTotalPrice.innerText = productQuantityInput.value * response['price1'] + ' ' + currency;
             }
 
             productQuantityAdd.onclick = () => {
@@ -120,16 +120,16 @@ const viewProduct = async (productId) => {
                     productQuantityInput.value++;
                     productQuantitySub.classList.remove('disable');
                     if (response.price2) {
-                        productTotalPrice.innerText = productQuantityInput.value * response['price2'];
+                        productTotalPrice.innerText = productQuantityInput.value * response['price2'] + ' ' + currency;
                     } else {
-                        productTotalPrice.innerText = productQuantityInput.value * response['price1'];
+                        productTotalPrice.innerText = productQuantityInput.value * response['price1'] + ' ' + currency;
                     }
                 } else if (productQuantityInput.value == response.balance) {
                     productQuantityAdd.classList.add('disable');
                     if (response.price2) {
-                        productTotalPrice.innerText = productQuantityInput.value * response['price2'];
+                        productTotalPrice.innerText = productQuantityInput.value * response['price2'] + ' ' + currency;
                     } else {
-                        productTotalPrice.innerText = productQuantityInput.value * response['price1'];
+                        productTotalPrice.innerText = productQuantityInput.value * response['price1'] + ' ' + currency;
                     }
                 }
             }
@@ -139,17 +139,17 @@ const viewProduct = async (productId) => {
                         productQuantityInput.value--;
                         productQuantityAdd.classList.remove('disable');
                         if (response.price2) {
-                            productTotalPrice.innerText = productQuantityInput.value * response['price2'];
+                            productTotalPrice.innerText = productQuantityInput.value * response['price2'] + ' ' + currency;
                         } else {
-                            productTotalPrice.innerText = productQuantityInput.value * response['price1'];
+                            productTotalPrice.innerText = productQuantityInput.value * response['price1'] + ' ' + currency;
                         }
                     }
                 } else if (productQuantityInput.value == 1) {
                     productQuantitySub.classList.add('disable');
                     if (response.price2) {
-                        productTotalPrice.innerText = productQuantityInput.value * response['price2'];
+                        productTotalPrice.innerText = productQuantityInput.value * response['price2'] + ' ' + currency;
                     } else {
-                        productTotalPrice.innerText = productQuantityInput.value * response['price1'];
+                        productTotalPrice.innerText = productQuantityInput.value * response['price1'] + ' ' + currency;
                     }
                 }
             }

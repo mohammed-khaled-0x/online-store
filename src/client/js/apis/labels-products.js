@@ -1,9 +1,9 @@
 import viewProduct from './view-product';
 const labels = ['trending', 'best-selling', 'new-arrival'];
 
-const labelsProducts = async () => {
+const labelsProducts = async (currencyId=2) => {
     for(let label of labels) {
-        await fetch(`https://mystore9.herokuapp.com/products/${label}/1/en`)
+        await fetch(`https://mystore9.herokuapp.com/products/${label}/${currencyId}/en`)
         .then(response => {
             if(response.statusText !== 'ok' || response.status !== 404) {
                 const convertResponse = response.json();
@@ -88,12 +88,25 @@ const labelsProducts = async () => {
                 const productPrice = document.createElement('div');
                 productPrice.className = 'product-price';
 
+                const totalPrice = document.createElement('span');
+                totalPrice.className = 'total-price';
+
                 const productCurrentPrice = document.createElement('span');
                 productCurrentPrice.classList.add('price', 'product-current-price');
                 productCurrentPrice.innerHTML = product.price1;
 
+                
                 const productNewPrice = document.createElement('span');
                 productNewPrice.classList.add('price', 'product-new-price');
+
+                const productCurrentCode = document.createElement('span');
+                productCurrentCode.classList.add('price', 'product-currency-code');
+
+                if(localStorage.currency) {
+                    productCurrentCode.innerText = localStorage.currency;
+                } else {
+                    productCurrentCode.innerText = 'USD';
+                }
 
                 const discount = document.createElement('span');
                 discount.classList.add('price', 'discount');
@@ -111,15 +124,21 @@ const labelsProducts = async () => {
                     discount.style.display = 'none';
                 }
 
-                productPrice.append(productCurrentPrice);
-                productPrice.append(productNewPrice);
-                productPrice.append(discount);
+                totalPrice.append(productCurrentPrice);
+                totalPrice.append(productNewPrice);
+                totalPrice.append(productCurrentCode);
+                totalPrice.append(discount);
+                productPrice.append(totalPrice);
 
                 const productNameShadow = document.createElement('div');
                 productNameShadow.className = 'product-name-shadow';
 
                 productContainer.onclick = () => {
-                    viewProduct(product.id);
+                    if(localStorage.currencyId) {
+                        viewProduct(product.id, localStorage.currencyId, localStorage.currency);
+                    } else {
+                        viewProduct(product.id);
+                    }
                     const viewProductContainer = document.getElementById('view_product_container');
                     viewProductContainer.style.display = 'flex';
                     setTimeout( () => {
@@ -127,15 +146,51 @@ const labelsProducts = async () => {
                     }, 5)
                 }
 
+                const productUserRatingContainer = document.createElement('div');
+                productUserRatingContainer.className = 'product-user-rating-container';
+
+                productUserRatingContainer.innerHTML = `
+                <svg class="total-rating-stars-view-${product.id}-${label}" data-id="product_user_rating_average_star1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+                    <polygon stroke-width="37.6152" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="  259.216,29.942 330.27,173.919 489.16,197.007 374.185,309.08 401.33,467.31 259.216,392.612 117.104,467.31 144.25,309.08   29.274,197.007 188.165,173.919 "/>
+                </svg>
+                <svg class="total-rating-stars-view-${product.id}-${label}" data-id="product_user_rating_average_star2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+                    <polygon stroke-width="37.6152" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="  259.216,29.942 330.27,173.919 489.16,197.007 374.185,309.08 401.33,467.31 259.216,392.612 117.104,467.31 144.25,309.08   29.274,197.007 188.165,173.919 "/>
+                </svg>
+                <svg class="total-rating-stars-view-${product.id}-${label}" data-id="product_user_rating_average_star3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+                    <polygon stroke-width="37.6152" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="  259.216,29.942 330.27,173.919 489.16,197.007 374.185,309.08 401.33,467.31 259.216,392.612 117.104,467.31 144.25,309.08   29.274,197.007 188.165,173.919 "/>
+                </svg>
+                <svg class="total-rating-stars-view-${product.id}-${label}" data-id="product_user_rating_average_star4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+                    <polygon stroke-width="37.6152" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="  259.216,29.942 330.27,173.919 489.16,197.007 374.185,309.08 401.33,467.31 259.216,392.612 117.104,467.31 144.25,309.08   29.274,197.007 188.165,173.919 "/>
+                </svg>
+                <svg class="total-rating-stars-view-${product.id}-${label}" data-id="product_user_rating_average_star5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+                    <polygon stroke-width="37.6152" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="  259.216,29.942 330.27,173.919 489.16,197.007 374.185,309.08 401.33,467.31 259.216,392.612 117.104,467.31 144.25,309.08   29.274,197.007 188.165,173.919 "/>
+                </svg>
+                `;
+
+                
                 productContainer.append(productImage);
                 productContainer.append(productNameShadow);
+                productContainer.append(productUserRatingContainer);
                 productContainer.append(productPrice);
                 productContainer.append(productName);
                 productsContainer.append(productContainer)
+                
             }
             labelContainer.append(productsContainer);
+            return response;
         })
         .then(response => {
+
+            for(let product of response.results) {
+                if(product['rating_average']) {
+                    const averageStars = Number(product['rating_average'][0]);
+                    for(let stars = 0; stars < averageStars; stars++) {
+                        const star = document.getElementsByClassName(`total-rating-stars-view-${product.id}-${label}`)[stars];
+                        star.style.fill = '#fff';
+                    }
+                }
+            }
+
             const leftProductsSlidersArrow = document.getElementsByClassName('left-product-click');
             const rightProductsSlidersArrow = document.getElementsByClassName('right-product-click');
             const productWidth = document.getElementsByClassName('product')[0];
@@ -155,4 +210,4 @@ const labelsProducts = async () => {
     }
 }
 
-labelsProducts();
+export default labelsProducts;

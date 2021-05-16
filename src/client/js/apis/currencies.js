@@ -1,4 +1,6 @@
-const currencies = async () => {
+import labelsProducts from './labels-products';
+
+const currencies = async (currencyCode='USD') => {
     await fetch(`https://mystore9.herokuapp.com/currencies/exchange/`)
     .then(response => {
         if(response.statusText !== 'ok' || response.status !== 404) {
@@ -20,11 +22,7 @@ const currencies = async () => {
 
         for(let currency of response) {
             const currencyName = document.createElement('span');
-            if(currency.code === 'USD') {
-                currencyName.classList.add('active', 'currency');
-            } else {
-                currencyName.className = 'currency';
-            }
+            currencyName.className = 'currency';
             currencyName.innerText = currency.code;
             currencyName.title = currency.currency;
             currencyName.dataset.id = currency.id;
@@ -44,10 +42,24 @@ const currencies = async () => {
                     curr.classList.remove('active');
                 }
                 item.classList.add('active');
-                localStorage.setItem('curreny', item.dataset.code);
+                localStorage.setItem('currency', item.dataset.code);
+                localStorage.setItem('currencyId', item.dataset.id);
+
+                const allLabels = document.querySelectorAll('.products-section');
+                for(let label of allLabels) {
+                    label.parentNode.removeChild(label);
+                }
+
+                labelsProducts(item.dataset.id);
+
             }
         }
+
+        const defaultCurrencyCode = document.querySelector(`[data-code="${currencyCode}"]`);
+        defaultCurrencyCode.classList.add('active');
+        localStorage.setItem('currencyId', defaultCurrencyCode.dataset.id);
+        localStorage.setItem('currency', defaultCurrencyCode.dataset.code);
     })
 }
 
-currencies();
+export default currencies;

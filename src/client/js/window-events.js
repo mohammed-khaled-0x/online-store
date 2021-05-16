@@ -1,4 +1,6 @@
 import notifications from './assistants functions/notifications';
+import labelsProducts from './apis/labels-products';
+import currencies from './apis/currencies';
 
 window.onload = () => {
     if(localStorage['remember_login'] === 'yes') {
@@ -69,6 +71,17 @@ window.onload = () => {
             })
             
         }
+    } else {
+        localStorage.removeItem('token');
+        localStorage.removeItem('username');        
+    }
+    
+    if(localStorage.currencyId) {
+        currencies(localStorage.currency);
+        labelsProducts(localStorage.currencyId);
+    } else {
+        currencies();
+        labelsProducts();
     }
 }
 

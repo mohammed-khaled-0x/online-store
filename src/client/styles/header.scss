@@ -535,9 +535,10 @@ header {
                 align-items: center;
                 background-image: $main-grdt-bg-c;
                 cursor: pointer;
-                font-size: 1.1em;
+                font-size: 1em;
                 position: relative;
-                width: 100%;
+                width: auto;
+                font-weight: bold;
 
                 &::after {
                     content: '';
@@ -546,7 +547,7 @@ header {
                     background-image: $main-grdt-bg-c;
                     position: absolute;
                     left: 50%;
-                    bottom: -0.25em;
+                    bottom: -0.4em;
                     border-radius: 0.2em 0.2em 0 0;
                     transition: 700ms;
                 }
