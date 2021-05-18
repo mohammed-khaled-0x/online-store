@@ -13,8 +13,7 @@ const deleteComment = async (element) => {
         })
         .then(response => {
             const comment = document.getElementById(`comment_${element.parentElement.id}`);
-            console.log(comment)
-            comment.parentElement.remove(comment);
+            comment.parentElement.removeChild(comment);
         })
     }
 }

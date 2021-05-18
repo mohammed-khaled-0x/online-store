@@ -6,25 +6,24 @@ cartMainContainer.onmouseenter = () => {
     userCartContainer.style.display = 'flex';
     userCartContainer.style.opacity = 1;
     userCart.style.display = 'flex';
-    setTimeout(() => {
+    //setTimeout(() => {
         userCart.style.opacity = 1;
         userCart.style.top = '1.2em';
-    }, 2)
+    //}, 2)
 }
 
 // When leave the Login and signup buttons box it will hide
 cartMainContainer.onmouseleave = () => {
-    const wait = setTimeout( () => {
+    //const wait = setTimeout( () => {
         userCartContainer.style.opacity = 0;
         userCart.style.opacity = 0;
         userCart.style.top = '2.2em';
         userCartContainer.style.display = 'none';
         userCart.style.display = 'none';
-    }, 1000)
+    //}, 1000)
 
     // When the mouse is return to login and signup buttons box
     userCartContainer.onmouseenter = () => {
-        clearTimeout(wait)
-        console.log('test')
+        //clearTimeout(wait)
     }
 }

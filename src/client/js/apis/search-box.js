@@ -16,7 +16,7 @@ searchBox.onkeyup =  async (e, currencyId=1) => {
     if(e.keyCode === 13) {
         const checkSearchResultLabel = document.getElementById('search_result_label');
         if(checkSearchResultLabel) {
-            checkSearchResultLabel.parentNode.removeChild(checkSearchResultLabel);
+            checkSearchResultLabel.parentNode.parentNode.removeChild(checkSearchResultLabel.parentNode);
         }
         if(searchBox.value !== '') {
             if(localStorage.currencyId) {
@@ -43,7 +43,7 @@ searchBox.onkeyup =  async (e, currencyId=1) => {
                 productsContainer.classList.add('products-container', 'container-shadow');
     
                 const sectionTitle = document.createElement('h2');
-                sectionTitle.innerText = 'Search Result';
+                sectionTitle.innerHTML = `Search result for <span>(${searchBox.value})</span>`;
                 sectionTitle.classList.add('section-title');
     
                 productsContainer.append(sectionTitle);
@@ -55,7 +55,7 @@ searchBox.onkeyup =  async (e, currencyId=1) => {
                 return response;
             })
             .then(response => {
-                const responseContainer = document.getElementById(`search_result_label`);
+                const searchResultContainer = document.getElementById(`search_result_label`);
     
                 const productsContainer = document.createElement('div');
                 productsContainer.className = 'products';
@@ -183,13 +183,29 @@ searchBox.onkeyup =  async (e, currencyId=1) => {
                     }
                 }
     
-                responseContainer.append(productsContainer);
+                searchResultContainer.append(productsContainer);
                 setTimeout( () => {
                     window.location.href = '#search_result_label';
                     setTimeout( () => {
                         window.scrollBy(0, -100)
                     }, 400 );
                 }, 100 );
+
+                searchResultContainer.parentElement.style.height = 'auto'
+                const closeViewProduct = document.createElement('span');
+                closeViewProduct.id = 'close_view_search_product';
+                closeViewProduct.innerText = '+';
+                closeViewProduct.onclick = () => {
+                    closeViewProduct.style.animationName = 'close-button-spin';
+                    searchResultContainer.style.opacity = 0;
+                    setTimeout(() => {
+                        closeViewProduct.style.animationName = '';
+                    }, 700);
+                    setTimeout( () => {
+                        searchResultContainer.parentNode.parentNode.removeChild(searchResultContainer.parentNode);
+                    }, 1000)
+                };
+                searchResultContainer.append(closeViewProduct);
 
                 return response;
             })

@@ -55,13 +55,26 @@ const getCategories = async () => {
         categoryItemName.dataset.categoryId = category.id;
 
         categoryItemName.onclick = () => {
-            getCategory(category.id);
+            if(localStorage.currencyId) {
+                getCategory(category.id, category.name, 'categories', localStorage.currencyId);
+            } else {
+                getCategory(category.id, category.name, 'categories', 1);
+            }
         }
 
         categoryItem.className = "category-item";
         categoryItem.dataset.categoryName = category.name;
         const categoryItemBackground = document.createElement('div');
         categoryItemBackground.className = 'category-item-background';
+
+        categoryItemBackground.onclick = () => {
+            if(localStorage.currencyId) {
+                getCategory(category.id, category.name, 'categories', localStorage.currencyId);
+            } else {
+                getCategory(category.id, category.name, 'categories', 1);
+            }
+        }
+        
         categoryItem.append(categoryItemName);
         categoryItem.append(categoryItemBackground);
         categoriesList.append(categoryItem);
@@ -83,9 +96,27 @@ const getCategories = async () => {
                 const subCategoryItemName = document.createElement('span');
                 subCategoryItemName.innerText = subCategory.name;
                 subCategoryItemName.className = "subcategory-item-name";
+
+                subCategoryItemName.onclick = () => {
+                    if(localStorage.currencyId) {
+                        getCategory(subCategory.id, subCategory.name, 'subcategories', localStorage.currencyId);
+                    } else {
+                        getCategory(subCategory.id, subCategory.name, 'subcategories', 1);
+                    }
+                }
+
                 subCategoryItem.className = "subcategory-item";
                 const subCategoryItemBackground = document.createElement('div');
                 subCategoryItemBackground.className = 'subcategory-item-background';
+
+                subCategoryItemBackground.onclick = () => {
+                    if(localStorage.currencyId) {
+                        getCategory(subCategory.id, subCategory.name, 'subcategories', localStorage.currencyId);
+                    } else {
+                        getCategory(subCategory.id, subCategory.name, 'subcategories', 1);
+                    }
+                }
+
                 subCategoryItem.append(subCategoryItemName);
                 subCategoryItem.append(subCategoryItemBackground);
                 subCategoriesList.append(subCategoryItem);

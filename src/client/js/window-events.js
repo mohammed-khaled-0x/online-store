@@ -1,6 +1,7 @@
 import notifications from './assistants functions/notifications';
 import labelsProducts from './apis/labels-products';
 import currencies from './apis/currencies';
+import userAddresses from './apis/user-addresses';
 
 window.onload = () => {
     if(localStorage['remember_login'] === 'yes') {
@@ -64,12 +65,17 @@ window.onload = () => {
 
                             logName.innerText = 'Do you have an account?';
 
-                            notifications('You have log out successfully', 'ok')
+                            notifications('You have log out successfully', 'ok');
+
+                            const accountSettingContainer = document.getElementById('account_setting_container');
+                            accountSettingContainer.style.display = 'none';
                         })
                     }
                 }
             })
-            
+            userAddresses();
+            const accountSettingContainer = document.getElementById('account_setting_container');
+            accountSettingContainer.style.display = 'flex'
         }
     } else {
         localStorage.removeItem('token');

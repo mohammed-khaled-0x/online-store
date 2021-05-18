@@ -503,6 +503,39 @@ header {
 
         }
 
+        .account-setting {
+            width: 2em;
+            height: 100%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            margin: 0 0.5em;
+
+            .account-setting-avatar {
+                width: 100%;
+                height: 100%;
+                @include flex;
+
+                svg {
+                    width: 2em;
+                    height: 2em;
+                    background-image: $main-grdt-bg-c;
+                    border-radius: 50%;
+                    cursor: pointer;
+
+                    &:hover {
+                        animation-name: bounding
+                    }
+
+                    path {
+                        fill: #fff;
+                        stroke-width: 5px;
+                        stroke: #fff;
+                    }
+                }
+            }
+        }
+
         //Log
         .greeting {
             //width: 12em;

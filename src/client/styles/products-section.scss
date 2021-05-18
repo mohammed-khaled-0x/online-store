@@ -472,6 +472,12 @@
                                 font-size: 0.9em;
                                 text-align: justify;
                                 padding: 0.5em 1em;
+                                transition: 0s;
+                            }
+
+                            .edit-comment {
+                                border: 2px solid red;
+                                border-radius: 10px;
                             }
     
                             .comment-edit-container {
@@ -760,9 +766,14 @@
         }
     }
 
-    #search_result_label {
+    #search_result_label, #category_result_label {
         height: auto;
 
+        h2 {
+            span {
+                color: #ccc;
+            }
+        }
         .products {
             height: auto;
             flex-wrap: wrap;
@@ -782,6 +793,28 @@
                     font-size: 1.2em;
                 }
             } 
+        }
+
+        #close_view_search_product, #close_view_category_product {
+            position: absolute;
+            top: 0.6em;
+            right: 0.6em;
+            width: 1em;
+            height: 1em;
+            color: #f00;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            cursor: pointer;
+            transform: rotate(45deg);
+            font-size: 1.5em;
+            font-weight: bold;
+            user-select: none;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease-out;
+            z-index: 1;
         }
     }
 }

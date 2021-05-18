@@ -16,6 +16,7 @@ const logContainer = document.getElementsByClassName('log-container')[0];
 // Show login container while click on login button
 loginGreetingButton.onclick = () => {
     location.href='#login';
+    window.history.pushState('', '', '/');
     logForm.style.display = 'flex';
     logFormContainer.style.width = '35em';
     logFormContainer.style.height = '25em';
@@ -28,6 +29,7 @@ loginGreetingButton.onclick = () => {
 // Show signup container while click on signup button
 signupGreetingButton.onclick = () => {
     location.href='#signup';
+    window.history.pushState('', '', '/');
     logForm.style.display = 'flex';
     logFormContainer.style.width = '45em';
     logFormContainer.style.height = '38em';
@@ -99,6 +101,7 @@ logName.onclick = () => {
         const logForm = document.getElementById('log_form');
         if(logForm.style.display === "" || logForm.style.display === "none") {
             location.href='#login';
+            window.history.pushState('', '', '/');
             logForm.style.display = 'flex';
             logFormContainer.style.width = '35em';
             logFormContainer.style.height = '25em';
@@ -118,27 +121,26 @@ greeting.onmouseenter = () => {
         loginSignupBox.style.display = 'flex';
         loginSignupBox.style.opacity = 1;
         loginSignup.style.display = 'flex';
-        setTimeout(() => {
+        //setTimeout(() => {
             loginSignup.style.opacity = 1;
             loginSignup.style.top = '1.2em';
-        }, 2)
+        //}, 2)
     } 
 }
 
 // When leave the Login and signup buttons box it will hide
 greeting.onmouseleave = () => {
-    const wait = setTimeout( () => {
+    //const wait = setTimeout( () => {
         loginSignupBox.style.opacity = 0;
         loginSignup.style.opacity = 0;
         loginSignup.style.top = '2.2em';
         loginSignupBox.style.display = 'none';
         loginSignup.style.display = 'none';
-    }, 1000)
+    //}, 1000)
 
     // When the mouse is return to login and signup buttons box
     loginSignupBox.onmouseenter = () => {
-        clearTimeout(wait)
-        console.log('test')
+        //clearTimeout(wait)
     }
 }
 
