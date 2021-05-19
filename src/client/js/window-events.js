@@ -1,7 +1,7 @@
 import notifications from './assistants functions/notifications';
 import labelsProducts from './apis/labels-products';
 import currencies from './apis/currencies';
-import userAddresses from './apis/user-addresses';
+import getShipping from './apis/shipping';
 
 window.onload = () => {
     if(localStorage['remember_login'] === 'yes') {
@@ -73,7 +73,6 @@ window.onload = () => {
                     }
                 }
             })
-            userAddresses();
             const accountSettingContainer = document.getElementById('account_setting_container');
             accountSettingContainer.style.display = 'flex'
         }
@@ -85,10 +84,14 @@ window.onload = () => {
     if(localStorage.currencyId) {
         currencies(localStorage.currency);
         labelsProducts(localStorage.currencyId);
+        getShipping(localStorage.currencyId)
     } else {
         currencies();
         labelsProducts();
+        getShipping();
     }
+
+    
 }
 
 window.onbeforeunload = () => {

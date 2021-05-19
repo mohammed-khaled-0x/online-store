@@ -1,5 +1,4 @@
 import notifications from '../assistants functions/notifications';
-import userAddresses from './user-addresses';
 
 // Login button
 const loginButton = document.getElementById('login_button')
@@ -180,14 +179,10 @@ loginButton.onclick = async () => {
                                     accountSettingContainer.style.display = 'none';
                                 })
                             }
-                        }
-
-                        
-
+                        }                        
                     })
                 }
                 getUserData();
-                userAddresses();
 
                 const accountSettingContainer = document.getElementById('account_setting_container');
                 accountSettingContainer.style.display = 'flex';

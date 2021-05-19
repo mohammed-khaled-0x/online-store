@@ -18,7 +18,9 @@ import './js/localstorage';
 import './js/show-hide-password';
 import './js/window-events';
 import './js/cart';
-import './js/apis/delete-comment';
+import './js/account-setting-list';
 
 //import apis
 import './js/collecting-apis';
+import './js/apis/delete-comment';
+import './js/apis/add-addresses';

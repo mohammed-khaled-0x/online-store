@@ -510,6 +510,14 @@ header {
             justify-content: center;
             align-items: center;
             margin: 0 0.5em;
+            position: relative;
+
+            &:hover {
+
+                .account-setting-avatar svg {
+                    box-shadow: 0 0 10px #ccc;
+                }
+            }
 
             .account-setting-avatar {
                 width: 100%;
@@ -523,16 +531,183 @@ header {
                     border-radius: 50%;
                     cursor: pointer;
 
-                    &:hover {
-                        animation-name: bounding
-                    }
-
                     path {
                         fill: #fff;
                         stroke-width: 5px;
                         stroke: #fff;
                     }
                 }
+            }
+
+            .account-setting-list-container {
+                width: 12em;
+                height: 10em;
+                flex-direction: column;
+                position: absolute;
+                top: 3em;
+                opacity: 0;
+                display: none;
+                justify-content: center;
+                align-items: center;
+
+                .account-setting-list {
+                    width: 100%;
+                    height: 5em;
+                    display: none;
+                    justify-content: center;
+                    align-items: center;
+                    opacity: 0;
+                    flex-direction: column;
+                    background-color: $main-bg-color;
+                    position: absolute;
+                    top: 2.2em;
+                    border-radius: 1em;
+                    animation-fill-mode: forwards;
+                    animation-duration: 500ms;
+                    animation-timing-function: ease-in-out;
+                    box-shadow: $main-shadow;
+
+                    .arrow {
+                        position: absolute;
+                        top: -0.8em;
+                        //right: 1em;
+                        border-top: none;
+                        border-left: 15px solid transparent;
+                        border-right: 15px solid transparent;
+                        border-bottom: 15px solid #fff;
+                    }
+
+                    span {
+                        font-weight: bold;
+                        margin: 0.2em 0;
+                        cursor: pointer;
+                        
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+
+            .user-setting {
+                width: 30em;
+                height: 15em;
+                background: #fff;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 3;
+                border-radius: 10px;
+            }
+
+            #user_addresses_container {
+                display: none;
+                justify-content: space-between;
+                align-items: center;
+                flex-direction: column;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0.5em;
+
+                .addresses-container {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    padding: 0 1em;
+                    overflow: hidden scroll;
+
+                    .no-addresses {
+                        color: #aaa;
+                        display: inline;
+                    }
+
+                    .addresses-elements {
+                        display: none;
+                        margin: 0.1em 0;
+                        width: 100%;
+                        border-top: 1px solid #ccc;
+                        padding: 0.1em;
+                        justify-content: flex-start;
+                        align-items: center;
+
+                        &:first-of-type {
+                            border-top: none;
+                        }
+                    }
+                }
+
+                .addresses-inputs {
+                    width: 100%;
+                    height: 4em;
+                    border-top: 1px solid #ccc;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 0 1em;
+
+                    &::before {
+                        content: "";
+                        background-image: $main-grdt-bg-c;
+                        width: 22em;
+                        height: 2px;
+                        position: absolute;
+                        bottom: 0.6em;
+                    }
+
+                    input[type='text'] {
+                        //border-bottom: 2px solid #000;
+                        width: 100%;
+                        height: 2em;
+                        padding: 0 0.5em;
+
+                        &::placeholder {
+                            color: #aaa;
+                        }
+                    }
+
+                    #shipping_cities {
+                        z-index: 2;
+                        min-width: 4em;
+                        width: auto;
+                        cursor: pointer;
+                    }
+
+                    input[type='button'] {
+                        background: transparent;
+                        height: 2em;
+                        width: 2em;
+                        font-size: 1.4em;
+                        color: rgb(0, 204, 0);
+                        font-weight: bold;
+                        cursor: pointer;
+
+                        &:hover {
+                            color: rgb(0, 104, 0);
+                            transition: 0s;
+                        }
+
+                        &:active {
+                            color: rgb(0, 255, 0);
+                            opacity: 0.4;
+                        }
+                    }
+                }
+            }
+
+            .account-setting-background {
+                width: 100%;
+                height: 100vh;
+                background: #000;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 2;
+                opacity: 0;
+                display: none;
             }
         }
 
