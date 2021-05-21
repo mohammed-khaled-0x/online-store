@@ -13,18 +13,24 @@ window.onclick = (e) => {
     // Check if client click on search box to open drop list.
     // Make sure that the drop list still open while click on it.
     let checkSearchBox, checkDropList;
-    for(let i of e.path) {
-        if(i.id === 'search_box') {
-            checkSearchBox = true;
-            break;
-        } else if(i.id === 'search_result_container') {
-            checkDropList = true;
-            break;
-        } else {
-            checkSearchBox = false;
-            checkDropList = false;
-        }
-    };
+    if(e.path) {
+        for(let i of e.path) {
+            if(i.id === 'search_box') {
+                checkSearchBox = true;
+                break;
+            } else if(i.id === 'search_result_container') {
+                checkDropList = true;
+                break;
+            } else {
+                checkSearchBox = false;
+                checkDropList = false;
+            }
+        };
+    } else if(e.target.id === 'search_box' || e.target.id === 'search_result_placeholder' || e.target.className === 'result-container') {
+        checkSearchBox = true;
+        console.log('checkwd')
+    }
+    console.log(e)
 
     if(checkSearchBox) {
         searchBox.style.borderBottomLeftRadius = 0;

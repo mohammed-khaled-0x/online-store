@@ -13,7 +13,10 @@
     scroll-behavior: smooth;
 }
 
-body {background-color: #fff; overflow-x: hidden;}
+body {
+    background-color: #fff;
+    //overflow-x: hidden;
+}
 
 // Every main container shadow
 .container-shadow {
@@ -28,7 +31,9 @@ body {background-color: #fff; overflow-x: hidden;}
     background-size: 15em;
     min-height: 100vh;
     height: auto;
-    width: 100vw;
+    //width: 100vw;
+    min-width: 75em;
+    width: auto;
     padding-top: 5em;
     display: flex;
     justify-content: flex-start;

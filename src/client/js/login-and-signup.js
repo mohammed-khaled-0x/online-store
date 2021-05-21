@@ -44,7 +44,7 @@ signupGreetingButton.onclick = () => {
 // When click the cancel button or background form should close login and signup form
 
 // Close button
-const closeButton = document.getElementsByClassName('close-button')[0];
+const closeButton = document.getElementsByClassName('close-log-button')[0];
 // When click the cancel button
 closeButton.onclick = () => {
     const dotError = document.querySelectorAll('[data-input]');

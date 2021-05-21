@@ -204,6 +204,7 @@
                         font-weight: bold;
                         text-align: center;
                         cursor: pointer;
+                        -moz-appearance: textfield;
                     }
 
                     #product_quantity_input::-webkit-outer-spin-button,

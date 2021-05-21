@@ -131,7 +131,7 @@
                         <path d="m470.433 103.407-340.081-5.136-9.329-28.271a46.542 46.542 0 0 0 -44.164-32h-35.14a10 10 0 1 0 0 20h35.14a26.578 26.578 0 0 1 25.179 18.289l11.781 35.611 54.359 164.28-4.9 11.865a46.293 46.293 0 0 0 42.984 63.955h203.019a10 10 0 0 0 0-20h-203.019a26.312 26.312 0 0 1 -24.49-36.384l3.844-9.272 219.733-22.5a57 57 0 0 0 49.58-43.376l25.078-104.738a10 10 0 0 0 -9.574-12.323zm-34.955 112.415a36.988 36.988 0 0 1 -32.169 28.144l-217.365 22.274-48.936-147.866 320.641 4.843z" fill="url(#c)"/>
                     </svg>
                     <div id="number_of_purchases"><span>0</span></div>
-                    <div id="user_cart_container">
+                    <!--div id="user_cart_container">
                         <div id="user_cart">
                             <div class="arrow"></div>
                             <div id="cart_content_conteiner">
@@ -163,6 +163,29 @@
                                 </div>
                             </div>
                         </div>
+                    </div-->
+                    <div id="user_cart_container">
+                        <div id="user_cart">
+                            <div class="arrow"></div>
+                            <div id="cart_content_conteiner">    
+                                <div class="cart-titles-container">
+                                    <span class="cart-product-name-title">Product Name</span>
+                                    <span>Quantitiy</span>
+                                    <span>Final Price</span>
+                                    <span>Total Price</span>
+                                </div>
+                                <div class="cart-products-details">
+                                    <div class="cart-product-name-container">
+                                        <span class="curt-product-image"></span>
+                                        <span>Product1</span>
+                                    </div>
+                                    <span>2</span>
+                                    <span>12</span>
+                                    <span>24</span>
+                                </div>
+                                <span class="cart-manage">manage...</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!--Account-Setting Container-->
@@ -179,11 +202,17 @@
                     <div class="account-setting-list-container">
                         <div class="account-setting-list">
                             <div class="arrow"></div>
-                            <span id="user_addresses_name">Addresses</span>
-                            <span id="change_password_name">Change Password</span>
+                            <span id="user_addresses_name">Address control</span>
+                            <span id="change_password_name">Change password</span>
                         </div>
                     </div>
                     <div id="user_addresses_container" class="user-setting">
+                        <div id="user_addresses_container_title_container" class="title-container">
+                            <h2 id="user_addresses_container_title" class="title">
+                                Address control
+                            </h2>
+                            <span class="close-setting close-address-button">+</span>
+                        </div>
                         <div class="addresses-container">
                             <span class="no-addresses">There are no addresses, add now</span>
                         </div>
@@ -194,7 +223,20 @@
                             <input type="button" value="+" class="add-addresses" id="add_address">
                         </div>
                     </div>
-                    <!--div id="change_password_container" class="user-setting"></div-->
+                    <div id="change_password_container" class="user-setting">
+                        <div id="change_password_container_title_container" class="title-container">
+                            <h2 id="change_password_container_title" class="title">
+                                Change password
+                            </h2>
+                            <span class="close-setting close-password-button">+</span>
+                        </div>
+                        <form class="password-container">
+                            <input id="type_old_password" type="password" placeholder="type old password...">
+                            <input id="type_new_password" type="password" placeholder="type new password...">
+                            <input id="re_type_new_password" type="password" placeholder="re-type new password...">
+                        </form>
+                        <input id="change_password_button" type="button" value="Change Password">
+                    </div>
                     <div class="account-setting-background"></div>
                 </div>
                 <!--Greeting Container-->
@@ -227,7 +269,7 @@
                             <!--Login and signup inputs container-->
                             <div class="log-container">
                                 <!--Close button-->
-                                <div class="close-button">+</div>
+                                <div class="close-log-button">+</div>
                                 <!--Login container-->
                                 <div id="login" class="mutual">
                                     <h3>Login</h3>
@@ -250,7 +292,7 @@
                                         </div>
                                         <div class="input remember-login-container">
                                             <input type="checkbox" id="remember_login">
-                                            <span>Remember me again</span>
+                                            <label id="remember_login_chekbox_label" for="remember_login">Remember me again</label>
                                         </div>
                                         <div class="submit">
                                             <input type="button" value="login" id="login_button">

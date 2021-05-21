@@ -11,8 +11,6 @@ const getShipping = async (currencyId=1) => {
         }
     })
     .then(response => {
-        const addresses = [];
-
         const shippingCities = document.getElementById('shipping_cities');
 
         for(let address of response) {
