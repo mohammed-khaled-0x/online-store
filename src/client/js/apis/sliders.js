@@ -18,8 +18,9 @@ const getSliders = async () => {
     .then(response => {
         const slides = document.createElement('div');
         slides.id = 'slides';
-        slides.style.width = `calc(${sliderContainer.offsetWidth}px * ${response.length})`;
-        slides.style.height = `${sliderContainer.offsetHeight}px`;
+        //slides.style.width = `calc(${sliderContainer.offsetWidth}px * ${response.length})`;
+        //slides.style.height = `${sliderContainer.offsetHeight}px`;
+        slides.style.height = `100%`;
         const ballsContainer = document.createElement('div');
         ballsContainer.className = 'balls-container';
         for(let slider in response) {
@@ -51,15 +52,16 @@ const getSliders = async () => {
             slides.style.transition = '1s';
             if(index < sliders.length - 1) {
                 index++;
-                slides.style.left = `calc( -${slideWidth}px * ${index} )`;
+                //slides.style.left = `calc( -${slideWidth}px * ${index} )`;
+                slides.scrollBy(slides.firstChild.offsetWidth, 0);
                 for(let ball of slideBall) {
                     ball.classList.remove('active');
                 }
                 slideBall[index].classList.add('active');
             } else {
                 index = 0;
-                slides.style.transition = '200ms';
-                slides.style.left = `calc( -${slideWidth}px * ${index} )`;
+                //slides.style.left = `calc( -${slideWidth}px * ${index} )`;
+                slides.scrollTo(0, 0);
                 for(let ball of slideBall) {
                     ball.classList.remove('active');
                 }
@@ -93,16 +95,18 @@ const getSliders = async () => {
         const rightSlideClick = document.getElementById('right_slide_click');
 
         leftSlideClick.onclick = () => {
+            
                 if(index > 0) {
                     index--;
-                    slides.style.left = `calc( -${slideWidth}px * ${index} )`;
+                    //slides.style.left = `calc( -${slideWidth}px * ${index} )`;
+                    slides.scrollBy(-slides.firstChild.offsetWidth, 0);
                     for(let ball of slideBall) {
                         ball.classList.remove('active');
                     }
                     slideBall[index].classList.add('active');
                 } else {
                     index = sliders.length - 1
-                    slides.style.left = `calc( -${slideWidth}px * ${index} )`;
+                    slides.scrollTo(slides.firstChild.offsetWidth * slides.childElementCount, 0);
                     for(let ball of slideBall) {
                         ball.classList.remove('active');
                     }
@@ -111,16 +115,17 @@ const getSliders = async () => {
         }
 
         rightSlideClick.onclick = () => {
+            
                 if(index < sliders.length - 1) {
                     index++;
-                    slides.style.left = `calc( -${slideWidth}px * ${index} )`;
+                    slides.scrollBy(slides.firstChild.offsetWidth, 0);
                     for(let ball of slideBall) {
                         ball.classList.remove('active');
                     }
                     slideBall[index].classList.add('active');
                 } else {
                     index = 0;
-                    slides.style.left = `calc( -${slideWidth}px * ${index} )`;
+                    slides.scrollTo(0, 0);
                     for(let ball of slideBall) {
                         ball.classList.remove('active');
                     }

@@ -12,10 +12,17 @@
 
     #view_product_content {
         position: fixed;
-        top: calc( (100vh - 40em) / 2 );
-        left: calc( (100vw - 60em) / 2 );
-        width: 60em;
-        height: 40em;
+        //top: calc( (100vh - 40em) / 2 );
+        //left: calc( (100vw - 60em) / 2 );
+        //width: 60em;
+        //height: 40em;
+        overflow: hidden;
+        height: 85vh;
+        width: 85vw;
+        max-width: 60em;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         border-radius: 1em;
         background-color: $main-bg-color;
         z-index: 3;
@@ -500,10 +507,9 @@
                 justify-content: space-between;
                 align-items: center;
                 position: absolute;
-                bottom: 0;
                 background-color: $main-bg-color;
                 position: sticky;
-                bottom: 0;
+                bottom: -4em;
                 padding: 1em 0;
 
                 .product-buttons {
@@ -654,7 +660,7 @@
                 width: 12em;
                 margin: 0 0.5em;
                 flex: none;
-                scroll-snap-align: start;
+                scroll-snap-align: center;
                 position: relative;
                 cursor: pointer;
 

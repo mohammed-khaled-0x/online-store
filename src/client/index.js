@@ -5,6 +5,12 @@ import './styles/header.scss';
 import './styles/top-section.scss';
 import './styles/products-section.scss';
 import './styles/notifications.scss';
+import './styles/media-rules.scss';
+
+//import apis
+import './js/collecting-apis';
+import './js/apis/delete-comment';
+import './js/apis/add-addresses';
 
 //import javascript
 import './js/animation';
@@ -16,11 +22,8 @@ import './js/form-inputs';
 //import './js/loading';
 import './js/localstorage';
 import './js/show-hide-password';
-import './js/window-events';
 import './js/cart';
 import './js/account-setting-list';
+import './js/media/media-rules';
+import './js/window-events';
 
-//import apis
-import './js/collecting-apis';
-import './js/apis/delete-comment';
-import './js/apis/add-addresses';

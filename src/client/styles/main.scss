@@ -32,13 +32,13 @@ body {
     min-height: 100vh;
     height: auto;
     //width: 100vw;
-    min-width: 75em;
+    //min-width: 75em;
     width: auto;
     padding-top: 5em;
-    display: flex;
+    /*display: flex;
     justify-content: flex-start;
     align-items: center;
-    flex-direction: column;
+    flex-direction: column;*/
 }
 
 
@@ -56,4 +56,5 @@ body {
     width: 80%;
     min-width: 66em;
     max-width: 70%;
+    margin: 0 auto;
 }

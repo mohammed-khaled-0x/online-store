@@ -887,10 +887,15 @@ header {
 
             .container {
                 width: 100%;
+                height: 100%;
                 display: flex;
                 justify-content: center;
                 align-items: flex-start;
                 flex-direction: column;
+
+                .hello {
+                    padding-top: 0.2em;
+                }
             }
 
             .check-account {
@@ -903,8 +908,11 @@ header {
                 font-size: 1em;
                 position: relative;
                 width: auto;
+                height: 100%;
                 font-weight: bold;
-
+                white-space: nowrap;
+                padding-bottom: 0.2em;
+                
                 &::after {
                     content: '';
                     width: 0;
@@ -912,7 +920,7 @@ header {
                     background-image: $main-grdt-bg-c;
                     position: absolute;
                     left: 50%;
-                    bottom: -0.4em;
+                    bottom: 0;
                     border-radius: 0.2em 0.2em 0 0;
                     transition: 700ms;
                 }
@@ -974,7 +982,9 @@ header {
                     font-weight: bold;
 
                     &:hover {
-                        filter: brightness(0.92);
+                        //filter: brightness(0.92);
+                        filter: brightness(1.2);
+                        opacity: 0.6;
                         text-decoration: underline;
                     }
                 }

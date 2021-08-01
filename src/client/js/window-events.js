@@ -3,6 +3,7 @@ import labelsProducts from './apis/labels-products';
 import currencies from './apis/currencies';
 import getShipping from './apis/shipping';
 import getAddresses from './apis/get-addresses';
+import onresize from './media/media-rules';
 
 window.onload = () => {
     if(localStorage['remember_login'] === 'yes') {
@@ -95,7 +96,8 @@ window.onload = () => {
     if(localStorage.token) {
         getAddresses();
     }
-    
+
+    setTimeout(onresize(), 2000)
 }
 
 window.onbeforeunload = () => {
