@@ -15,6 +15,11 @@ const currencies = async (currencyCode='USD') => {
     .then(response => {
         console.log(response);
 
+        const checkCurrencies = document.getElementById('currencies');
+        if(checkCurrencies) {
+            checkCurrencies.remove();
+        }
+
         const supBar = document.getElementsByClassName('sup-bar')[0];
 
         const currenciesContainer = document.createElement('div');
@@ -23,11 +28,23 @@ const currencies = async (currencyCode='USD') => {
         for(let currency of response) {
             const currencyName = document.createElement('span');
             currencyName.className = 'currency';
-            currencyName.innerText = currency.code;
-            currencyName.title = currency.currency;
+            if(localStorage.lang === 'en') {
+                currencyName.innerText = currency.code;
+                currencyName.title = currency.currency;
+                currencyName.dataset.currency = currency.currency;
+                currencyName.dataset.code = currency.code;
+            } else if(localStorage.lang === 'ar') {
+                currencyName.innerText = currency.code;
+                currencyName.title = currency['currency_ar'];
+                currencyName.dataset.currency = currency['currency_ar'];
+                currencyName.dataset.code = currency.code;
+            } else {
+                currencyName.innerText = currency.code;
+                currencyName.title = currency.currency;
+                currencyName.dataset.currency = currency.currency;
+                currencyName.dataset.code = currency.code;
+            }
             currencyName.dataset.id = currency.id;
-            currencyName.dataset.currency = currency.currency;
-            currencyName.dataset.code = currency.code;
             currenciesContainer.append(currencyName);
         }
         supBar.append(currenciesContainer);

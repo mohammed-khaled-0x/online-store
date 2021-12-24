@@ -1,0 +1,175 @@
+@import "./import/mixin";
+@import "./import/variable";
+
+.mobile-nav {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 88888;
+    //height: 5em;
+    height: 14vw;
+    width: 100%;
+    //background-image: $main-grdt-bg-c;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: none;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+
+    
+    #mobile_search {
+        width: 90vw;
+        height: 75vh;
+        position: fixed;
+        top: 150%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        border-radius: 1em;
+        background-color: #fff;
+        
+        .mobile-close-btn {        
+            position: fixed;
+            top: 1vh;
+            left: 82vw;
+            z-index: 9;
+            font-size: 2em;
+            font-weight: bold;
+            color: #a00;
+            cursor: pointer;
+            transform: rotate(45deg);
+            &:hover {
+                color: #f00;
+                text-shadow: 0 2px 10px rgba(255,0,0,0.2);
+                -webkit-text-shadow: 0 2px 10px rgba(255,0,0,0.2);
+                -moz-text-shadow: 0 2px 10px rgba(255,0,0,0.2);
+            }
+        }
+
+        #mobile_search_container {
+            width: 95%;
+            height: 95%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+
+            #mobile_search_tool_container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 5em;
+                margin-top: 2em;
+                position: relative;
+                
+                &::after {
+                    content: 'x';
+                    position: absolute;
+                    top: 50%;
+                    right: 6%;
+                    transform: translateY(-50%);
+                    color: #fff;
+                    cursor: pointer;
+                    font-size: 1.4em;
+                }
+
+                #mobile_search_tool {
+                    background-image: $main-grdt-bg-c;
+                    width: 100%;
+                    height: 60%;
+                    border-radius: 1em;
+                    caret-color: #fff;
+                    color: #fff;
+                    padding: 0 1em;
+                    letter-spacing: 1px;
+                    font-style: italic;
+
+                    &::placeholder {
+                        color: #fff;
+                        opacity: 0.6;
+                    }
+                }
+            }
+        }
+    }
+    
+    .tab-icon-container {
+        height: 100%;
+        width: 100%;
+        @include flex;
+
+        svg {
+            /*color: #fff !important;
+            stroke: #fff !important;*/
+            height: 60%;
+            cursor: pointer;
+            
+            .gr-c {
+                //stop-color: #000 !important;
+            }
+        }
+    }
+
+    #home_tab_btn {
+        stop:first-child {
+            stop-color: #fdc830;
+        }
+        stop:last-child {
+            stop-color: #f37335;
+        }
+    }
+    
+    #search_tab_btn, #cart_tab_btn, #avatar_tab_btn {
+        stop:first-child {
+            stop-color: #000 !important;
+        }
+        stop:last-child {
+            stop-color: #000 !important;
+        }
+    }
+
+    #home_tab_btn, #avatar_tab_btn {
+        fill: #fff;
+    }
+
+    #active_tab {
+        width: 1em;
+        height: 1em;
+        border: 2px solid;
+        position: absolute;
+    }
+}
+
+.mobile-container-background {
+    border: 5px solid red;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.active-tab {
+    animation-name: active-tab;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    animation-direction: normal;
+}
+
+@keyframes active-tab {
+    100% {
+        top: 50%;
+        opacity: 1;
+    }
+}

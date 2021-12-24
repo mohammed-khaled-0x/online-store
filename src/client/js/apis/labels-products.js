@@ -1,9 +1,13 @@
 import viewProduct from './view-product';
+import tile from '../../assets/icons/tile.png';
+import slider from '../../assets/icons/sliders.png'
+import viewOption from '../assistants functions/view-option';
+
 const labels = ['trending', 'best-selling', 'new-arrival'];
 
-const labelsProducts = async (currencyId=2) => {
+const labelsProducts = async (currencyId=2, lang='en') => {
     for(let label of labels) {
-        await fetch(`https://mystore9.herokuapp.com/products/${label}/${currencyId}/en`)
+        await fetch(`https://mystore9.herokuapp.com/products/${label}/${currencyId}/${lang}`)
         .then(response => {
             if(response.statusText !== 'ok' || response.status !== 404) {
                 const convertResponse = response.json();
@@ -27,30 +31,36 @@ const labelsProducts = async (currencyId=2) => {
             sectionTitle.innerText = label.split('-').join(' ');
             sectionTitle.classList.add('section-title');
 
+            const viewOptionIcon = document.createElement('div');
+            viewOptionIcon.className = 'view-option';
+            viewOptionIcon.dataset.option = 'tile';
+            viewOptionIcon.style.backgroundImage = `url(${tile})`;
+
             const leftArrowBackground = document.createElement('div');
             leftArrowBackground.className = 'arrow-background';
             const rightArrowBackground = document.createElement('div');
             rightArrowBackground.className = 'arrow-background';
 
             const leftArrowContainer = document.createElement('div');
-            leftArrowContainer.classList.add('arrow', 'left-product-click');
+            leftArrowContainer.classList.add('arrow', 'left-product-click', 'products-arrow');
             leftArrowContainer.innerHTML = `
             <div class="arrow-background"></div>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="transform: rotate(180deg);">
                 <path d="M0 0h24v24H0V0z" fill="none"></path>
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"></path>
-            </svg>`
+            </svg>`;
 
             const rightArrowContainer = document.createElement('div');
-            rightArrowContainer.classList.add('arrow', 'right-product-click');
+            rightArrowContainer.classList.add('arrow', 'right-product-click', 'products-arrow');
             rightArrowContainer.innerHTML = `
             <div class="arrow-background"></div>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path d="M0 0h24v24H0V0z" fill="none"></path>
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"></path>
-            </svg>`
-
+            </svg>`;
+        
             productsContainer.append(sectionTitle);
+            productsContainer.append(viewOptionIcon);
             productsContainer.append(leftArrowContainer);
             productsContainer.append(rightArrowContainer);
             productsSection.append(productsContainer);
@@ -135,9 +145,9 @@ const labelsProducts = async (currencyId=2) => {
 
                 productContainer.onclick = () => {
                     if(localStorage.currencyId) {
-                        viewProduct(product.id, localStorage.currencyId, localStorage.currency);
+                        viewProduct(product.id, localStorage.currencyId, localStorage.currency, localStorage.lang);
                     } else {
-                        viewProduct(product.id);
+                        viewProduct(product.id, lang);
                     }
                     const viewProductContainer = document.getElementById('view_product_container');
                     viewProductContainer.style.display = 'flex';
@@ -206,6 +216,8 @@ const labelsProducts = async (currencyId=2) => {
                     rightArrow.parentElement.lastElementChild.scrollBy(productWidth.offsetWidth * 2, 0)
                 }
             }
+
+            viewOption();
         })
     }
 }

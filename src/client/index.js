@@ -6,6 +6,10 @@ import './styles/top-section.scss';
 import './styles/products-section.scss';
 import './styles/notifications.scss';
 import './styles/media-rules.scss';
+import './styles/mobile-nav.scss';
+
+//mport languages
+import './styles/languages/ar.scss';
 
 //import apis
 import './js/collecting-apis';
@@ -26,4 +30,7 @@ import './js/cart';
 import './js/account-setting-list';
 import './js/media/media-rules';
 import './js/window-events';
+import './js/mobile-nav/active-tab';
 
+import './js/languages/ar';
+import './js/languages/en';

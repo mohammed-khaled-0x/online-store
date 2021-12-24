@@ -247,7 +247,13 @@ searchBox.onkeyup =  async (e, currencyId=1) => {
         }, 800 );
         // Placeholder of search result container
         const searchResultPlaceholder = document.getElementById('search_result_placeholder');
-        searchResultPlaceholder.innerText = 'If you want to search for anything, look here, everything you want is waiting for you now, then what are you waiting for?'
+        if(localStorage.lang === 'en') {
+            searchResultPlaceholder.innerText = 'If you want to search for anything, look here, everything you want is waiting for you now, then what are you waiting for?'
+        } else if(localStorage.lang === 'ar') {
+            searchResultPlaceholder.innerText =  'إذا كنت تريد البحث عن أي شيء ، انظر هنا ، كل ما تريده في انتظارك الآن ، فماذا تنتظر؟';
+        } else {
+            searchResultPlaceholder.innerText = 'If you want to search for anything, look here, everything you want is waiting for you now, then what are you waiting for?'
+        }
         setTimeout( () => {
             searchResultPlaceholder.style.display = 'inline';
         },1)
@@ -408,6 +414,13 @@ searchBox.onkeyup =  async (e, currencyId=1) => {
                 }, 1)
         
                 searchResultPlaceholder.innerText = 'If you want to search for anything, look here, everything you want is waiting for you now, then what are you waiting for?'
+                if(localStorage.lang === 'en') {
+                    searchResultPlaceholder.innerText = 'If you want to search for anything, look here, everything you want is waiting for you now, then what are you waiting for?'
+                } else if(localStorage.lang === 'ar') {
+                    searchResultPlaceholder.innerText =  'إذا كنت تريد البحث عن أي شيء ، انظر هنا ، كل ما تريده في انتظارك الآن ، فماذا تنتظر؟';
+                } else {
+                    searchResultPlaceholder.innerText = 'If you want to search for anything, look here, everything you want is waiting for you now, then what are you waiting for?'
+                }
                 setTimeout( () => {
                     const searchResultContainer = document.getElementById('search_result_container');
                     searchResultContainer.style.minHeight = '10em';
@@ -429,8 +442,13 @@ searchBox.onkeydown = (e) => {
     // Result of search
     if(e.keyCode !== 13) {
         if(searchBox.value > 0) {
-            const searchResultPlaceholder = document.getElementById('search_result_placeholder');
-            searchResultPlaceholder.innerText = 'please wait...';
+            if(localStorage.lang === 'en') {
+                searchResultPlaceholder.innerText = 'please wait...';
+            } else if(localStorage.lang === 'ar') {
+                searchResultPlaceholder.innerText =  'إنتظر من فضلك...';
+            } else {
+                searchResultPlaceholder.innerText = 'please wait...';
+            }
             const resultOfSearch = document.getElementById('result_of_search');
             resultOfSearch.style.opacity = 0;
             const searchResultContainer = document.getElementById('search_result_container');
@@ -456,7 +474,13 @@ searchBox.onclick = () => {
 
         // Placeholder of search result container
         const searchResultPlaceholder = document.getElementById('search_result_placeholder');
-        searchResultPlaceholder.innerText = 'please wait...';
+        if(localStorage.lang === 'en') {
+            searchResultPlaceholder.innerText = 'please wait...';
+        } else if(localStorage.lang === 'ar') {
+            searchResultPlaceholder.innerText = 'إنتظر من فضلك...';
+        } else {
+            searchResultPlaceholder.innerText = 'please wait...';
+        }
         // Result of search
         const resultOfSearch = document.getElementById('result_of_search');
         resultOfSearch.style.opacity = 0;
@@ -594,7 +618,13 @@ searchBox.onclick = () => {
             resultOfSearch.style.display = 'none';
         }, 1)
 
-        searchResultPlaceholder.innerText = 'If you want to search for anything, look here, everything you want is waiting for you now, then what are you waiting for?'
+        if(localStorage.lang === 'en') {
+            searchResultPlaceholder.innerText = 'If you want to search for anything, look here, everything you want is waiting for you now, then what are you waiting for?'
+        } else if(localStorage.lang === 'ar') {
+            searchResultPlaceholder.innerText =  'إذا كنت تريد البحث عن أي شيء ، انظر هنا ، كل ما تريده في انتظارك الآن ، فماذا تنتظر؟';
+        } else {
+            searchResultPlaceholder.innerText = 'If you want to search for anything, look here, everything you want is waiting for you now, then what are you waiting for?'
+        }
         setTimeout( () => {
             const searchResultContainer = document.getElementById('search_result_container');
             searchResultContainer.style.minHeight = '10em';

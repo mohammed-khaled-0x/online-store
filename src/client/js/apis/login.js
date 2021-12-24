@@ -101,7 +101,13 @@ loginButton.onclick = async () => {
                     localStorage.setItem('remember_login', 'yes');
                 } else {
                     localStorage.setItem('remember_login', 'no');
-                    notifications('You did not ask the application to remember your login, you will have to log in again if the page is reloaded', 'warn', '60s')
+                    if(localStorage.lang === 'en') {
+                        notifications('You did not ask the application to remember your login, you will have to log in again if the page is reloaded', 'warn', '60s')
+                    } else if(localStorage.lang === 'ar') {
+                        notifications('لم تطلب من التطبيق تذكر معلومات تسجيل الدخول الخاصة بك ، فسيتعين عليك تسجيل الدخول مرة أخرى إذا تم إعادة تحميل الصفحة', 'warn', '60s')
+                    } else {
+                        notifications('You did not ask the application to remember your login, you will have to log in again if the page is reloaded', 'warn', '60s')
+                    }
                 }
 
                 const getUserData = async () => {
@@ -138,6 +144,7 @@ loginButton.onclick = async () => {
 
                             const logName = document.getElementById('log_name');
                             logName.innerText = `${response['first_name']} ${response['last_name']}`;
+                            logName.dataset.login = 'true';
 
                             const greetingLogin = document.getElementById('greeting_login');
                             const greetingSignup = document.getElementById('greeting_signup');
@@ -149,7 +156,13 @@ loginButton.onclick = async () => {
 
                             localStorage.setItem('username', response.username);
 
-                            notifications('You have signed in successfully', 'ok')
+                            if(localStorage.lang === 'en') {
+                                notifications('You have signed in successfully', 'ok')
+                            } else if(localStorage.lang === 'ar') {
+                                notifications('سجلت دخولك بنجاح', 'ok')
+                            } else {
+                                notifications('You have signed in successfully', 'ok')
+                            }
 
                             greetingLogout.onclick = async () => {
                                 await  fetch("https://mystore9.herokuapp.com/auth/token/logout", {
@@ -170,10 +183,19 @@ loginButton.onclick = async () => {
                                     greetingLogin.style.display = 'block';
                                     greetingSignup.style.display = 'block';
                                     greetingLogout.style.display = 'none';
+                                    
+                                    logName.dataset.login = 'false';
 
-                                    logName.innerText = 'Do you have an account?';
-
-                                    notifications('You have log out successfully', 'ok');
+                                    if(localStorage.lang === 'en') {
+                                        logName.innerText = 'Do you have an account?';
+                                        notifications('You have log out successfully', 'ok');
+                                    } else if(localStorage.lang === 'ar') {
+                                        logName.innerText = 'عندك حساب؟';
+                                        notifications('تم الخروج بنجاح', 'ok');
+                                    } else {
+                                        logName.innerText = 'Do you have an account?';
+                                        notifications('You have log out successfully', 'ok');
+                                    }
 
                                     const accountSettingContainer = document.getElementById('account_setting_container');
                                     accountSettingContainer.style.display = 'none';

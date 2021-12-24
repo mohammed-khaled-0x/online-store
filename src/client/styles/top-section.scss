@@ -221,6 +221,7 @@
                     .arrow-background {
                         opacity: 1;
                         box-shadow: 0 0 0 12px #555;
+                        background-image: $main-grdt-bg-c;
                     }
                 }
 
@@ -239,8 +240,8 @@
                     position: absolute;
                     top: calc( (3em - 1.2em) / 2);
                     left: calc( (3em - 1.2em) / 2);
-                    background-image: $main-grdt-bg-c;
-                    opacity: 0;
+                    //background-image: $main-grdt-bg-c;
+                    opacity: 1;
                     z-index: 0;
                     box-shadow: 0 0 20px 8px #333;
                 }

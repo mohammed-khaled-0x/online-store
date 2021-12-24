@@ -6,12 +6,12 @@ const categoriesContainer = document.getElementById('categories');
 const mainCategories = 'https://mystore9.herokuapp.com/products/categories/en';
 const subCategories = 'https://mystore9.herokuapp.com/products/subcategories/en';
 
-const getCategories = async () => {
+const getCategories = async (lang='en') => {
     // Store apis data of categories and subcategories
     let mainCategoriesItems, subCategoriesItems;
 
     // Fetch categories data and store it in $mainCategoriesItems variable
-    await fetch(mainCategories)
+    await fetch(`https://mystore9.herokuapp.com/products/categories/${lang}`)
     .then(response => {
         if(response.statusText !== 'ok' || response.status !== 404) {
             const convertResponse = response.json();
@@ -27,7 +27,7 @@ const getCategories = async () => {
     });
 
     // Fetch categories data and store it in $subCategoriesItems variable
-    await fetch(subCategories)
+    await fetch(`https://mystore9.herokuapp.com/products/subcategories/${lang}`)
     .then(response => {
         if(response.statusText !== 'ok' || response.status !== 404) {
             const convertResponse = response.json();
@@ -231,3 +231,5 @@ const getCategories = async () => {
 };
 
 getCategories()
+
+export default getCategories;

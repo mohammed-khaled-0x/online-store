@@ -15,7 +15,7 @@
         <!--/div-->
     <!--/div-->
     <!--Main body container-->
-    <main id="body">
+    <div id="body">
         <!--Header-->
         <header id="header" class="container-shadow ltr-header">
             <!--Sup-bar-->
@@ -30,7 +30,7 @@
                             <img id="arabic_flag_icon" class="flag-icon" src="" />
                         </div>
                         <!--Arabic title-->
-                        <span>Arabic</span>
+                        <span>عربي</span>
                     </div>
                     <!--English language conatiner-->
                     <div id="english" class="selected-language">
@@ -98,7 +98,7 @@
                             <div id="search_result" class="result-history empty-result">
                                 <!--Placeholder of search result container-->
                                 <span id="search_result_placeholder" class="placeholder">
-                                    If you want to search for anything, look here, everything you want is waiting for you now, then what are you waiting for?
+                                    
                                 </span>
                                 <!--Result of search-->
                                 <ul id="result_of_search"></ul>
@@ -244,7 +244,7 @@
                     <!--Greeting-->
                     <div class="container">
                         <span class="hello">Hello</span>
-                        <div id="log_name" class="check-account">Do you have an account?</div>
+                        <div id="log_name" class="check-account" data-login="false">Do you have an account?</div>
                         <!--Login and signup buttons box-->
                         <div class="login-signup-box">
                             <!--Login and signup buttons-->
@@ -645,12 +645,80 @@
         </div>
 
         <!--Notifications-->
-        <div id="notifications"></div>
+        <div id="notifications" class="ltr-noti"></div>
+
+        <div class="mobile-nav">
+            <div id="mobile_search" class="active-tab">
+                <div class="mobile-close-btn">+</div>
+                <div id="mobile_search_container">
+                    <div id="mobile_search_tool_container">
+                        <input id="mobile_search_tool" type="text" placeholder="What are you waiting for? Search now ...">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-icon-container">
+                <svg id="home_tab_btn" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 230.262 230.262" style="enable-background:new 0 0 230.262 230.262;" xml:space="preserve">
+                    <linearGradient xmlns="http://www.w3.org/2000/svg" id="ic-1" gradientUnits="userSpaceOnUse" x1="0%" x2="0" y1="0" y2="100%">
+                        <!--First Gradient Color-->
+                        <stop class="gr-c c1" offset="0%" stop-color="#fdc830"/>
+                        <!--Second Gradient Color-->
+                        <stop class="gr-c c2" offset="100%" stop-color="#f37335"/>
+                    </linearGradient>
+                    <path fill="url(#ic-1)" d="M228.065,125.587l-51.619-51.615V23.263c0-4.142-3.357-7.5-7.5-7.5c-4.143,0-7.5,3.358-7.5,7.5v35.709L120.43,17.96  c-2.928-2.929-7.677-2.928-10.606,0L2.197,125.587c-2.929,2.929-2.929,7.678,0,10.606c2.93,2.929,7.678,2.929,10.608,0l18.72-18.72  v89.525c0,4.142,3.357,7.5,7.5,7.5h152.215c4.143,0,7.5-3.358,7.5-7.5v-89.524l18.721,18.719c1.464,1.464,3.384,2.196,5.303,2.196  c1.919,0,3.839-0.732,5.304-2.197C230.994,133.264,230.994,128.516,228.065,125.587z M183.739,199.499H46.524v-97.025l68.604-68.604  l68.611,68.606V199.499z"/>
+                </svg>
+            </div>
+            <div class="tab-icon-container">
+                <svg id="search_tab_btn" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_2" x="0px" y="0px" viewBox="0 0 1080 1080" style="enable-background:new 0 0 1080 1080;" xml:space="preserve">
+                    <style type="text/css">
+                        .st0{fill:url(#SVGID_1_);}
+                        .st1{display:none;fill:url(#SVGID_2_);stroke:url(#SVGID_3_);stroke-miterlimit:10;}
+                        .st2{fill:url(#SVGID_4_);stroke:url(#SVGID_5_);stroke-miterlimit:10;}
+                    </style>
+                    <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="67" y1="475.5" x2="878" y2="475.5">
+                        <stop class="gr-c c1" offset="0" style="stop-color:#FDC830"/>
+                        <stop class="gr-c c2" offset="0.9944" style="stop-color:#F37335"/>
+                    </linearGradient>
+                    <path class="st0" d="M472.5,155c43.3,0,85.27,8.46,124.73,25.15c38.16,16.14,72.44,39.26,101.9,68.72s52.58,63.75,68.72,101.9   C784.54,390.23,793,432.2,793,475.5s-8.46,85.27-25.15,124.73c-16.14,38.16-39.26,72.44-68.72,101.9s-63.75,52.58-101.9,68.72   C557.77,787.54,515.8,796,472.5,796s-85.27-8.46-124.73-25.15c-38.15-16.14-72.44-39.26-101.9-68.72s-52.58-63.75-68.72-101.9   C160.46,560.77,152,518.8,152,475.5s8.46-85.27,25.15-124.73c16.14-38.15,39.26-72.44,68.72-101.9s63.75-52.58,101.9-68.72   C387.23,163.46,429.2,155,472.5,155 M472.5,70C248.55,70,67,251.55,67,475.5S248.55,881,472.5,881S878,699.45,878,475.5   S696.45,70,472.5,70L472.5,70z"/>
+                    <linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="865.5706" y1="895.2148" x2="905.5706" y2="895.2148" gradientTransform="matrix(1.1875 -1.1875 0.7361 0.7361 -828.0519 1277.6782)">
+                        <stop class="gr-c c1" offset="0" style="stop-color:#FDC830"/>
+                        <stop class="gr-c c2" offset="0.9944" style="stop-color:#F37335"/>
+                    </linearGradient>
+                    <path class="st2" d="M994.75,997.25L994.75,997.25c-13.12,13.12-34.38,13.12-47.5,0l-177-177c-13.12-13.12-13.12-34.38,0-47.5l0,0  c13.12-13.12,34.38-13.12,47.5,0l177,177C1007.87,962.87,1007.87,984.13,994.75,997.25z"/>
+                </svg>
+            </div>
+            <div class="tab-icon-container">
+                <svg id="cart_tab_btn" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="92px" height="92px" viewBox="0 0 92 92" enable-background="new 0 0 92 92" xml:space="preserve">
+                    <linearGradient xmlns="http://www.w3.org/2000/svg" id="ic-3" gradientUnits="userSpaceOnUse" x1="0%" x2="0" y1="0" y2="100%">
+                        <!--First Gradient Color-->
+                        <stop class="gr-c c1" offset="0%" stop-color="#fdc830"/>
+                        <!--Second Gradient Color-->
+                        <stop class="gr-c c2" offset="100%" stop-color="#f37335"/>
+                    </linearGradient>
+                    <path fill="url(#ic-3)" id="XMLID_1732_" d="M91.8,27.3L81.1,61c-0.8,2.4-2.9,4-5.4,4H34.4c-2.4,0-4.7-1.5-5.5-3.7L13.1,19H4c-2.2,0-4-1.8-4-4  s1.8-4,4-4h11.9c1.7,0,3.2,1.1,3.8,2.7L36,57h38l8.5-27H35.4c-2.2,0-4-1.8-4-4s1.8-4,4-4H88c1.3,0,2.5,0.7,3.2,1.7  C92,24.7,92.2,26.1,91.8,27.3z M36.4,70.3c-1.7,0-3.4,0.7-4.6,1.9c-1.2,1.2-1.9,2.9-1.9,4.6c0,1.7,0.7,3.4,1.9,4.6  c1.2,1.2,2.9,1.9,4.6,1.9s3.4-0.7,4.6-1.9c1.2-1.2,1.9-2.9,1.9-4.6c0-1.7-0.7-3.4-1.9-4.6C39.8,71,38.1,70.3,36.4,70.3z M72.3,70.3  c-1.7,0-3.4,0.7-4.6,1.9s-1.9,2.9-1.9,4.6c0,1.7,0.7,3.4,1.9,4.6c1.2,1.2,2.9,1.9,4.6,1.9c1.7,0,3.4-0.7,4.6-1.9  c1.2-1.2,1.9-2.9,1.9-4.6c0-1.7-0.7-3.4-1.9-4.6S74,70.3,72.3,70.3z"/>
+                </svg>
+            </div>
+            <div class="tab-icon-container">
+                <svg id="avatar_tab_btn" style="stroke-width: 0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                    <linearGradient xmlns="http://www.w3.org/2000/svg" id="ic-4" gradientUnits="userSpaceOnUse" x1="0%" x2="0" y1="0" y2="100%">
+                        <!--First Gradient Color-->
+                        <stop class="gr-c c1" offset="0%" stop-color="#fdc830"/>
+                        <!--Second Gradient Color-->
+                        <stop class="gr-c c2" offset="100%" stop-color="#f37335"/>
+                    </linearGradient>
+                    <g fill="url(#ic-4)" id="User">
+                        <path d="M21,30H11a5,5,0,0,1-5-5V24a9,9,0,0,1,9-9h2a9,9,0,0,1,9,9v1A5,5,0,0,1,21,30ZM15,17a7,7,0,0,0-7,7v1a3,3,0,0,0,3,3H21a3,3,0,0,0,3-3V24a7,7,0,0,0-7-7Z"/><path d="M16,14a6,6,0,1,1,6-6A6,6,0,0,1,16,14ZM16,4a4,4,0,1,0,4,4A4,4,0,0,0,16,4Z"/>
+                    </g>
+                </svg>
+            </div>
+        </div>
+
+        <div class="mobile-container-background"></div>
 
         <!--Footer-->
         <footer id="footer">
 
         </footer>
-    </main>
+    </div>
 </body>
 </html>

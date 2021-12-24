@@ -2,8 +2,8 @@ import createComment from './create-comment';
 import deleteComment from './delete-comment';
 import editComment from './edit-comment';
 
-const viewProduct = async (productId, currencyId=1, currency="USD") => {
-    await fetch(`https://mystore9.herokuapp.com/products/${productId}/${currencyId}/en/`)
+const viewProduct = async (productId, currencyId=1, currency="USD", lang='en') => {
+    await fetch(`https://mystore9.herokuapp.com/products/${productId}/${currencyId}/${lang}/`)
         .then(response => {
             if (response.statusText !== 'ok' || response.status !== 404) {
                 const convertResponse = response.json();

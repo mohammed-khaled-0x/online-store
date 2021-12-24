@@ -4,6 +4,8 @@ import currencies from './apis/currencies';
 import getShipping from './apis/shipping';
 import getAddresses from './apis/get-addresses';
 import onresize from './media/media-rules';
+import languageConverter from './languages/language-converter';
+
 
 window.onload = () => {
     if(localStorage['remember_login'] === 'yes') {
@@ -34,6 +36,7 @@ window.onload = () => {
                     
                     const logName = document.getElementById('log_name');
                     logName.innerText = `${response['first_name']} ${response['last_name']}`;
+                    logName.dataset.login = 'true';
 
                     const greetingLogin = document.getElementById('greeting_login');
                     const greetingSignup = document.getElementById('greeting_signup');
@@ -65,7 +68,15 @@ window.onload = () => {
                             greetingSignup.style.display = 'block';
                             greetingLogout.style.display = 'none';
 
-                            logName.innerText = 'Do you have an account?';
+                            logName.dataset.login = 'false';
+
+                            if(localStorage.lang === 'en') {
+                                logName.innerText = 'Do you have an account?';
+                            } else if(localStorage.lang === 'ar') {
+                                logName.innerText = 'عندك حساب؟';
+                            } else {
+                                logName.innerText = 'Do you have an account?';
+                            }
 
                             notifications('You have log out successfully', 'ok');
 
@@ -96,6 +107,8 @@ window.onload = () => {
     if(localStorage.token) {
         getAddresses();
     }
+
+    languageConverter();
 
     setTimeout(onresize(), 2000)
 }

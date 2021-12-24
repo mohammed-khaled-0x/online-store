@@ -70,7 +70,13 @@ window.onclick = (e) => {
         }, 800 );
         // Placeholder of search result container
         const searchResultPlaceholder = document.getElementById('search_result_placeholder');
-        searchResultPlaceholder.innerText = 'If you want to search for anything, look here, everything you want is waiting for you now, then what are you waiting for?'
+        if(localStorage.lang === 'en') {
+            searchResultPlaceholder.innerText = 'If you want to search for anything, look here, everything you want is waiting for you now, then what are you waiting for?'
+        } else if(localStorage.lang === 'ar') {
+            searchResultPlaceholder.innerText =  'إذا كنت تريد البحث عن أي شيء ، انظر هنا ، كل ما تريده في انتظارك الآن ، فماذا تنتظر؟';
+        } else {
+            searchResultPlaceholder.innerText = 'If you want to search for anything, look here, everything you want is waiting for you now, then what are you waiting for?'
+        }
         setTimeout( () => {
             searchResultPlaceholder.style.display = 'inline';
         },1000)

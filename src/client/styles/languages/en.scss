@@ -1,0 +1,53 @@
+.ltr-header {
+    direction: ltr;
+
+        .sup-bar {
+            .lang {
+                float: left;
+                margin: unset;
+                margin-left: 1em;
+
+                #arabic {
+                    span {
+                        margin: unset;
+                        margin-left: 0.5em;
+                    }
+                }
+
+                #english {
+                    span {
+                        margin: unset;
+                        margin-left: 0.5em;
+                    }
+                }
+            }
+            #currencies {
+                float: right;
+                left: unset;
+                right: 1em;
+            }
+        }
+        .header-container {
+            .search {
+                text-align: left;
+                #search_box {
+                }
+                #search_lens {
+                    left: unset;
+                    right: 1em;
+    
+                    .hand-lens {
+                        transform: rotateZ(90deg) translate(-0.4em, -0.7em);
+                    }
+                }
+                .result-container {
+                    #result_of_search{
+                        span {
+                            left: unset;
+                            right: 1em;
+                        }
+                    }
+                }
+            }
+        }
+}

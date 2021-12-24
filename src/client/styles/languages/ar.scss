@@ -1,0 +1,54 @@
+.rtl-header {
+    direction: rtl;
+
+        .sup-bar {
+            .lang {
+                float: right;
+                margin: unset;
+                margin-right: 1em;
+
+                #arabic {
+                    span {
+                        margin: unset;
+                        margin-right: 0.5em;
+                    }
+                }
+
+                #english {
+                    span {
+                        margin: unset;
+                        margin-right: 0.5em;
+                    }
+                }
+            }
+            #currencies {
+                float: left;
+                right: unset;
+                left: 1em;
+            }
+        }
+        .header-container {
+            .search {
+                text-align: right;
+                #search_box {
+                    
+                }
+                #search_lens {
+                    right: unset;
+                    left: 1em;
+    
+                    .hand-lens {
+                        transform: rotateZ(0deg) translate(-0.2em, -0.9em);
+                    }
+                }
+                .result-container {
+                    #result_of_search{
+                        span {
+                            left: unset;
+                            right: 1em;
+                        }
+                    }
+                }
+            }
+        }
+}
