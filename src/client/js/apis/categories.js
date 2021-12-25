@@ -50,7 +50,17 @@ const getCategories = async (lang='en') => {
         // Category item
         const categoryItem = document.createElement('li');
         const categoryItemName = document.createElement('span');
-        categoryItemName.innerText = category.name;
+        if(lang === 'en') {
+            categoryItemName.innerText = category.name;
+        } else if(lang === 'ar') {
+            if(category['name_ar']) {
+                categoryItemName.innerText = category['name_ar'];
+            } else {
+                categoryItemName.innerText = category.name;
+            }
+        } else {
+            categoryItemName.innerText = category.name;
+        }
         categoryItemName.className = "category-item-name";
         categoryItemName.dataset.categoryId = category.id;
 
@@ -230,6 +240,12 @@ const getCategories = async (lang='en') => {
     }*/
 };
 
-getCategories()
+if(localStorage.lang === 'en') {
+    getCategories('en');
+} else if(localStorage.lang === 'ar') {
+    getCategories('ar');
+} else {
+    getCategories('en');
+}
 
 export default getCategories;
