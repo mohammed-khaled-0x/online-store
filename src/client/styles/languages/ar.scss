@@ -1,6 +1,6 @@
 .rtl-header {
     direction: rtl;
-
+    text-align: right;
         .sup-bar {
             .lang {
                 float: right;
@@ -29,10 +29,6 @@
         }
         .header-container {
             .search {
-                text-align: right;
-                #search_box {
-                    
-                }
                 #search_lens {
                     right: unset;
                     left: 1em;
@@ -46,6 +42,32 @@
                         span {
                             left: unset;
                             right: 1em;
+                        }
+                    }
+                }
+            }
+        }
+        #categories {
+            #category_container {
+                .category-item-name {
+                    margin: unset;
+                    margin-right: 2em;
+                }
+                .category-item-background {
+                    left: unset;
+                    right: 0;
+                }
+                .subcategory-container {
+                    left: unset;
+                    right: 10em;
+                    .subcategory-item {
+                        .subcategory-item-name {
+                            margin: unset;
+                            margin-right: 2em;
+                        }
+                        .subcategory-item-background {
+                            left: unset;
+                            right: 0;
                         }
                     }
                 }

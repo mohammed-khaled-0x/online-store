@@ -9,9 +9,13 @@ export default function languageConverter() {
     const greetingLogin = document.getElementById('greeting_login');
     const greetingSignup = document.getElementById('greeting_signup');
     const greetingLogout = document.getElementById('greeting_logout');
+
+    const topSection = document.getElementById('top_section');
+
     if(localStorage.lang === 'en') {
         html.lang = 'en';
         header.classList.replace('rtl-header', 'ltr-header');
+        topSection.classList.replace('rtl-header', 'ltr-header');
         searchBox.placeholder = 'What are you waiting for? Search now ...';
         searchBox.title = 'All you need is here, just search';
         englishLang.className = 'selected-language';
@@ -24,6 +28,7 @@ export default function languageConverter() {
     } else if(localStorage.lang === 'ar') {
         html.lang = 'ar';
         header.classList.replace('ltr-header', 'rtl-header');
+        topSection.classList.replace('ltr-header', 'rtl-header');
         searchBox.placeholder = 'ماذا تنتظر؟ ابحث الآن ...';
         searchBox.title = 'كل ما تحتاجه هنا ، ابحث فقط';
         arabicLang.className = 'selected-language';
@@ -38,6 +43,7 @@ export default function languageConverter() {
     } else{
         html.lang = 'en';
         header.classList.replace('rtl-header', 'ltr-header');
+        topSection.classList.replace('rtl-header', 'ltr-header');
         searchBox.placeholder = 'What are you waiting for? Search now ...';
         searchBox.title = 'All you need is here, just search';
         englishLang.className = 'selected-language';
